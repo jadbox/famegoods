@@ -93,7 +93,7 @@ export default function Layout({ children, url }) {
         </nav>
 
 
-        <div className="space-y-6">
+        <div>
           {children}
         </div>
 

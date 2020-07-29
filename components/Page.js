@@ -13,7 +13,6 @@ import { getVideos } from '../utils/CTS3.js';
 import VideoData from './videos.json';
 import Others from "../pages/upload";
 import TestCard from "./TestCard";
-import Slider from "react-slick";
 
 function mf(i) {
   const file = "b";
@@ -47,26 +46,14 @@ function Page() {
 
   // Used for real data
 
-  // useEffect(async () => {
-  //   try {
-  //     const newVideos = await getVideos()
-  //     setVideos(...newVideos)
-  //     console.log(videos)
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // }, [])
-
-  const settings = {
-    className: "w-full h-full lg:w-4/6",
-    infinite: true,
-    arrows: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    swipeToSlide: true,
-  };
+  useEffect(() => {
+    try {
+      getVideos(setVideos)
+      console.log(videos)
+    } catch (e) {
+      console.log(e)
+    }
+  }, [])
 
   // Logic could be recycled for different bottom drawer solution.
 
@@ -84,13 +71,15 @@ function Page() {
 
         <div className="sm:w-0 lg:w-1/6"></div>
 
-          <Slider {...settings}>
-            {VideoData.map((videoDetail, index) => {
-              return <TestCard key={index} tags={videoDetail.tags} title={videoDetail.title} gif={videoDetail.gif} video={videoDetail.video} />
-            })}
-          </Slider>
+        <div className="w-full h-full lg:w-4/6" >
 
-        <div className="sm:w-0 lg:w-1/60"></div>
+            {videos.map((videoDetail, index) => {
+              return <TestCard key={index} file={videoDetail} tags={videoDetail.tags} title={videoDetail.title} gif={videoDetail.gif} video={videoDetail.video} />
+            })}
+
+        </div>
+
+        <div className="sm:w-0 lg:w-1/6"></div>
 
       </div>
 
