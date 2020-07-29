@@ -8,6 +8,7 @@ import WallCard from "./WallCard";
 import SortBy from "./SortBy";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import { getVideos } from '../utils/CTS3.js';
 
 import VideoData from './videos.json';
 import Others from "../pages/upload";
@@ -34,15 +35,30 @@ const init = {
 function Page() {
   const [state, setState] = useState(init);
   const [sampleData, setSampleData] = useState([]);
+  const [videos, setVideos] = useState([]);
 
-  useEffect(() => {
-    fetch(`http://jsonplaceholder.typicode.com/photos?_limit=15`).then(res => res.json()).then(data => {
-      setSampleData(data);
-    })
-  }, []);
+  // Used for sample data
+
+  // useEffect(() => {
+  //   fetch(`http://jsonplaceholder.typicode.com/photos?_limit=15`).then(res => res.json()).then(data => {
+  //     setSampleData(data);
+  //   })
+  // }, []);
+
+  // Used for real data
+
+  // useEffect(async () => {
+  //   try {
+  //     const newVideos = await getVideos()
+  //     setVideos(...newVideos)
+  //     console.log(videos)
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }, [])
 
   const settings = {
-    className: "sm:w-full lg:w-4/6 h-full",
+    className: "sm:w-full sm:h-full lg:w-4/6",
     infinite: true,
     arrows: false,
     slidesToShow: 1,

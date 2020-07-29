@@ -27,8 +27,9 @@ export default function TestCard({ tags, title, video, gif }) {
   }
 
   return (
-    <div className="relative rounded overflow-hidden shadow-xl my-8 mx-4 h-screen">
+    <div className="relative rounded overflow-hidden shadow-xl my-8 mx-4 sm:h-screen">
       <ReactPlayer
+        playing={true}
         controls={false}
         muted={true}
         url={video}
