@@ -58,7 +58,7 @@ function Page() {
   // }, [])
 
   const settings = {
-    className: "sm:w-full sm:h-full lg:w-4/6",
+    className: "w-full h-full lg:w-4/6",
     infinite: true,
     arrows: false,
     slidesToShow: 1,
