@@ -79,14 +79,14 @@ export default function Layout({ children, url }) {
   // Previous parent css removed: "grid grid-rows-3" style={{ gridTemplateRows: 'auto 1fr auto' }}
 
   return (
-    <div ref={element}>
+    <div ref={element} >
       <Head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js" defer></script>
       </Head>
 
 
 
-        <nav className="flex items-center justify-between px-3 py-2 border-solid border-b-4 border-gray-300">
+        <nav className="flex items-center justify-between w-full px-3 py-2 border-solid border-b-4 border-gray-300">
           <Icon icon={walletSolid} height="2em" />
           <div className="inline-block font-header text-3xl">DFAME</div>
           <Icon icon={paperPlane} height="2em" />

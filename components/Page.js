@@ -66,7 +66,7 @@ function Page() {
       </Head>
       <div className="flex">
 
-        <div className="sm:w-0 lg:w-1/6 bg-gray-400"></div>
+        <div className="sm:w-0 lg:w-1/6"></div>
 
           <Slider {...settings}>
             {VideoData.map((videoDetail, index) => {
@@ -74,7 +74,7 @@ function Page() {
             })}
           </Slider>
 
-        <div className="sm:w-0 lg:w-1/6 bg-gray-400"></div>
+        <div className="sm:w-0 lg:w-1/60"></div>
 
       </div>
 
