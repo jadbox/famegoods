@@ -27,6 +27,7 @@ function Wall() {
   function setup() {
     if (!window.videojs) return;
     if (state.setup) return;
+    if (!videoRef.current) return;
 
     var player = window
       .videojs(videoRef.current, {
@@ -61,7 +62,7 @@ function Wall() {
     (x) => {
       setup();
     },
-    [state]
+    [state, videoRef]
   );
 
   const name = "small";
@@ -95,15 +96,17 @@ function Wall() {
 
       <div>
         <div id="video" className="w-full">
-          <video
-            ref={videoRef}
-            id="my-video"
-            className="video-js mx-auto"
-            controls
-            preload="auto"
-          >
-            <source src={state.file} type="application/x-mpegURL" />
-          </video>
+          {state.file && (
+            <video
+              ref={videoRef}
+              id="my-video"
+              className="video-js mx-auto"
+              controls
+              preload="auto"
+            >
+              <source src={state.file} type="application/x-mpegURL" />
+            </video>
+          )}
         </div>
       </div>
     </>
