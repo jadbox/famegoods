@@ -65,8 +65,8 @@ function Wall() {
         <h3 className="block text-x1 text-center font-semibold text-gray-800 pb-4">You've Unlocked Exclusive Content Below!</h3>
         <h3 className="block text-x1 text-center font-semibold text-gray-800 pb-4">Click Below to Claim.</h3>
 
-        <button class="bg-transparent hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mb-4">
-          <Icon icon={openPadlock} width='80' height='80' />
+        <button class="bg-transparent hover:bg-gray-400 text-gray-800 font-bold px-4 rounded inline-flex items-center">
+          <Icon icon={openPadlock} width='70' height='70' />
           <span className="block">Press to Play</span>
         </button>
       </div>
