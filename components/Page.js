@@ -36,16 +36,6 @@ function Page() {
   const [sampleData, setSampleData] = useState([]);
   const [videos, setVideos] = useState([]);
 
-  // Used for sample data
-
-  // useEffect(() => {
-  //   fetch(`http://jsonplaceholder.typicode.com/photos?_limit=15`).then(res => res.json()).then(data => {
-  //     setSampleData(data);
-  //   })
-  // }, []);
-
-  // Used for real data
-
   useEffect(() => {
     try {
       getVideos(setVideos)
@@ -73,9 +63,9 @@ function Page() {
 
         <div className="w-full h-full lg:w-4/6" >
 
-            {videos.map((videoDetail, index) => {
-              return <TestCard key={index} file={videoDetail} tags={videoDetail.tags} title={videoDetail.title} gif={videoDetail.gif} video={videoDetail.video} />
-            })}
+          {videos.map((videoDetail, index) => {
+            return <TestCard key={index} file={videoDetail} tags={videoDetail.tags} title={videoDetail.title} gif={videoDetail.gif} video={videoDetail.video} />
+          })}
 
         </div>
 
@@ -84,7 +74,6 @@ function Page() {
       </div>
 
       {/*Should be replaced with Iconify icon.
-
       <div class="fixed bottom-0 right-0 mr-5 mb-20">
         <Fab size="small" color="black" aria-label="add" onClick={openDrawer}>
           <AddIcon />
