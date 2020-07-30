@@ -21,7 +21,7 @@ export default function TestCard({ tags, title, video, gif, file }) {
   //  Parent css removed: h-auto max-w-screen-sm
 
   return (
-    <div className="relative flex justify-center rounded overflow-hidden shadow-xl my-8 mx-4">
+    <div className="relative md:flex md:justify-center rounded overflow-hidden shadow-xl my-8 mx-4">
       <div className="max-w-sm rounded shadow-lg">
         <img className="w-full" src={gif} />
         <div className="absolute bottom-0 left-0 px-6 py-4">
