@@ -6,11 +6,12 @@ import { inject, observer, useObserver } from "mobx-react";
 import Clock from "./Clock";
 import WallCard from "./WallCard";
 import SortBy from "./SortBy";
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import { getVideos } from '../utils/CTS3.js';
 
-import VideoData from './videos.json';
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
+import { getVideos } from "../utils/CTS3.js";
+
+import VideoData from "./videos.json";
 import Others from "../pages/upload";
 import TestCard from "./TestCard";
 
@@ -38,12 +39,12 @@ function Page() {
 
   useEffect(() => {
     try {
-      getVideos(setVideos)
-      console.log(videos)
+      getVideos(setVideos);
+      console.log(videos);
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-  }, [])
+  }, []);
 
   // Logic could be recycled for different bottom drawer solution.
 
@@ -55,22 +56,27 @@ function Page() {
     <>
       <Head>
         <title>DFAME</title>
-      // TODO: Add tab icon
+        // TODO: Add tab icon
       </Head>
       <div className="flex">
-
         <div className="sm:w-0 lg:w-1/6"></div>
 
-        <div className="w-full h-full lg:w-4/6" >
-
+        <div className="w-full h-full lg:w-4/6">
           {videos.map((videoDetail, index) => {
-            return <TestCard key={index} file={videoDetail} tags={videoDetail.tags} title={videoDetail.title} gif={videoDetail.gif} video={videoDetail.video} />
+            return (
+              <TestCard
+                key={index}
+                file={videoDetail}
+                tags={videoDetail.tags}
+                title={videoDetail.title}
+                gif={videoDetail.gif}
+                video={videoDetail.video}
+              />
+            );
           })}
-
         </div>
 
         <div className="sm:w-0 lg:w-1/6"></div>
-
       </div>
 
       {/*Should be replaced with Iconify icon.
@@ -80,7 +86,6 @@ function Page() {
         </Fab>
       </div>
       </div>*/}
-
 
       {/*<DynamicStoriesWithNoSSR />*/}
     </>

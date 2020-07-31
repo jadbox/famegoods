@@ -1,11 +1,11 @@
 import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Nav from "./Nav";
 import NavNext from "./NavNext";
-import Head from 'next/head';
-import useScript from 'react-script-hook';
-import { Icon, InlineIcon } from '@iconify/react';
-import paperPlane from '@iconify/icons-la/paper-plane';
-import walletSolid from '@iconify/icons-la/wallet-solid';
+import Head from "next/head";
+import useScript from "react-script-hook";
+import { Icon, InlineIcon } from "@iconify/react";
+import paperPlane from "@iconify/icons-la/paper-plane";
+import walletSolid from "@iconify/icons-la/wallet-solid";
 
 export default function Layout({ children, url }) {
         const [zoom, setZoom] = useState(1);
@@ -78,30 +78,24 @@ export default function Layout({ children, url }) {
 
         // Previous parent css removed: "grid grid-rows-3" style={{ gridTemplateRows: 'auto 1fr auto' }}
 
-        return (
-                <div ref={element}>
-                        <Head>
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js" defer></script>
-                        </Head>
+  return (
+    <div ref={element}>
+      <Head>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"
+          defer
+        ></script>
+      </Head>
 
+      <nav className="flex items-center justify-between px-3 py-2 border-solid border-b-4 border-gray-300">
+        <Icon icon={walletSolid} height="2em" />
+        <div className="inline-block font-header text-3xl">DFAME</div>
+        <Icon icon={paperPlane} height="2em" />
+      </nav>
 
+      <div className="space-y-6 mb-16">{children}</div>
 
-                        <nav className="flex items-center justify-between px-3 py-2 border-solid border-b-4 border-gray-300">
-                                <Icon icon={walletSolid} height="2em" />
-                                <div className="inline-block font-header text-3xl">DFAME</div>
-                                <Icon icon={paperPlane} height="2em" />
-                        </nav>
-
-
-                        <div className="space-y-6">
-                                {children}
-                        </div>
-
-                        <NavNext />
-
-
-
-
-                </div>
-        );
+      <NavNext />
+    </div>
+  );
 }

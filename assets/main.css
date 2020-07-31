@@ -690,6 +690,16 @@ video {
 
 /* purgecss end ignore */
 
+html {
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+}
+
+body {
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+}
+
 .container{
   width: 100%;
 }
