@@ -4,6 +4,15 @@
 /* purgecss start ignore */
 @tailwind base;
 /* purgecss end ignore */
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+}
+
 @tailwind components;
 
 #shareAPIPolyfill-container {
