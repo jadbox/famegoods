@@ -4,8 +4,8 @@ import { TextField, Slider, Typography, Button } from "@material-ui/core";
 import { addVideo } from "../utils/CTS3";
 import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
-import LoadingOverlay from '../components/LoadingOverlay';
-import Link from 'next/link'
+import LoadingOverlay from "../components/LoadingOverlay";
+import Link from "next/link";
 
 export default function Other() {
   const [state, setState] = useState({ progress: 0 });
@@ -14,8 +14,8 @@ export default function Other() {
   }
 
   async function onSubmit() {
-    const _files = document.getElementById("videoupload");
-    if (!_files.files) {
+    const _files = hiddenFileInput.current; // document.getElementById("videoupload");
+    if (!_files.files || _files.files.length === 0) {
       alert("Please add a video");
       return;
     }
@@ -25,22 +25,25 @@ export default function Other() {
     // console.log("gif finished", gif);
     // setState(gif);
 
-    const onProgress = p => {
+    const onProgress = (p) => {
       setState((x) => ({ ...x, progress: p || 0 }));
-    }
+    };
 
     try {
       setState((x) => ({ ...x, loading: true, progress: 0 }));
-      addVideo(_files.files, onProgress).then(x => {
-        // if() setState((x) => ({ ...x, progress: 99 }));
-        setTimeout(_ => {
-          setState((x) => ({ ...x, loading: false }))
-          alert('Video uploaded! After processing completes in a few minutes it will be publically available.');
-        }, 100);
-
-      }).catch(e => {
-        throw new Error(e);
-      });
+      addVideo(_files.files, onProgress)
+        .then((x) => {
+          // if() setState((x) => ({ ...x, progress: 99 }));
+          setTimeout((_) => {
+            setState((x) => ({ ...x, loading: false }));
+            alert(
+              "Video uploaded! After processing completes in a few minutes it will be publically available."
+            );
+          }, 100);
+        })
+        .catch((e) => {
+          throw new Error(e);
+        });
     } catch (e) {
       //window.alert(e);
       setState((x) => ({ ...x, error: e.toString(), loading: false }));
@@ -67,13 +70,19 @@ export default function Other() {
 
   const hiddenFileInput = React.useRef(null);
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     hiddenFileInput.current.click();
   };
 
-  const handleChange = event => {
-    const fileUploaded = event.target.files[0];
-    props.handleFile(fileUploaded);
+  const handleSubmit = (event) => {
+    const fileUploaded = hiddenFileInput.current.files; // event.target.files[0];
+    if (!fileUploaded || fileUploaded.length === 0) {
+      alert("please select a video");
+      return;
+    }
+    // console.log("fileUploaded", fileUploaded);
+    addVideo(fileUploaded);
+    // props.handleFile(fileUploaded);
   };
 
   // The structure of FileUploader breaks the rules of hooks and can result in the error referenced here: https://reactjs.org/warnings/invalid-hook-call-warning.html
@@ -87,15 +96,13 @@ export default function Other() {
   //     hiddenFileInput.current.click();
   //   };
   //
-  //   const handleChange = event => {
-  //     const fileUploaded = event.target.files[0];
-  //     props.handleFile(fileUploaded);
-  //   };
   // }
 
   return (
     <>
-      {state.loading && <LoadingOverlay open={state.loading} progress={state.progress} />}
+      {state.loading && (
+        <LoadingOverlay open={state.loading} progress={state.progress} />
+      )}
       <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4">
         {state.error && (
           <Alert severity="error">
@@ -110,11 +117,12 @@ export default function Other() {
           </div>
 
           <div className="my-2">
-            <input className="sm:h-16 text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
+            <input
+              className="sm:h-16 text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
               id="videoTitle"
               type="text"
-              placeholder="Video Title">
-            </input>
+              placeholder="Video Title"
+            ></input>
           </div>
 
           <textarea
@@ -122,18 +130,22 @@ export default function Other() {
             placeholder="Add a video description"
             cols="40"
             rows="5"
-            className="sm:h-48 my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
-          </textarea>
+            className="sm:h-48 my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1"
+          ></textarea>
 
           <div>
             {/*<div className="upload-btn-wrapper">*/}
-            <button onClick={handleClick} className="sm:h-16 my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+            <button
+              onClick={handleClick}
+              className="sm:h-16 my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
+            >
               <i className="las la-photo-video"></i>
               <span>Choose a video</span>
             </button>
             <input
+              ref={hiddenFileInput}
               style={{
-                display: "none"
+                display: "none",
               }}
               id="videoupload"
               type="file"
@@ -145,10 +157,17 @@ export default function Other() {
 
           <Link href="/setTicket">
             <button className="h-12 my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1 sm:h-16">
-              Set Ticket Price</button>
+              Set Ticket Price
+            </button>
           </Link>
-        </div>
 
+          <button
+            onClick={onSubmit}
+            className="h-12 my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1 sm:h-16"
+          >
+            Submit
+          </button>
+        </div>
       </figure>
       <style jsx>{`
         .upload-btn-wrapper {
