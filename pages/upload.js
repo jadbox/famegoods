@@ -6,6 +6,7 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
 import LoadingOverlay from "../components/LoadingOverlay";
 import Link from "next/link";
+import SetTicket from "../components/SetTicket";
 
 export default function Other() {
   const [state, setState] = useState({ progress: 0 });
@@ -155,11 +156,7 @@ export default function Other() {
           </div>
           {/*</div>*/}
 
-          <Link href="/setTicket">
-            <button className="h-12 my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1 sm:h-16">
-              Set Ticket Price
-            </button>
-          </Link>
+          <SetTicket></SetTicket>
 
           <button
             onClick={onSubmit}
