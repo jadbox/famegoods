@@ -61,7 +61,7 @@ function Page() {
       <div className="flex">
         <div className="sm:w-0 lg:w-1/6"></div>
 
-        <div className="w-full h-full lg:w-4/6">
+        <div className="w-full h-full lg:w-4/6 space-y-40 snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (
               <TestCard
