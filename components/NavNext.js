@@ -4,10 +4,8 @@ import Link from 'next/link'
 export default function BottomNavigation() {
 
     return (
-        <footer
-            className="fixed h-16 bg-gray-200 w-full bottom-0 flex items-center justify-center mt-4"
-        >
-            <div className="flex justify-center w-full grid grid-cols-3 divide-x divide-gray-400">
+        <footer className="fixed h-12 bg-white w-full bottom-0 flex border-solid border-t-4 border-gray-300 mt-4">
+            <div className="flex justify-center w-full tems-center justify-between">
                 <div className="justify-center">
                     <Link href="/">
                         <button className="w-full">
