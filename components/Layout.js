@@ -109,13 +109,13 @@ export default function Layout({ children, url }) {
       <footer className="fixed h-12 md:h-16 bg-white w-full bottom-0 flex border-solid border-t-4 border-gray-300 mt-4" >
         <div className="flex items-center justify-between w-full mx-3 md:mx-8 py-2">
           <Link href="/">
-            <Icon icon={streamSolid} height="2em" className="hover:bg-gray-400" />
+            <Icon icon={streamSolid} height="2em" className="hover:text-blue-400" />
           </Link>
           <Link href="/upload">
-            <Icon icon={uploadSolid} height="2em" className="hover:bg-gray-400" />
+            <Icon icon={uploadSolid} height="2em" className="hover:text-blue-400" />
           </Link>
           <Link href="/profile">
-            <Icon icon={userIcon} height="2em" className="hover:bg-gray-400" />
+            <Icon icon={userIcon} height="2em" className="hover:text-blue-400" />
           </Link>
         </div>
       </footer>
