@@ -52,16 +52,17 @@ function Page() {
   // const openDrawer = React.useCallback(() => setIsVisible(true), []);
   // const closeDrawer = React.useCallback(() => setIsVisible(false), []);
 
+
   return useObserver(() => (
     <>
       <Head>
         <title>DFAME</title>
         // TODO: Add tab icon
       </Head>
-      <div className="flex">
-        <div className="sm:w-0 lg:w-1/6"></div>
 
-        <div className="w-full h-full lg:w-4/6 space-y-40 snap snap-y snap-mandatory">
+      <div className="container h-full my-20">
+
+        <div className="relative space-y-40 snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (
               <TestCard
@@ -76,7 +77,6 @@ function Page() {
           })}
         </div>
 
-        <div className="sm:w-0 lg:w-1/6"></div>
       </div>
 
       {/*Should be replaced with Iconify icon.

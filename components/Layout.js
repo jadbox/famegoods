@@ -99,9 +99,9 @@ export default function Layout({ children, url }) {
         </div>
       </header>
 
-      <div className="container my-20">{children}</div>
+      <div>{children}</div>
 
-      <footer className="fixed h-12 md:h-16 bg-white w-full bottom-0 flex border-solid border-t-4 border-gray-300 mt-4">
+      <footer className="fixed h-12 md:h-16 bg-white w-full bottom-0 flex border-solid border-t-4 border-gray-300">
         <div className="flex items-center justify-between w-full mx-3 md:mx-8 py-2">
           <Link href="/">
             <div className="sm:px-2 md:px-10 cursor-pointer hover:text-blue-400">
