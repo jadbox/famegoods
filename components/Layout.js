@@ -83,21 +83,13 @@ export default function Layout({ children, url }) {
   // Previous parent css removed: "grid grid-rows-3" style={{ gridTemplateRows: 'auto 1fr auto' }}
 
   return (
-    <div ref={element}>
+    <div ref={element} className="w-screen h-screen">
       <Head>
         <script
           src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"
           defer
         ></script>
       </Head>
-
-      <header className="flex fixed top-0 w-full h-12 border-solid border-b-4 border-gray-300 bg-white z-50">
-        <div className="flex items-center justify-between w-full px-3 py-2 z-auto">
-          <Icon icon={walletSolid} height="2em" />
-          <div className="inline-block font-header text-3xl">DFAME</div>
-          <Icon icon={paperPlane} height="2em" />
-        </div>
-      </header>
 
       <div>{children}</div>
 
@@ -123,3 +115,13 @@ export default function Layout({ children, url }) {
     </div>
   );
 }
+
+/*
+ <header className="flex fixed top-0 w-full h-12 border-solid border-b-4 border-gray-300 bg-white z-50">
+        <div className="flex items-center justify-between w-full px-3 py-2 z-auto">
+          <Icon icon={walletSolid} height="2em" />
+          <div className="inline-block font-header text-3xl">DFAME</div>
+          <Icon icon={paperPlane} height="2em" />
+        </div>
+      </header>
+      */

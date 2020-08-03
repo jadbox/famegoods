@@ -8,11 +8,11 @@ import SortBy from "../../components/SortBy";
 import Head from "next/head";
 import useScript from "react-script-hook";
 import { useRouter } from "next/router";
-import { Icon, InlineIcon } from '@iconify/react';
-import heartSolid from '@iconify/icons-la/heart-solid';
-import commentsSolid from '@iconify/icons-la/comments-solid';
-import shareAltSquareSolid from '@iconify/icons-la/share-alt-square-solid';
-import baselineShare from '@iconify/icons-ic/baseline-share';
+import { Icon, InlineIcon } from "@iconify/react";
+import heartSolid from "@iconify/icons-la/heart-solid";
+import commentsSolid from "@iconify/icons-la/comments-solid";
+import shareAltSquareSolid from "@iconify/icons-la/share-alt-square-solid";
+import baselineShare from "@iconify/icons-ic/baseline-share";
 import * as Server from "../../utils/CTS3";
 
 const init = {
@@ -81,14 +81,14 @@ function Wall() {
         />
       </Head>
 
-      <div className="h-screen">
-        <div className="relative flex h-full justify-center">
-          <div id="video" >
+      <div className="h-screen w-screen mb-10">
+        <div className="relative flex h-full justify-center w-screen">
+          <div id="video" className="w-screen">
             {state.file && (
               <video
+                width="100%"
                 ref={videoRef}
-                id="my-video"
-                className="video-js h-full"
+                className="h-full video-js w-screen"
                 controls
                 preload="auto"
               >
@@ -98,34 +98,35 @@ function Wall() {
           </div>
           <div className="absolute bottom-0">
             <div className="mb-16 ml-4">
-              <div className="font-bold text-xl mb-2 text-white">
+              <div className="font-bold text-xl mb-2 text-white text-center">
                 Title
               </div>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">
                 3 $TINGLES
               </button>
-              <div className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
-                Tags:
-              </div>
             </div>
           </div>
 
           <div className="absolute bottom-0 right-0 space-y-8 mb-16 mr-4">
             <Icon icon={heartSolid} height="3em" className="text-red-700" />
-            <Icon icon={commentsSolid} height="3em" className="text-gray-600" />
+
             <Icon icon={baselineShare} height="3em" className="text-blue-600" />
           </div>
-
         </div>
-
       </div>
-
-
     </>
   ));
 }
 
 export default Wall;
+
+/*
+<Icon icon={commentsSolid} height="3em" className="text-gray-600" />
+
+<div className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
+                Tags:
+              </div>
+              */
 
 // Original set up in previous iteration
 

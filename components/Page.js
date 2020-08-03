@@ -52,7 +52,6 @@ function Page() {
   // const openDrawer = React.useCallback(() => setIsVisible(true), []);
   // const closeDrawer = React.useCallback(() => setIsVisible(false), []);
 
-
   return useObserver(() => (
     <>
       <Head>
@@ -60,8 +59,7 @@ function Page() {
         // TODO: Add tab icon
       </Head>
 
-      <div className="container h-full my-20">
-
+      <div className="container h-full">
         <div className="relative space-y-40 snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (
@@ -76,7 +74,6 @@ function Page() {
             );
           })}
         </div>
-
       </div>
 
       {/*Should be replaced with Iconify icon.
