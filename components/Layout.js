@@ -1,6 +1,5 @@
 import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Nav from "./Nav";
-import NavNext from "./NavNext";
 import Head from "next/head";
 import Link from "next/link";
 import useScript from "react-script-hook";
@@ -93,20 +92,20 @@ export default function Layout({ children, url }) {
 
       <div>{children}</div>
 
-      <footer className="fixed h-12 md:h-16 bg-white w-full bottom-0 flex border-solid border-t-4 border-gray-300">
+      <footer className="fixed h-12 bg-white w-full bottom-0 flex border-solid border-t-4 border-gray-300">
         <div className="flex items-center justify-between w-full mx-3 md:mx-8 py-2">
           <Link href="/">
-            <div className="sm:px-2 md:px-10 cursor-pointer hover:text-blue-400">
+            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
               <Icon icon={streamSolid} height="2em" />
             </div>
           </Link>
           <Link href="/upload">
-            <div className="sm:px-2 md:px-10 cursor-pointer hover:text-blue-400">
+            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
               <Icon icon={uploadSolid} height="2em" />
             </div>
           </Link>
           <Link href="/profile">
-            <div className="sm:px-2 md:px-10 cursor-pointer hover:text-blue-400">
+            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
               <Icon icon={userIcon} height="2em" />
             </div>
           </Link>

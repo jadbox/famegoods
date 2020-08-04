@@ -81,14 +81,14 @@ function Wall() {
         />
       </Head>
 
-      <div className="h-screen w-screen mb-10">
-        <div className="relative flex h-full justify-center w-screen">
+      <div className="h-screen w-screen">
+        <div className="flex h-full justify-center w-screen pb-12">
           <div id="video" className="w-screen">
             {state.file && (
               <video
                 width="100%"
                 ref={videoRef}
-                className="h-full video-js w-screen"
+                className="h-full w-screen video-js vjs-default-skin vjs-big-play-centered"
                 controls
                 preload="auto"
               >
@@ -97,7 +97,7 @@ function Wall() {
             )}
           </div>
           <div className="absolute bottom-0">
-            <div className="mb-16 ml-4">
+            <div className="mb-20 ml-4">
               <div className="font-bold text-xl mb-2 text-white text-center">
                 Title
               </div>
@@ -107,10 +107,10 @@ function Wall() {
             </div>
           </div>
 
-          <div className="absolute bottom-0 right-0 space-y-8 mb-16 mr-4">
-            <Icon icon={heartSolid} height="3em" className="text-red-700" />
+          <div className="absolute bottom-0 right-0 space-y-8 mb-20 mr-4">
+            <Icon icon={heartSolid} height="2em" className="text-red-700" />
 
-            <Icon icon={baselineShare} height="3em" className="text-blue-600" />
+            <Icon icon={baselineShare} height="2em" className="text-blue-600" />
           </div>
         </div>
       </div>
