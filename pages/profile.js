@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Page from "../components/Page";
+import { ethers } from "ethers";
+import Box from "3box";
 {/*const Box = require("3box");*/ }
 
 export default function Index() {
@@ -16,6 +18,30 @@ export default function Index() {
   useEffect(() => {
     getProfile();
   }, []);*/}
+  const [box, setBox] = useState(null)
+
+  const defaultProvider = ethers.getDefaultProvider('kovan')
+
+  // This is an expendable private key created only to be used for this purpose
+  // Can also use ethers.Wallet.createRandom() to create a test wallet
+  const pk = '0xd2c63861bd5482b97f25303187772f0d7b94d0f0d2a628e724b3a92041887e8c'
+  const walletInstance = new ethers.Wallet(pk, defaultProvider)
+
+  const auth3Box = async () => {
+    const address = walletInstance.address
+    const spaces = ['myDapp']
+    await box.auth(spaces, { address, defaultProvider })
+  }
+
+  useEffect(() => {
+    const createBox = async () => {
+      const box = await Box.create()
+    }
+    setBox(createBox())
+    const address = walletInstance.address
+    console.log(address)
+  }, [])
+
 
   return (
     <div>
@@ -28,7 +54,7 @@ export default function Index() {
           <div className="flex justify-center">
             <div className="sm:align-middle rounded rounded-t-lg overflow-hidden shadow max-w-xs my-3">
               <div className="flex justify-center mt-10">
-                <img src="https://i.imgur.com/8Km9tLL.jpg" class="rounded-full border-solid border-white border-2 -mt-3" />
+                <img src="https://i.imgur.com/8Km9tLL.jpg" className="rounded-full border-solid border-white border-2 -mt-3" />
               </div>
               <div className="text-center px-3 pb-6 pt-2">
                 <h1 className="text-black text-lg bold font-sans">Nele Weißhan</h1>
