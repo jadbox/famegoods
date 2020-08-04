@@ -1,3 +1,4 @@
+const shortid = require("shortid");
 const AWS = require("aws-sdk/global");
 const S3 = require("aws-sdk/clients/s3");
 AWS.S3 = S3;
@@ -112,7 +113,10 @@ export function addVideo(files, onProgress) {
   var fileName = file.name;
   var albumPhotosKey = encodeURIComponent(albumName) + "/";
 
-  var photoKey = fileName; // albumPhotosKey +
+  var photoKey = shortid.generate(); // fileName; // albumPhotosKey +
+  photoKey = photoKey || Math.floor(Math.random() * 10000); // in case of failure
+
+  console.log("generating id", photoKey);
 
   // Use S3 ManagedUpload class as it supports multipart uploads
   var upload = new AWS.S3.ManagedUpload({
@@ -136,6 +140,7 @@ export function addVideo(files, onProgress) {
   return promise.then(
     function (data) {
       // if(onProgress) onProgress(100);
+      return photoKey; // return the key
     },
     function (err) {
       console.log("err", err);
