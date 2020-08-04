@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Page from "../components/Page";
 import { ethers } from "ethers";
 import Box from "3box";
+import useAddress from "../utils/Address";
 {/*const Box = require("3box");*/ }
 
 export default function Index() {
@@ -18,29 +19,68 @@ export default function Index() {
   useEffect(() => {
     getProfile();
   }, []);*/}
-  const [box, setBox] = useState(null)
+  const [box, setBox] = useState();
+  const [address, setAddress] = useState();
 
-  const defaultProvider = ethers.getDefaultProvider('kovan')
+  let provider
+  let signer
+  let myAddress
+  let metaMask
+  const defaultProvider = ethers.getDefaultProvider()
+  const infuraProvider = new ethers.providers.JsonRpcProvider('https://mainnet.infura.io/v3/7cc1f1e700c443a7840540140f931831')
+
+  // if (typeof window !== "undefined") {
+  //   provider = new ethers.providers.Web3Provider(window.ethereum)
+  //   signer = provider.getSigner()
+  //   console.log(provider.address[0])
+  // }
+
 
   // This is an expendable private key created only to be used for this purpose
   // Can also use ethers.Wallet.createRandom() to create a test wallet
   const pk = '0xd2c63861bd5482b97f25303187772f0d7b94d0f0d2a628e724b3a92041887e8c'
   const walletInstance = new ethers.Wallet(pk, defaultProvider)
 
-  const auth3Box = async () => {
-    const address = walletInstance.address
-    const spaces = ['myDapp']
-    await box.auth(spaces, { address, defaultProvider })
-  }
-
-  useEffect(() => {
-    const createBox = async () => {
-      const box = await Box.create()
-    }
-    setBox(createBox())
+  const init3Box = async () => {
+    const box = await Box.create()
+    setBox(box)
     const address = walletInstance.address
     console.log(address)
-  }, [])
+  }
+
+  const auth3Box = async () => {
+    const infuraProvider = new ethers.providers.JsonRpcProvider('https://mainnet.infura.io/v3/7cc1f1e700c443a7840540140f931831')
+    const box = await Box.create()
+    setBox(box)
+    const address = walletInstance.address
+    console.log(address)
+    try {
+      const spaces = ['myDapp']
+      console.log(infuraProvider)
+      //await box.auth([], { address: address[0], provider: infuraProvider })
+    } catch (e) {
+      console.error(e)
+    }
+
+  }
+
+
+
+  // useEffect(() => {
+  //   async function setup() {
+  //     provider = ethers.getDefaultProvider();
+  //     metaMask = window.ethereum;
+  //     if (metaMask.enable) await metaMask.enable();
+  //     const accounts = await metaMask.send('eth_accounts');
+  //     const account = accounts.result[0];
+
+  //     setAddress(account);
+  //     // signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
+  //     console.log(account)
+  //   }
+  //   setup();
+
+  // }, [])
 
 
   return (
@@ -59,6 +99,7 @@ export default function Index() {
               <div className="text-center px-3 pb-6 pt-2">
                 <h1 className="text-black text-lg bold font-sans">Nele Weißhan</h1>
                 <p className="mt-2 font-sans font-light text-grey-dark">Hello, I'm from another the other side!</p>
+                {useAddress()}
               </div>
               <div className="flex justify-center pb-3 text-grey-dark ml-10 mr-10 mb-3">
                 <div className="text-center mr-3 border-r pr-3">

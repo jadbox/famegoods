@@ -1,10 +1,12 @@
 import Box from "3box";
+import { ethers } from "ethers";
 
 export function test() {
   return { test: "hello" };
 }
 
-const SPACE_APP = "fame";
+const SPACE_APP = "DFAME";
+const defaultProvider = ethers.getDefaultProvider()
 
 export function getNewVideos() {
   const s = Box.getSpace(

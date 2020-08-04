@@ -60,9 +60,10 @@ class LoginWithRoll extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleClick.bind(this)} className="bg-blue-500 text-center" >
-                    Log in with Roll
+                <button onClick={this.handleClick.bind(this)} className="bg-blue-500 rounded-lg p-3 text-white text-center" >
+                    Sign to Roll
                 </button>
+
             </div>
         );
     }
