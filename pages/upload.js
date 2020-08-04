@@ -7,8 +7,11 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 import LoadingOverlay from "../components/LoadingOverlay";
 import Link from "next/link";
 import SetTicket from "../components/SetTicket";
+import useAddress from "../utils/Address";
 
 export default function Other() {
+  const address = useAddress();
+
   const [state, setState] = useState({ progress: 0 });
   function valuetext(value) {
     return `${value} $TINGLES`;
@@ -32,7 +35,7 @@ export default function Other() {
 
     try {
       setState((x) => ({ ...x, loading: true, progress: 0 }));
-      addVideo(_files.files, onProgress)
+      addVideo(_files.files, address, onProgress)
         .then((x) => {
           // if() setState((x) => ({ ...x, progress: 99 }));
           setTimeout((_) => {
@@ -98,6 +101,10 @@ export default function Other() {
   //   };
   //
   // }
+
+  if (!address) {
+    return <div>Looking for metamask...</div>;
+  }
 
   return (
     <>

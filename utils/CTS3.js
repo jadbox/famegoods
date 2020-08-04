@@ -88,7 +88,7 @@ export async function getVideos(onVideos) {
   });
 }
 
-export function addVideo(files, onProgress) {
+export function addVideo(files, address, onProgress) {
   if (!files[0] || !files[0].type) throw new Error("no video file");
   if (files[0].type.indexOf("video") === -1)
     throw new Error("not a video file");
@@ -113,7 +113,9 @@ export function addVideo(files, onProgress) {
   var fileName = file.name;
   var albumPhotosKey = encodeURIComponent(albumName) + "/";
 
-  var photoKey = shortid.generate(); // fileName; // albumPhotosKey +
+  const id = shortid.generate();
+  const addressFormat = address.replace("0x", "");
+  var photoKey = `${addressFormat}-${id}`; // fileName; // albumPhotosKey +
   photoKey = photoKey || Math.floor(Math.random() * 10000); // in case of failure
 
   console.log("generating id", photoKey);
