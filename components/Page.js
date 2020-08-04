@@ -4,7 +4,6 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { inject, observer, useObserver } from "mobx-react";
 import Clock from "./Clock";
-import WallCard from "./WallCard";
 import SortBy from "./SortBy";
 
 import Fab from "@material-ui/core/Fab";
@@ -13,7 +12,7 @@ import { getVideos } from "../utils/CTS3.js";
 
 import VideoData from "./videos.json";
 import Others from "../pages/upload";
-import TestCard from "./TestCard";
+import WallCard from "./WallCard";
 
 function mf(i) {
   const file = "b";
@@ -23,13 +22,6 @@ function mf(i) {
 const init = {
   feed: new Array(6).fill(0).map((x, i) => mf(i)),
 };
-
-// Not currently in use
-// const DynamicStoriesWithNoSSR = dynamic(() => import("./StoryFeed"), {
-//   ssr: false,
-// });
-
-//<TestCard key={Math.random()} tags={TestAPI.data.tags} title={TestAPI.data.title} video={TestAPI.data.video} />
 
 // @inject('store')
 function Page() {
@@ -63,7 +55,7 @@ function Page() {
         <div className="relative space-y-40 snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (
-              <TestCard
+              <WallCard
                 key={index}
                 file={videoDetail}
                 tags={videoDetail.tags}

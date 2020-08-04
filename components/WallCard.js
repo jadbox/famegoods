@@ -1,119 +1,60 @@
-import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import ShareIcon from "@material-ui/icons/Share";
-import IconButton from "@material-ui/core/IconButton";
-// import Head from "next/head";
-// import ReactPlayer from 'react-player'
-import Router from "next/router";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { Icon, InlineIcon } from "@iconify/react";
+import heartSolid from "@iconify/icons-la/heart-solid";
+import commentsSolid from "@iconify/icons-la/comments-solid";
+import shareAltSquareSolid from "@iconify/icons-la/share-alt-square-solid";
+import baselineShare from "@iconify/icons-ic/baseline-share";
 
-// Considering replacing with FeedCard.js due to heavy reliance on inflexible MUI components
+export default function WallCard({ tags, title, video, gif, file }) {
+  // Sample file retrieval logic
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-});
+  // const [images, setImages] = useState([]);
+  // const [files, setFiles] = useState([]);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [term, setTerm] = useState('');
+  //
+  // useEffect(() => {
+  //   if (file) {
+  //     setFiles(...file.file)
+  //   } else {
+  //     setFiles(`https://source.unsplash.com/random`)
+  //   }
+  // }, []);
 
-export default function WallCard({ file }) {
-  const classes = useStyles();
-
-  const title = file ? file.file : "lizard";
-  const url = file
-    ? `https://collabtube-encoded-east1.s3.amazonaws.com/${file.file}.gif`
-    : "/contemplative-reptile.jpg";
-
-  const vurl = file
-    ? `https://collabtube-encoded-east1.s3.amazonaws.com/${file.file}.m3u8`
-    : null;
-
-  // console.log("vurl", vurl);
-  const desc = `Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica`;
-
-  function onShare(content) {
-    navigator.share({
-      title: content,
-      text: content,
-      url: "https://collabtube.io/" + content,
-    });
-  }
-
-  const onClick = () => {
-    Router.push("/post/[slug]", `/post/${file.id}`);
-  };
-
-  // Card styles removed
-
-  // className={classes.root}
-  // style={{ height: "70vh", width: "70vw" }}
+  //  Parent css removed: h-auto max-w-screen-sm
 
   return (
-    <Card className="mx-4">
-      <CardActionArea>
-        <CardMedia component="img" alt={title} image={url} title={title} />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {desc}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions className="w-full">
-        <Button size="small" color="primary" onClick={onClick}>
-          3 $TINGLES
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-        <IconButton
-          onClick={(x) => onShare("lizard")}
-          aria-label="share"
-          className="align-right float-right"
-        >
-          <ShareIcon />
-        </IconButton>
-      </CardActions>
-    </Card>
+    <div className="relative w-screen h-screen snap-center always-stop rounded shadow-xl z-0">
+      <Link href="/post/[slug]" as={"/post/" + file.id}>
+        <div className="rounded shadow-lg h-full mx-auto w-auto max-w-md cursor-pointer">
+          <img className="h-full object-cover" src={gif} />
+          <div className="absolute bottom-0 mx-6 mb-24">
+            <div className="font-bold text-xl mb-2 text-white">{title}</div>
+            <div className="flex py-4">
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">
+                3 $TINGLES
+              </button>
+            </div>
+            <div className="inline-block bg-gray-200 bg-opacity-50 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
+              Tags: {tags}
+            </div>
+          </div>
+        </div>
+      </Link>
+    </div>
   );
 }
 
-/*
-  {vurl && <ReactPlayer width="100%" className="w-full" controls={true} url={vurl} /> }
+// <Icon icon={commentsSolid} height="3em" className="text-white" />
+// <Icon icon={baselineShare} height="3em" className="text-blue-600" />
 
-          <link
-            href="//vjs.zencdn.net/7.3.0/video-js.min.css"
-            rel="stylesheet"
+/* 
+<div className="absolute bottom-0 right-0 space-y-8 mx-6 my-8">
+          <Icon
+            icon={heartSolid}
+            height="3em"
+            className="text-red-700 animate-pulse"
           />
-          <script src="//vjs.zencdn.net/7.3.0/video.min.js"></script>
-
-  useEffect((x) => {
-    return;
-    if (!window || !window.videojs) return;
-    var player = videojs("example-video");
-    player.play();
-  }, []);
-
-{vurl && false && (
-        <div className="mx-auto text-center w-full h-32">
-          <video
-            className="w-full h-32"
-            width="100%"
-            height="100%"
-            id="example-video"
-            class="video-js vjs-default-skin"
-            controls
-          >
-            <source src={vurl} type="application/x-mpegURL" />
-          </video>
         </div>
-      )}
-      */
+*/

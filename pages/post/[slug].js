@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { inject, observer, useObserver } from "mobx-react";
 import Clock from "../../components/Clock";
-import { Button } from "@material-ui/core";
-import TestCard from "../../components/TestCard";
 import SortBy from "../../components/SortBy";
 import Head from "next/head";
 import useScript from "react-script-hook";
@@ -17,6 +15,7 @@ import * as Server from "../../utils/CTS3";
 
 const init = {
   feed: [{ file: "small", refresh: 0 }],
+  unlocked: false,
 };
 
 // @inject('store')
@@ -57,7 +56,7 @@ function Wall() {
     console.log("slug", slug);
     Server.getVideo(slug).then((o) => {
       console.log("o", o);
-      setState((x) => ({ ...x, file: o.video }));
+      setState((x) => ({ ...x, file: o.video, data: o }));
     });
   }, [slug]);
 
@@ -68,8 +67,9 @@ function Wall() {
     [state, videoRef]
   );
 
-  const name = "small";
-  const file = `https://collabtube-encoded-east1.s3.amazonaws.com/${name}.m3u8`;
+  function unlock() {
+    setState((x) => ({ ...x, unlocked: true }));
+  }
 
   return useObserver(() => (
     <>
@@ -83,34 +83,59 @@ function Wall() {
 
       <div className="h-screen w-screen">
         <div className="flex h-full justify-center w-screen pb-12">
-          <div id="video" className="w-screen">
-            {state.file && (
-              <video
-                width="100%"
-                ref={videoRef}
-                className="h-full w-screen video-js vjs-default-skin vjs-big-play-centered"
-                controls
-                preload="auto"
-              >
-                <source src={state.file} type="application/x-mpegURL" />
-              </video>
-            )}
-          </div>
+          {state.unlocked && (
+            <div id="video" className="w-screen">
+              {state.file && (
+                <video
+                  width="100%"
+                  ref={videoRef}
+                  className="h-full w-screen video-js vjs-default-skin vjs-big-play-centered"
+                  controls
+                  preload="auto"
+                >
+                  <source src={state.file} type="application/x-mpegURL" />
+                </video>
+              )}
+            </div>
+          )}
+
+          {!state.unlocked && state.file && (
+            <div onClick={unlock} className="cursor-pointer">
+              <img src={state.data.gif} className="w-screen h-full" />
+              <div className="absolute top-0 w-full text-center text-white font-bold">
+                <h3 className="" style={{ fontSize: "3em" }}>
+                  Join Laural's community!
+                </h3>
+                <h3 className="py-2" style={{ fontSize: "1.5em" }}>
+                  click to purchase community access
+                </h3>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">
+                  3 $TINGLES
+                </button>
+              </div>
+            </div>
+          )}
+
           <div className="absolute bottom-0">
             <div className="mb-20 ml-4">
               <div className="font-bold text-xl mb-2 text-white text-center">
-                Title
+                {state.data && state.data.title}
               </div>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">
-                3 $TINGLES
-              </button>
             </div>
           </div>
 
           <div className="absolute bottom-0 right-0 space-y-8 mb-20 mr-4">
-            <Icon icon={heartSolid} height="2em" className="text-red-700" />
+            <Icon
+              icon={heartSolid}
+              height="2em"
+              className="text-red-700 cursor-pointer"
+            />
 
-            <Icon icon={baselineShare} height="2em" className="text-blue-600" />
+            <Icon
+              icon={baselineShare}
+              height="2em"
+              className="text-blue-600 cursor-pointer"
+            />
           </div>
         </div>
       </div>
