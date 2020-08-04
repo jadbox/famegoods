@@ -1,6 +1,5 @@
 import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Nav from "./Nav";
-import NavNext from "./NavNext";
 import Head from "next/head";
 import Link from "next/link";
 import useScript from "react-script-hook";
@@ -83,7 +82,7 @@ export default function Layout({ children, url }) {
   // Previous parent css removed: "grid grid-rows-3" style={{ gridTemplateRows: 'auto 1fr auto' }}
 
   return (
-    <div ref={element}>
+    <div ref={element} className="w-screen h-screen">
       <Head>
         <script
           src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"
@@ -91,30 +90,22 @@ export default function Layout({ children, url }) {
         ></script>
       </Head>
 
-      <header className="flex fixed top-0 w-full h-12 border-solid border-b-4 border-gray-300 bg-white z-50">
-        <div className="flex items-center justify-between w-full px-3 py-2 z-auto">
-          <Icon icon={walletSolid} height="2em" />
-          <div className="inline-block font-header text-3xl">DFAME</div>
-          <Icon icon={paperPlane} height="2em" />
-        </div>
-      </header>
-
       <div>{children}</div>
 
-      <footer className="fixed h-12 md:h-16 bg-white w-full bottom-0 flex border-solid border-t-4 border-gray-300">
+      <footer className="fixed h-12 bg-white w-full bottom-0 flex border-solid border-t-4 border-gray-300">
         <div className="flex items-center justify-between w-full mx-3 md:mx-8 py-2">
           <Link href="/">
-            <div className="sm:px-2 md:px-10 cursor-pointer hover:text-blue-400">
+            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
               <Icon icon={streamSolid} height="2em" />
             </div>
           </Link>
           <Link href="/upload">
-            <div className="sm:px-2 md:px-10 cursor-pointer hover:text-blue-400">
+            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
               <Icon icon={uploadSolid} height="2em" />
             </div>
           </Link>
           <Link href="/profile">
-            <div className="sm:px-2 md:px-10 cursor-pointer hover:text-blue-400">
+            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
               <Icon icon={userIcon} height="2em" />
             </div>
           </Link>
@@ -123,3 +114,13 @@ export default function Layout({ children, url }) {
     </div>
   );
 }
+
+/*
+ <header className="flex fixed top-0 w-full h-12 border-solid border-b-4 border-gray-300 bg-white z-50">
+        <div className="flex items-center justify-between w-full px-3 py-2 z-auto">
+          <Icon icon={walletSolid} height="2em" />
+          <div className="inline-block font-header text-3xl">DFAME</div>
+          <Icon icon={paperPlane} height="2em" />
+        </div>
+      </header>
+      */

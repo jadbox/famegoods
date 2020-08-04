@@ -30,12 +30,8 @@
     "next": "^9.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-glider": "^2.0.1",
     "react-insta-stories": "^2.0.4",
-    "react-player": "^2.6.0",
     "react-script-hook": "^1.1.1",
-    "react-slick": "^0.27.0",
-    "slick-carousel": "^1.8.1",
     "tailwindcss": "^1.5.2",
     "uuid": "^8.2.0"
   },
