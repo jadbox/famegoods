@@ -57,7 +57,7 @@ class App extends React.Component {
 
   onChangeHandler(e, newValue, currency) {
     this.value = newValue;
-    console.log("e", e);
+    // console.log("e", e);
     const { currencyA, currencyB } = this.state;
 
     if (currency === "A") {
