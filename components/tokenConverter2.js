@@ -33,7 +33,7 @@ const marks = [
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    this.value = 1;
     this.state = {
       currencies: data.currencies,
       currencyA: data.currencies[0],
@@ -56,6 +56,7 @@ class App extends React.Component {
   }
 
   onChangeHandler(e, newValue, currency) {
+    this.value = newValue;
     console.log("e", e);
     const { currencyA, currencyB } = this.state;
 
@@ -95,7 +96,7 @@ class App extends React.Component {
           <br />
           <Slider
             className="w-full"
-            defaultValue={10}
+            defaultValue={1}
             aria-labelledby="discrete-slider-restrict"
             step={null}
             max={50}

@@ -120,7 +120,7 @@ function Wall() {
             </div>
           )}
 
-          <div className="absolute bottom-0">
+          <div className="absolute bottom-0" style={{ pointerEvents: "none" }}>
             <div className="mb-20 ml-4">
               <div className="font-bold text-xl mb-2 text-white text-center">
                 {state.data && state.data.title}
