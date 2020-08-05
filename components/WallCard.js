@@ -49,6 +49,13 @@ export default function WallCard({ tags, title, video, gif, file }) {
 
   return (
     <div className="relative w-screen h-screen snap-center always-stop rounded shadow-xl z-0">
+      <div className="absolute top-0 right-0 h-8">
+        <a href="https://roll.collab.land?serverURL=http://localhost:3000&redirect=true&id=recI424YZv232Rg0a">
+          <button className="bg-gray-500 rounded-lg p-3 text-white text-center z-50">
+          Open Roll Wallet
+          </button>
+        </a>
+      </div>
       <Link href="/post/[slug]" as={"/post/" + file.id}>
         <div className="rounded shadow-lg h-full mx-auto w-auto max-w-md cursor-pointer">
           <img className="h-full w-full object-cover" src={gif} />
