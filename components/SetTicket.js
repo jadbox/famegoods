@@ -36,7 +36,7 @@ function SetTicket() {
         <div className="justify-center">
           <div className="flex items-center"></div>
           <h1 className="mt-2 mb-2 text-center font-extrabold text-2xl text-gray-900 text-opacity-100">
-            Set Ticket Price
+            Tokens to Unlock
           </h1>
         </div>
 

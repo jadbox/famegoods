@@ -9,11 +9,8 @@ export function test() {
 const SPACE_APP = "DFAME";
 const defaultProvider = ethers.getDefaultProvider();
 
-export function getNewVideos() {
-  const s = Box.getSpace(
-    "0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D",
-    SPACE_APP
-  );
+export function getNewVideos(address) {
+  const s = Box.getSpace(address, SPACE_APP);
 
   return s.public.all().videos || [];
 }

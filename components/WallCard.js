@@ -58,7 +58,7 @@ export default function WallCard({ tags, title, video, gif, file }) {
           <div className="absolute bottom-0 mx-6 mb-24">
             <Icon className="w-10 h-10" icon={lockSolid} color="white" />
             <div className="break-words font-extrabold text-4xl mb-4 p-2 text-white mx-auto w-auto max-w-sm">
-              {videoObj.title}
+              {videoObj.title || "Loading..."}
             </div>
 
             <div className="flex py-4">

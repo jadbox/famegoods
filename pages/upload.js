@@ -129,72 +129,80 @@ export default function Other() {
       {state.loading && (
         <LoadingOverlay open={state.loading} progress={state.progress} />
       )}
-      <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4 max-w-md mx-auto">
-        {state.error && (
-          <Alert severity="error">
-            <AlertTitle>Error</AlertTitle>
-            {state.error}
-          </Alert>
-        )}
-        {state.gif && <img src={state.gif} width="200" height="200" />}
-        <div className="w-full">
-          <div className="my-2">
-            <input
-              className="sm:h-16 text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
-              id="videoTitle"
-              type="text"
-              placeholder="Video Title"
-            ></input>
+      <div className="h-screen flex justify-center align-middle">
+        <figure className="flex-auto bg-white bg-opacity-50 rounded-md m-2 p-4 max-w-md mx-auto">
+          {state.error && (
+            <Alert severity="error">
+              <AlertTitle>Error</AlertTitle>
+              {state.error}
+            </Alert>
+          )}
+          {state.gif && <img src={state.gif} width="200" height="200" />}
+          <div className="w-full h-full">
+            <div className="my-2">
+              <h1 className="mt-2 mb-2 text-center font-extrabold text-2xl text-gray-900 text-opacity-100">
+                Upload Video
+              </h1>
+
+              <input
+                className="sm:h-16 text-xl appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
+                id="videoTitle"
+                type="text"
+                placeholder="Video Title"
+              ></input>
+            </div>
+
+            <textarea
+              style={{}}
+              name="description"
+              placeholder="Add a video description"
+              cols="40"
+              rows="5"
+              className="hidden sm:h-48 my-2 appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1"
+            ></textarea>
+
+            <div>
+              {/*<div className="upload-btn-wrapper">*/}
+              <button
+                onClick={handleClick}
+                className="sm:h-16 my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
+              >
+                <i className="las la-photo-video"></i>
+                <span>Choose a video</span>
+                {state.uploadFilename && (
+                  <>
+                    <br />
+                    {state.uploadFilename}
+                  </>
+                )}
+              </button>
+              <input
+                ref={hiddenFileInput}
+                style={{
+                  display: "none",
+                }}
+                onChange={onFileChange}
+                id="videoupload"
+                type="file"
+                name="myfile"
+                accept="video/*;capture=camcorder"
+              />
+            </div>
+            {/*</div>*/}
+
+            <SetTicket></SetTicket>
+
+            <div className="flex justify-start">
+              <button
+                onClick={onSubmit}
+                className="flex-auto h-12 my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1 sm:h-16"
+              >
+                Submit
+              </button>
+            </div>
           </div>
-
-          <textarea
-            style={{}}
-            name="description"
-            placeholder="Add a video description"
-            cols="40"
-            rows="5"
-            className="hidden sm:h-48 my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1"
-          ></textarea>
-
-          <div>
-            {/*<div className="upload-btn-wrapper">*/}
-            <button
-              onClick={handleClick}
-              className="sm:h-16 my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
-            >
-              <i className="las la-photo-video"></i>
-              <span>Choose a video</span>
-              {state.uploadFilename && (
-                <>
-                  <br />
-                  {state.uploadFilename}
-                </>
-              )}
-            </button>
-            <input
-              ref={hiddenFileInput}
-              style={{
-                display: "none",
-              }}
-              onChange={onFileChange}
-              id="videoupload"
-              type="file"
-              name="myfile"
-              accept="video/*;capture=camcorder"
-            />
-          </div>
-          {/*</div>*/}
-
-          <SetTicket></SetTicket>
-
-          <button
-            onClick={onSubmit}
-            className="h-12 my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1 sm:h-16"
-          >
-            Submit
-          </button>
-        </div>
-      </figure>
+        </figure>
+      </div>
       <style jsx>{`
         .upload-btn-wrapper {
           position: relative;
