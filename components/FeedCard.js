@@ -55,7 +55,7 @@ export default function FeedCard({ file }) {
             className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full mr-2"
             onClick={onClick}
           >
-            3 $TINGLES
+            3 $TING
           </button>
 
           {/*Placeholder*/}

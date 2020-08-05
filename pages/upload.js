@@ -13,9 +13,6 @@ export default function Other() {
   const address = useAddress();
 
   const [state, setState] = useState({ progress: 0 });
-  function valuetext(value) {
-    return `${value} $TINGLES`;
-  }
 
   async function onSubmit() {
     const _files = hiddenFileInput.current; // document.getElementById("videoupload");
@@ -64,21 +61,6 @@ export default function Other() {
       return;
     }
   }
-
-  const marks = [
-    {
-      value: 1,
-      label: "1",
-    },
-    {
-      value: 20,
-      label: "20",
-    },
-    {
-      value: 100,
-      label: "100 $TINGLES",
-    },
-  ];
 
   // These variables can't be referenced/identified by the functions being rendered below because they are trapped inside FileUploader's local scope. I broke them out just so the page would work, but this may not be optimal.
 

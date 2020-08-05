@@ -46,6 +46,7 @@ class App extends React.Component {
   }
 
   onSelectCurrency(code) {
+    return;
     //console.log('selecting currency: '+code);
     const { currencies, currencyAval } = this.state;
     const currency = currencies.filter((currency) => currency.code === code);
@@ -57,7 +58,6 @@ class App extends React.Component {
 
   onChangeHandler(e, newValue, currency) {
     this.value = newValue;
-    // console.log("e", e);
     const { currencyA, currencyB } = this.state;
 
     if (currency === "A") {

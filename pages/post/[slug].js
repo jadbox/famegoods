@@ -139,7 +139,7 @@ function Wall() {
                   click to purchase community access
                 </h3>
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">
-                  3 $TINGLES
+                  3 $TING
                 </button>
               </div>
             </div>
@@ -157,7 +157,7 @@ function Wall() {
             <Icon
               icon={heartSolid}
               height="2em"
-              className="text-red-700 cursor-pointer"
+              className="animate-pulse text-red-700 cursor-pointer"
             />
 
             <Icon
