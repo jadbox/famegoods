@@ -32,7 +32,7 @@ function Page() {
   useEffect(() => {
     try {
       getVideos(setVideos);
-      console.log(videos);
+      // console.log(videos);
     } catch (e) {
       console.log(e);
     }

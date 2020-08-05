@@ -6,7 +6,10 @@ import commentsSolid from "@iconify/icons-la/comments-solid";
 import shareAltSquareSolid from "@iconify/icons-la/share-alt-square-solid";
 import baselineShare from "@iconify/icons-ic/baseline-share";
 
+import * as UserData from "../utils/UserData";
+
 export default function WallCard({ tags, title, video, gif, file }) {
+  const [videoObj, setVideo] = useState({});
   // Sample file retrieval logic
 
   // const [images, setImages] = useState([]);
@@ -24,19 +27,38 @@ export default function WallCard({ tags, title, video, gif, file }) {
 
   //  Parent css removed: h-auto max-w-screen-sm
 
+  const address = file.address;
+
+  useEffect((x) => {
+    async function run() {
+      const box = await UserData.forUser(address);
+      // console.log("file.id", file.id);
+
+      box.getVideo(file.id).then((x) => {
+        // console.log("video", x);
+        if (x) setVideo(x);
+      });
+    }
+    run();
+  }, []);
+
+  if (!videoObj) return null;
+
   return (
     <div className="relative w-screen h-screen snap-center always-stop rounded shadow-xl z-0">
       <Link href="/post/[slug]" as={"/post/" + file.id}>
         <div className="rounded shadow-lg h-full mx-auto w-auto max-w-md cursor-pointer">
           <img className="h-full object-cover" src={gif} />
           <div className="absolute bottom-0 mx-6 mb-24">
-            <div className="font-bold text-xl mb-2 text-white">{title}</div>
+            <div className="font-bold text-xl mb-2 text-white">
+              {videoObj.title}
+            </div>
             <div className="flex py-4">
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">
                 3 $TINGLES
               </button>
             </div>
-            <div className="inline-block bg-gray-200 bg-opacity-50 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
+            <div className="hidden inline-block bg-gray-200 bg-opacity-50 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
               Tags: {tags}
             </div>
           </div>

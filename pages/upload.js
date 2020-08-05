@@ -25,6 +25,14 @@ export default function Other() {
     }
     console.log(_files.files);
 
+    const title = window.document.getElementById("videoTitle").value;
+    // console.log("title", title);
+
+    if (!title || title.length === 0) {
+      alert("please add a title");
+      return;
+    }
+
     // const gif = await createGif(_files.files[0]);
     // console.log("gif finished", gif);
     // setState(gif);
@@ -35,7 +43,9 @@ export default function Other() {
 
     try {
       setState((x) => ({ ...x, loading: true, progress: 0 }));
-      addVideo(_files.files, address, onProgress)
+
+      const videoObj = { title: title };
+      addVideo(_files.files, address, videoObj, onProgress)
         .then((x) => {
           // if() setState((x) => ({ ...x, progress: 99 }));
           setTimeout((_) => {
@@ -85,7 +95,8 @@ export default function Other() {
       return;
     }
     // console.log("fileUploaded", fileUploaded);
-    addVideo(fileUploaded);
+
+    addVideo(fileUploaded, address);
     // props.handleFile(fileUploaded);
   };
 
@@ -102,6 +113,13 @@ export default function Other() {
   //
   // }
 
+  function onFileChange() {
+    const fileUploaded = hiddenFileInput.current.files;
+    if (!fileUploaded || fileUploaded.length === 0) return;
+
+    setState((x) => ({ ...x, uploadFilename: fileUploaded[0].name }));
+  }
+
   if (!address) {
     return <div>Looking for metamask...</div>;
   }
@@ -111,7 +129,7 @@ export default function Other() {
       {state.loading && (
         <LoadingOverlay open={state.loading} progress={state.progress} />
       )}
-      <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4">
+      <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4 max-w-md mx-auto">
         {state.error && (
           <Alert severity="error">
             <AlertTitle>Error</AlertTitle>
@@ -120,10 +138,6 @@ export default function Other() {
         )}
         {state.gif && <img src={state.gif} width="200" height="200" />}
         <div className="w-full">
-          <div className="flex justify-center">
-            <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
-          </div>
-
           <div className="my-2">
             <input
               className="sm:h-16 text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
@@ -134,11 +148,12 @@ export default function Other() {
           </div>
 
           <textarea
+            style={{}}
             name="description"
             placeholder="Add a video description"
             cols="40"
             rows="5"
-            className="sm:h-48 my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1"
+            className="hidden sm:h-48 my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1"
           ></textarea>
 
           <div>
@@ -149,12 +164,19 @@ export default function Other() {
             >
               <i className="las la-photo-video"></i>
               <span>Choose a video</span>
+              {state.uploadFilename && (
+                <>
+                  <br />
+                  {state.uploadFilename}
+                </>
+              )}
             </button>
             <input
               ref={hiddenFileInput}
               style={{
                 display: "none",
               }}
+              onChange={onFileChange}
               id="videoupload"
               type="file"
               name="myfile"

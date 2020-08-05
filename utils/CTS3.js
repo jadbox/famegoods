@@ -1,4 +1,5 @@
 const shortid = require("shortid");
+const UserData = require("./UserData");
 const AWS = require("aws-sdk/global");
 const S3 = require("aws-sdk/clients/s3");
 AWS.S3 = S3;
@@ -41,7 +42,10 @@ export async function getVideo(id) {
 }
 
 function _getVideo(id) {
+  const address = "0x" + id.split("-")[0];
   return {
+    address: address,
+    uuid: id.split("-")[1],
     gif: `https://collabtube-encoded-east1.s3.amazonaws.com/g_${id}.gif`,
     video: `https://collabtube-encoded-east1.s3.amazonaws.com/v_${id}.m3u8`,
     img: "https://collabtube-encoded-east1.s3.amazonaws.com/i_${id}.jpg",
@@ -88,12 +92,14 @@ export async function getVideos(onVideos) {
   });
 }
 
-export function addVideo(files, address, onProgress) {
+export async function addVideo(files, address, videoObj, onProgress) {
   if (!files[0] || !files[0].type) throw new Error("no video file");
   if (files[0].type.indexOf("video") === -1)
     throw new Error("not a video file");
-  if (files[0].size > 1000000 * 60)
+  if (files[0].size > 1000000 * 80)
     throw new Error("video file is too large: try a shorter video");
+
+  if (!address) throw new Error("No address provided");
 
   const sizeTotal = files[0].size;
 
@@ -120,6 +126,15 @@ export function addVideo(files, address, onProgress) {
 
   console.log("generating id", photoKey);
 
+  await UserData.global.init(address);
+
+  const v = _getVideo(photoKey);
+  v.title = videoObj.title;
+
+  await UserData.global.save(v);
+  // console.log("finished");
+  // return;
+
   // Use S3 ManagedUpload class as it supports multipart uploads
   var upload = new AWS.S3.ManagedUpload({
     params: {
@@ -139,14 +154,21 @@ export function addVideo(files, address, onProgress) {
 
   var promise = upload.promise();
 
-  return promise.then(
-    function (data) {
-      // if(onProgress) onProgress(100);
-      return photoKey; // return the key
-    },
-    function (err) {
-      console.log("err", err);
-      // return alert("There was an error uploading your video: ", err.message);
-    }
-  );
+  return promise
+    .then(
+      function (data) {
+        // if(onProgress) onProgress(100);
+        return _getVideo(photoKey); // return the key
+      },
+      function (err) {
+        console.log("err", err);
+        // return alert("There was an error uploading your video: ", err.message);
+      }
+    )
+    .then(async (videoObj) => {
+      console.log("saving metadata to 3box");
+      // await UserData.global.init();
+
+      return videoObj;
+    });
 }

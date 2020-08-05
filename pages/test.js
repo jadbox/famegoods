@@ -2,7 +2,7 @@ import Page from "../components/Page";
 import { useEffect, useState } from "react";
 import * as CT from "../utils/CTS3";
 const Box = require("3box");
-const { Feed } = require("../utils/Feed");
+const UserData = require("../utils/UserData");
 
 export default function Index() {
   const [profile, setProfile] = useState(null);
@@ -24,10 +24,10 @@ export default function Index() {
     setProfile(_profile);
     console.log("_profile finish");
 
-    const f = new Feed(box);
-    await f.init();
+    await UserData.global.init(); // new Feed(box);
+    // await f.init();
     console.log("init finish");
-    await f.save();
+    await UserData.global.save();
     console.log("finish");
   }
 
