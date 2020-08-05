@@ -85,31 +85,29 @@ class App extends React.Component {
     } = this.state;
     return (
       <div>
-        <div>
-          <div className="flex justify-center mb-4">
+        <Slider
+          className="m-2"
+          defaultValue={5}
+          aria-labelledby="discrete-slider-restrict"
+          step={null}
+          max={50}
+          valueLabelDisplay="auto"
+          marks={marks}
+          onChange={(e, newValue) => {
+            this.onChangeHandler(e, newValue, "A");
+          }}
+        />
+        <div className="flex justify-center my-4 mr-12">
+          <div className="flex justify-left">
             <SelectCurrency
               currencies={currencies}
               onSelectCurrency={this.onSelectCurrency}
             />
           </div>
 
-          <br />
-          <Slider
-            className="w-full"
-            defaultValue={1}
-            aria-labelledby="discrete-slider-restrict"
-            step={null}
-            max={50}
-            valueLabelDisplay="auto"
-            marks={marks}
-            onChange={(e, newValue) => {
-              this.onChangeHandler(e, newValue, "A");
-            }}
-          />
-
-          <div className="flex justify-left mb-4">
+          <div className="flex justify-left">
             <input
-              className="w-30 form-control form-control-lg mx-3 my-1 bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
+              className="w-32 form-control form-control-lg mx-3 my-1 bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
               type="number"
               value={currencyBval}
               aria-describedby="basic-addon3"
@@ -120,20 +118,14 @@ class App extends React.Component {
               }}
             />
 
-            <div
-              style={{
-                lineHeight: "2.5em",
-                fontSize: "1.2em",
-                height: "2.5em",
-              }}
-            >
+            <div className="mt-3 flexjustify-left">
               USD
             </div>
           </div>
         </div>
         <div>
-          <div className="flex justify-center">
-            <p>
+          <div className="flex justify-center ml-2">
+            <p className="text-xs">
               Exchange Rate {` ${currencyA.sellRate} ${currencyA.code}`} ={" "}
               {`${currencyB.sellRate} ${currencyB.code}`}
             </p>

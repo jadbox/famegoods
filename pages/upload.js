@@ -112,7 +112,7 @@ export default function Other() {
         <LoadingOverlay open={state.loading} progress={state.progress} />
       )}
       <div className="h-screen flex justify-center align-middle">
-        <figure className="flex-auto bg-white bg-opacity-50 rounded-md m-2 p-4 max-w-md mx-auto">
+        <figure className="flex-auto bg-white rounded-md m-2 p-4 max-w-md mx-auto">
           {state.error && (
             <Alert severity="error">
               <AlertTitle>Error</AlertTitle>
@@ -122,12 +122,12 @@ export default function Other() {
           {state.gif && <img src={state.gif} width="200" height="200" />}
           <div className="w-full h-full">
             <div className="my-2">
-              <h1 className="mt-2 mb-2 text-center font-extrabold text-2xl text-gray-900 text-opacity-100">
-                Upload Video
+              <h1 className="ml-2 my-4 font-extrabold text-2xl text-gray-900 text-opacity-100 pb-2">
+                <span alt="camera-emoji">📷</span> Upload Video
               </h1>
 
               <input
-                className="sm:h-16 text-xl appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
+                className="sm:h-16 text-xl appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-400 font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
                 id="videoTitle"
                 type="text"
                 placeholder="Video Title"
@@ -147,7 +147,7 @@ export default function Other() {
               {/*<div className="upload-btn-wrapper">*/}
               <button
                 onClick={handleClick}
-                className="sm:h-16 my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
+                className="sm:h-16 my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded m-1"
               >
                 <i className="las la-photo-video"></i>
                 <span>Choose a video</span>
@@ -177,7 +177,7 @@ export default function Other() {
             <div className="flex justify-start">
               <button
                 onClick={onSubmit}
-                className="flex-auto h-12 my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1 sm:h-16"
+                className="flex-auto h-12 m-12 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 rounded shadow-lg m-1 sm:h-16"
               >
                 Submit
               </button>
