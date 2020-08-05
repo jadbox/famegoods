@@ -13,6 +13,8 @@ import shareAltSquareSolid from "@iconify/icons-la/share-alt-square-solid";
 import baselineShare from "@iconify/icons-ic/baseline-share";
 import * as Server from "../../utils/CTS3";
 
+import * as UserData from "../../utils/UserData";
+
 const init = {
   feed: [{ file: "small", refresh: 0 }],
   unlocked: false,
@@ -21,6 +23,8 @@ const init = {
 // @inject('store')
 function Wall() {
   const [state, setState] = useState(init);
+  const [videoObj, setVideo] = useState({});
+
   const router = useRouter();
   const slug = router.query.slug;
 
@@ -42,6 +46,27 @@ function Wall() {
     setState((x) => ({ ...x, setup: true }));
   }
 
+  useEffect(
+    (x) => {
+      if (!state.data) return;
+      if (videoObj.title) return;
+
+      async function run() {
+        const addr = state.data.address;
+
+        const box = await UserData.forUser(addr);
+        // console.log("file.id", file.id);
+
+        box.getVideo(state.data.id).then((x) => {
+          // console.log("video", x);
+          if (x) setVideo(x);
+        });
+      }
+      run();
+    },
+    [slug, state, state.file]
+  );
+
   useScript({
     src: "https://vjs.zencdn.net/7.8.4/video.js",
     checkForExisting: true,
@@ -55,7 +80,7 @@ function Wall() {
     if (!slug) return;
     console.log("slug", slug);
     Server.getVideo(slug).then((o) => {
-      console.log("o", o);
+      console.log("Server.getVideo", o);
       setState((x) => ({ ...x, file: o.video, data: o }));
     });
   }, [slug]);
@@ -123,7 +148,7 @@ function Wall() {
           <div className="absolute bottom-0" style={{ pointerEvents: "none" }}>
             <div className="mb-20 ml-4">
               <div className="font-bold text-xl mb-2 text-white text-center">
-                {state.data && state.data.title}
+                {videoObj.title && videoObj.title}
               </div>
             </div>
           </div>
