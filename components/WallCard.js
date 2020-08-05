@@ -49,7 +49,7 @@ export default function WallCard({ tags, title, video, gif, file }) {
 // <Icon icon={commentsSolid} height="3em" className="text-white" />
 // <Icon icon={baselineShare} height="3em" className="text-blue-600" />
 
-/* 
+/*
 <div className="absolute bottom-0 right-0 space-y-8 mx-6 my-8">
           <Icon
             icon={heartSolid}
