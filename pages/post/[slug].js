@@ -100,8 +100,12 @@ function Wall() {
           )}
 
           {!state.unlocked && state.file && (
-            <div onClick={unlock} className="cursor-pointer">
-              <img src={state.data.gif} className="w-screen h-full" />
+            <div onClick={unlock} className="cursor-pointer h-full">
+              <img
+                src={state.data.gif}
+                height="100%"
+                className="h-full object-contain"
+              />
               <div className="absolute top-0 w-full text-center text-white font-bold">
                 <h3 className="" style={{ fontSize: "3em" }}>
                   Join Laural's community!
