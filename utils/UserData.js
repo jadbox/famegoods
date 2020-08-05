@@ -9,9 +9,9 @@ export function test() {
 const SPACE_APP = "DFAME";
 const defaultProvider = ethers.getDefaultProvider();
 
-export function getNewVideos(address) {
+export function getNewVideos() {
   const s = Box.getSpace(
-    address || "0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D",
+    "0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D",
     SPACE_APP
   );
 
@@ -35,7 +35,7 @@ export class DataStore {
     console.log("opening", address);
 
     this.mutex = new Promise(async (res) => {
-      const box = await Box.openBox(address, window.ethereum);
+      const box = await Box.openBox(address, defaultProvider);
       this.box = box;
 
       this.box.openSpace(SPACE_APP);
