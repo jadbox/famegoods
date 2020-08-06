@@ -58,7 +58,10 @@ export default function WallCard({ tags, title, video, gif, file }) {
       </div>
       <Link href="/post/[slug]" as={"/post/" + file.id}>
         <div className="mb-8 rounded-md shadow-lg h-full mx-auto w-auto max-w-md cursor-pointer">
-          <img className="rounded-md h-full w-full object-cover" src={gif} />
+          <img
+            className="rounded-md h-full w-full object-cover shadow-lg"
+            src={gif}
+          />
           <div className="absolute top-0 p-6">
             <ProfileHeader />
           </div>
