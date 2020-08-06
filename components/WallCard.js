@@ -58,24 +58,29 @@ export default function WallCard({ tags, title, video, gif, file }) {
         </a>
       </div>
       <Link href="/post/[slug]" as={"/post/" + file.id}>
-        <div className="mb-8 rounded-md shadow-lg h-full mx-auto w-auto max-w-md cursor-pointer">
+        <div className="mb-8 rounded-md shadow-lg h-full mx-auto w-auto max-w-md w-full cursor-pointer">
           <img
-            className="rounded-md h-full w-full object-cover shadow-lg"
+            className="rounded-md h-full w-full object-cover gif-gradient"
             src={gif}
           />
+          <style jsx>{`
+        .gif-gradient {
+          background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 45.31%, rgba(0, 0, 0, 0.4) 60.94%, rgba(0, 0, 0, 0.9) 100%);
+        }
+      `}</style>
           <div className="absolute top-0 p-6">
             <ProfileHeader />
           </div>
-          <div className="absolute bottom-0 mx-6 mb-2">
-            <div className="break-words font-extrabold text-4xl mb-1 p-2 text-white mx-auto w-auto max-w-sm">
-              <Icon className="w-10 h-10 pt-4" icon={lockSolid} color="white" />{" "}
+          <div className="absolute bottom-0 mx-6 mb-24">
+            <Icon className="w-10 h-10" icon={lockSolid} color="white" />
+            <div className="break-words font-extrabold text-4xl mb-4 p-2 text-white">
               {videoObj.title || "Loading..."}
             </div>
 
-            <div className="flex py-4">
-              <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-48 rounded-lg mr-2 items-center">
+            <div className="w-full">
+              <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-64 rounded-lg mr-2 items-center button-gradient">
                 <Icon className="m-1" icon={playSolid} color="black" />
-                {videoObj.tokens} {videoObj.tokenName}
+                <span>Own {videoObj.tokens} {videoObj.tokenName} to Unlock</span>
               </button>
             </div>
 

@@ -11,6 +11,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      animation: {
+        'pulse': 'pulse 4s infinite',
+      },
       fontFamily: {
         header: ['Recursive']
       }
