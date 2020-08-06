@@ -128,8 +128,8 @@ export async function addVideo(files, address, videoObj, onProgress) {
 
   await UserData.global.init(address);
 
-  const v = _getVideo(photoKey);
-  v.title = videoObj.title;
+  const vo = _getVideo(photoKey);
+  const v = { ...vo, ...videoObj };
 
   await UserData.global.save(v);
   // console.log("finished");

@@ -65,6 +65,7 @@ export class DataStore {
 
   async getVideo(id) {
     function applyDefaultVideo(obj) {
+      obj.date = obj.date || new Date().getTime();
       obj.tokens = obj.tokens || 1;
       obj.tokenName = obj.tokenName || "TING";
       return obj;
@@ -90,6 +91,8 @@ export class DataStore {
 
   async save(video) {
     if (!video || !video.id) throw new Error("null video");
+
+    video.date = new Date().getTime();
 
     const videos = (await this.space.public.get("videos-list")) || [];
     videos.push(video.id);
