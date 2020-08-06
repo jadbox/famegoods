@@ -52,7 +52,18 @@ function Page() {
       </Head>
 
       <div className="container h-full">
-        <div className="relative space-y-40 snap snap-y snap-mandatory">
+        <div className="relative space-y-0 snap snap-y snap-mandatory">
+          <h3
+            style={{
+              fontStyle: "italic",
+              fontSize: "1.4em",
+              fontWeight: 800,
+              color: "black",
+            }}
+            className="px-4 py-2"
+          >
+            🔥 WHAT'S HOT
+          </h3>
           {videos.map((videoDetail, index) => {
             return (
               <WallCard
