@@ -43,7 +43,6 @@ export class DataStore {
     this.mutex = new Promise(async (res) => {
       if (this.readOnly) {
         this.spaceData = await Box.getSpace(address, SPACE_APP);
-        console.log("space", this.space);
         res();
         return;
       }
@@ -68,10 +67,16 @@ export class DataStore {
     if (this.spaceData) {
       return this.spaceData["v_" + id];
     }
+
     return await this.space.public.get("v_" + id);
   }
 
   async getVideos(address) {
+    if (this.spaceData) {
+      const vs = this.spaceData["videos-list"] || [];
+      return vs.map((key) => this.spaceData[key]);
+    }
+
     const vs = (await this.space.public.get("videos-list")) || [];
     const ps = vs.map((x) => this.space.public.get("v_" + x));
     return await Promise.all(...ps);

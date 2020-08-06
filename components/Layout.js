@@ -48,6 +48,7 @@ export default function Layout({ children, url }) {
   }, [url, element.current, zoom, _vanta]);
 
   useEffect(() => {
+    return;
     if (_vanta2) return;
 
     if (!window.VANTA) {
