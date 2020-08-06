@@ -15,7 +15,7 @@ function SetTicket({ onChange }) {
       <br />
       <div className="justify-center">
         <h1 className="m-2 font-extrabold text-2xl text-gray-900 text-opacity-100">
-          <span alt="ticket-emoji">🎟️</span> Set token price
+          <span alt="ticket-emoji">🎟️</span> Set token amount
         </h1>
       </div>
       <div className="mt-4 flex justify-center">

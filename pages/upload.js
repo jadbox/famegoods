@@ -185,7 +185,7 @@ export default function Other() {
                 onClick={onSubmit}
                 className="flex-auto h-12 m-12 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 rounded shadow-lg m-1 sm:h-16"
               >
-                Submit
+                Publish Video
               </button>
             </div>
           </div>

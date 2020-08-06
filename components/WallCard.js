@@ -71,7 +71,7 @@ export default function WallCard({ tags, title, video, gif, file }) {
             <div className="flex py-4">
               <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-48 rounded-lg mr-2 items-center">
                 <Icon className="m-1" icon={playSolid} color="black" /> Tier 2
-                Members
+                Members (5 TST)
               </button>
             </div>
 
