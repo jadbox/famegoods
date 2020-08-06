@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Page from "../components/Page";
 import { ethers } from "ethers";
-import Box from "3box";
+// import Box from "3box";
 import useAddress from "../utils/Address";
 {
   /*const Box = require("3box");*/
@@ -48,8 +48,8 @@ export default function Index() {
   const walletInstance = new ethers.Wallet(pk, defaultProvider);
 
   const init3Box = async () => {
-    const box = await Box.create();
-    setBox(box);
+    // const box = await Box.create();
+    // setBox(box);
     const address = walletInstance.address;
     console.log(address);
   };
@@ -58,8 +58,8 @@ export default function Index() {
     const infuraProvider = new ethers.providers.JsonRpcProvider(
       "https://mainnet.infura.io/v3/7cc1f1e700c443a7840540140f931831"
     );
-    const box = await Box.create();
-    setBox(box);
+    // const box = await Box.create();
+    // setBox(box);
     const address = walletInstance.address;
     console.log(address);
     try {

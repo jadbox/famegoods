@@ -9,21 +9,25 @@ export function test() {
 const SPACE_APP = "DFAME";
 const defaultProvider = ethers.getDefaultProvider();
 
+/*
 export function getNewVideos(address) {
   const s = Box.getSpace(address, SPACE_APP);
 
   return s.public.all().videos || [];
-}
+}*/
 
 // const box = await Box.create(window.ethereum);
 
+let enabled = false;
+
 export class DataStore {
-  constructor() {
+  constructor(readOnly) {
+    this.readOnly = readOnly;
     // this.box = box;
   }
 
   async init(address) {
-    if (this.box) return;
+    if (this.space) return;
     if (this.mutex) {
       console.log("waiting");
       await this.mutex;
@@ -31,15 +35,26 @@ export class DataStore {
     }
     console.log("opening", address);
 
-    this.mutex = new Promise(async (res) => {
-      const box = await Box.openBox(address, defaultProvider);
-      this.box = box;
+    if (!enabled) {
+      await window.ethereum.enable();
+      enabled = true;
+    }
 
-      this.box.openSpace(SPACE_APP);
+    this.mutex = new Promise(async (res) => {
+      if (this.readOnly) {
+        this.spaceData = await Box.getSpace(address, SPACE_APP);
+        console.log("space", this.space);
+        res();
+        return;
+      }
+
+      const box = await Box.openBox(address, window.ethereum);
+      // this.box = box;
+
+      // this.box.openSpace(SPACE_APP);
       this.space = await this.box.openSpace(SPACE_APP);
 
       res();
-      this.mutex = null;
     });
 
     await this.mutex;
@@ -50,7 +65,10 @@ export class DataStore {
   }
 
   async getVideo(id) {
-    return await await this.space.public.get("v_" + id);
+    if (this.spaceData) {
+      return this.spaceData["v_" + id];
+    }
+    return await this.space.public.get("v_" + id);
   }
 
   async getVideos(address) {
@@ -77,13 +95,14 @@ export const global = new DataStore();
 
 const stores = {};
 export async function forUser(address) {
-  if (stores[address]) {
-    const c = stores[address];
-    await c.init(address);
-    return c;
+  const cached = stores[address];
+
+  if (cached) {
+    await cached.init(address);
+    return cached;
   }
 
-  const d = new DataStore();
+  const d = new DataStore(true);
   stores[address] = d;
   await d.init(address);
 
