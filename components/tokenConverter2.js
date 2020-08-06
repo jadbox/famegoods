@@ -33,6 +33,8 @@ const marks = [
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.onChange = props.onChange;
     this.value = 1;
     this.state = {
       currencies: data.currencies,
@@ -46,6 +48,7 @@ class App extends React.Component {
   }
 
   onSelectCurrency(code) {
+    if (this.onChange) this.onChange(this.value, code);
     return;
     //console.log('selecting currency: '+code);
     const { currencies, currencyAval } = this.state;
@@ -58,6 +61,8 @@ class App extends React.Component {
 
   onChangeHandler(e, newValue, currency) {
     this.value = newValue;
+    if (this.onChange) this.onChange(newValue);
+
     const { currencyA, currencyB } = this.state;
 
     if (currency === "A") {
@@ -118,9 +123,7 @@ class App extends React.Component {
               }}
             />
 
-            <div className="mt-3 flexjustify-left">
-              USD
-            </div>
+            <div className="mt-3 flexjustify-left">USD</div>
           </div>
         </div>
         <div>

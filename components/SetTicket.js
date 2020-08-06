@@ -8,19 +8,18 @@ import Link from "next/link";
 
 import LoadingOverlay from "./LoadingOverlay";
 
-function SetTicket() {
+function SetTicket({ onChange }) {
   return (
     <div>
-      <div className="flex justify-center">
-      </div>
+      <div className="flex justify-center"></div>
       <br />
       <div className="justify-center">
         <h1 className="m-2 font-extrabold text-2xl text-gray-900 text-opacity-100">
           <span alt="ticket-emoji">🎟️</span> Set token price
-          </h1>
+        </h1>
       </div>
       <div className="mt-4 flex justify-center">
-        <Converter />
+        <Converter onChange={onChange} />
       </div>
     </div>
   );

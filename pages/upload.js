@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Page from "../components/Page";
 import { TextField, Slider, Typography, Button } from "@material-ui/core";
 import { addVideo } from "../utils/CTS3";
@@ -13,6 +13,7 @@ export default function Other() {
   const address = useAddress();
 
   const [state, setState] = useState({ progress: 0 });
+  const [formdata, setFormData] = useState({ tokens: 1 });
 
   async function onSubmit() {
     const _files = hiddenFileInput.current; // document.getElementById("videoupload");
@@ -41,7 +42,7 @@ export default function Other() {
     try {
       setState((x) => ({ ...x, loading: true, progress: 0 }));
 
-      const videoObj = { title: title };
+      const videoObj = { title: title, ...formdata };
       addVideo(_files.files, address, videoObj, onProgress)
         .then((x) => {
           // if() setState((x) => ({ ...x, progress: 99 }));
@@ -100,6 +101,11 @@ export default function Other() {
     if (!fileUploaded || fileUploaded.length === 0) return;
 
     setState((x) => ({ ...x, uploadFilename: fileUploaded[0].name }));
+  }
+
+  function onTokenChange(tokens, tokenName) {
+    console.log("onTokenChange", tokens, tokenName);
+    setFormData((x) => ({ ...x, tokens, tokenName }));
   }
 
   if (!address) {
@@ -172,7 +178,7 @@ export default function Other() {
             </div>
             {/*</div>*/}
 
-            <SetTicket></SetTicket>
+            <SetTicket onChange={onTokenChange}></SetTicket>
 
             <div className="flex justify-start">
               <button
