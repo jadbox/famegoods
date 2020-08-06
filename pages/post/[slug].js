@@ -107,7 +107,7 @@ function Wall() {
       </Head>
 
       <div className="h-screen w-screen">
-        <div className="flex h-full justify-center w-screen pb-12">
+        <div className="flex h-full justify-center w-screen pb-16">
           {state.unlocked && (
             <div id="video" className="w-screen">
               {state.file && (
@@ -146,14 +146,14 @@ function Wall() {
           )}
 
           <div className="absolute bottom-0" style={{ pointerEvents: "none" }}>
-            <div className="mb-20 ml-4">
+            <div className="mb-24 ml-4">
               <div className="font-bold text-xl mb-2 text-white text-center">
                 {videoObj.title && videoObj.title}
               </div>
             </div>
           </div>
 
-          <div className="absolute bottom-0 right-0 space-y-8 mb-20 mr-4">
+          <div className="absolute bottom-0 right-0 space-y-8 mb-32 mr-4">
             <Icon
               icon={heartSolid}
               height="2em"
