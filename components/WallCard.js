@@ -46,6 +46,7 @@ export default function WallCard({ tags, title, video, gif, file }) {
   }, []);
 
   if (!videoObj) return null;
+  console.log("videoObj", videoObj);
 
   return (
     <div className="relative w-screen h-full px-4 pt-2 snap-center always-stop z-0">
@@ -73,8 +74,8 @@ export default function WallCard({ tags, title, video, gif, file }) {
 
             <div className="flex py-4">
               <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-48 rounded-lg mr-2 items-center">
-                <Icon className="m-1" icon={playSolid} color="black" /> Tier 2
-                Members (5 TST)
+                <Icon className="m-1" icon={playSolid} color="black" />
+                {videoObj.tokens} {videoObj.tokenName}
               </button>
             </div>
 

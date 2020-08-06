@@ -51,7 +51,7 @@ export class DataStore {
       // this.box = box;
 
       // this.box.openSpace(SPACE_APP);
-      this.space = await this.box.openSpace(SPACE_APP);
+      this.space = await box.openSpace(SPACE_APP);
 
       res();
     });
@@ -64,11 +64,17 @@ export class DataStore {
   }
 
   async getVideo(id) {
-    if (this.spaceData) {
-      return this.spaceData["v_" + id];
+    function applyDefaultVideo(obj) {
+      obj.tokens = obj.tokens || 1;
+      obj.tokenName = obj.tokenName || "TING";
+      return obj;
     }
 
-    return await this.space.public.get("v_" + id);
+    if (this.spaceData) {
+      return applyDefaultVideo(this.spaceData["v_" + id]);
+    }
+
+    return applyDefaultVideo(await this.space.public.get("v_" + id));
   }
 
   async getVideos(address) {

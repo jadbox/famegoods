@@ -3,6 +3,13 @@ import data from "../data/Data";
 import SelectCurrency from "../components/SelectCurrency";
 import Slider from "@material-ui/core/Slider";
 
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import Input from "@material-ui/core/Input";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import InputLabel from "@material-ui/core/InputLabel";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import FormControl from "@material-ui/core/FormControl";
+
 const marks = [
   {
     value: 1,
@@ -89,19 +96,42 @@ class App extends React.Component {
       currencyBval,
     } = this.state;
     return (
-      <div>
-        <Slider
-          className="m-2"
-          defaultValue={5}
-          aria-labelledby="discrete-slider-restrict"
-          step={null}
-          max={50}
-          valueLabelDisplay="auto"
-          marks={marks}
-          onChange={(e, newValue) => {
-            this.onChangeHandler(e, newValue, "A");
-          }}
-        />
+      <div className="w-screen">
+        <FormControl variant="outlined" className="w-full mx-6">
+          <OutlinedInput
+            className="w-auto ml-4"
+            id="outlined-adornment-weight"
+            // value={1}
+            defaultValue={1}
+            onChange={(e, newValue) => {
+              if (!e.target.value) {
+                return;
+              }
+              const v = Number.parseFloat(e.target.value);
+              if (isNaN(v)) {
+                alert("Please use a number for the token field");
+                return;
+              }
+              console.log("(e, newValue", v);
+              this.onChangeHandler(e, v, "A");
+            }}
+            endAdornment={
+              <InputAdornment position="end">Tokens</InputAdornment>
+            }
+            aria-describedby="outlined-weight-helper-text"
+            inputProps={{
+              "aria-label": "weight",
+            }}
+            labelWidth={0}
+          />
+          <FormHelperText
+            className="text-center"
+            id="outlined-weight-helper-text"
+          >
+            Must hold this amount of tokens to have access
+          </FormHelperText>
+        </FormControl>
+
         <div className="flex justify-center my-4 mr-12">
           <div className="flex justify-left">
             <SelectCurrency
@@ -110,7 +140,7 @@ class App extends React.Component {
             />
           </div>
 
-          <div className="flex justify-left">
+          <div className="flex justify-center">
             <input
               className="w-32 form-control form-control-lg mx-3 my-1 bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
               type="number"
@@ -139,7 +169,19 @@ class App extends React.Component {
   }
 }
 /*
-
+        <Slider
+          className="m-2 mx-6"
+          defaultValue={5}
+          aria-labelledby="discrete-slider-restrict"
+          step={1}
+          max={100}
+          valueLabelDisplay="auto"
+          marks={marks}
+          onChange={(e, newValue) => {
+            this.onChangeHandler(e, newValue, "A");
+          }}
+        />
+        
 <button className="w-30 justify-center my-1 bg-white hover:bg-gray-400 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
               USD
             </button>
