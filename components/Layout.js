@@ -10,23 +10,30 @@ import streamSolid from "@iconify/icons-la/stream-solid";
 import uploadSolid from "@iconify/icons-la/upload-solid";
 import userIcon from "@iconify/icons-la/user";
 
+import { overmind, useOvermind } from "../stores/Overmind";
+import * as Roll from "../utils/Roll";
+
 export default function Layout({ children, url }) {
   const [zoom, setZoom] = useState(1);
-
   const [_vanta, setVenta] = useState(null);
-
   const [state, setState] = useState({ refresh: 0 });
-
-  // console.log("g", url);
-
   const element = useRef();
 
+  // Overmind
+  const { state: ostate, actions } = useOvermind();
+  useEffect(() => {
+    const tokenObj = Roll.getToken();
+    console.log("tokenObj", tokenObj);
+    if (!tokenObj) {
+      window.location.href = Roll.loginUrl(window.location.href);
+      return;
+    }
+
+    actions.updateTokens(tokenObj);
+  }, []);
+  // ==================
+
   // let zoom = 1;
-
-  // console.log('url', url)
-
-  // Removed for cleaner start
-
   useScript({
     src: "https://cdn.jsdelivr.net/gh/tengbao/vanta/dist/vanta.waves.min.js",
     checkForExisting: true,

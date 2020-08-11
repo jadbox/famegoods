@@ -46,17 +46,9 @@ export default function WallCard({ tags, title, video, gif, file }) {
   }, []);
 
   if (!videoObj) return null;
-  console.log("videoObj", videoObj);
 
   return (
     <div className="relative w-screen h-full px-4 pt-2 snap-center always-stop z-0">
-      <div className="hidden absolute top-0 right-0 h-8">
-        <a href="https://roll.collab.land?serverURL=http://localhost:3000&redirect=true&id=recI424YZv232Rg0a">
-          <button className="bg-gray-500 rounded-lg p-3 text-white text-center z-50">
-            Open Roll Wallet
-          </button>
-        </a>
-      </div>
       <Link href="/post/[slug]" as={"/post/" + file.id}>
         <div className="mb-8 rounded-md shadow-lg h-full mx-auto w-auto max-w-md w-full cursor-pointer">
           <img
@@ -64,10 +56,16 @@ export default function WallCard({ tags, title, video, gif, file }) {
             src={gif}
           />
           <style jsx>{`
-        .gif-gradient {
-          background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 45.31%, rgba(0, 0, 0, 0.4) 60.94%, rgba(0, 0, 0, 0.9) 100%);
-        }
-      `}</style>
+            .gif-gradient {
+              background-image: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 1) 0%,
+                rgba(0, 0, 0, 0.2) 45.31%,
+                rgba(0, 0, 0, 0.4) 60.94%,
+                rgba(0, 0, 0, 0.9) 100%
+              );
+            }
+          `}</style>
           <div className="absolute top-0 p-6">
             <ProfileHeader />
           </div>
@@ -80,7 +78,9 @@ export default function WallCard({ tags, title, video, gif, file }) {
             <div className="w-full">
               <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-64 rounded-lg mr-2 items-center button-gradient">
                 <Icon className="m-1" icon={playSolid} color="black" />
-                <span>Own {videoObj.tokens} {videoObj.tokenName} to Unlock</span>
+                <span>
+                  Own {videoObj.tokens} {videoObj.tokenName} to Unlock
+                </span>
               </button>
             </div>
 

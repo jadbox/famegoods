@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { inject, observer, useObserver } from "mobx-react";
-import Clock from "./Clock";
 import SortBy from "./SortBy";
 
 import Fab from "@material-ui/core/Fab";
@@ -44,7 +42,7 @@ function Page() {
   // const openDrawer = React.useCallback(() => setIsVisible(true), []);
   // const closeDrawer = React.useCallback(() => setIsVisible(false), []);
 
-  return useObserver(() => (
+  return (
     <>
       <Head>
         <title>DFAME</title>
@@ -89,7 +87,7 @@ function Page() {
 
       {/*<DynamicStoriesWithNoSSR />*/}
     </>
-  ));
+  );
 }
 
 export default Page;
