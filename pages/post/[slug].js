@@ -108,7 +108,7 @@ function Slug() {
 
   useEffect(() => {
     if (ostate.user.balances.length === 0) actions.refreshUser();
-  }, [ostate.user.isAuthenticated, ostate.user.balances]);
+  }, [ostate.user.balances, ostate.user]);
 
   let hasEnough = false;
   let balance = 0;
