@@ -6,10 +6,6 @@ class CustomDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>DFAME</title>
-          <script>
-            if(ethereum) ethereum.autoRefreshOnNetworkChange = false;
-          </script>
           <link
             href="https://assets.website-files.com/5f305ad8d02acc9affb63d10/5f3072d448c0a72cd77bc6cb_DFAME-Icon32px.png"
             rel="shortcut icon"
