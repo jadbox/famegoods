@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "touch ./.next/BUILD_ID && next build",
     "start": "next start",
     "export": "next export",
     "build:css": "tailwindcss build assets/tailwind.css -o assets/main.css",
