@@ -17,11 +17,11 @@ module.exports = {
     // config.externals.push("browser");
     // config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
 
-    if (isServer || dev) {
-      config.resolve.alias.https = "https-browserify";
-      config.resolve.alias.http = "http-browserify";
-      config.resolve.alias.string_decoder = "string_decoder";
-    }
+    //if (isServer || dev) {
+    config.resolve.alias.https = "https-browserify";
+    config.resolve.alias.http = "http-browserify";
+    config.resolve.alias.string_decoder = "string_decoder";
+    //}
 
     // Important: return the modified config
     return config;
