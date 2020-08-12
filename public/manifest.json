@@ -1,0 +1,10 @@
+{
+  "name": "DFAME",
+  "short_name": "DFAME",
+  "theme_color": "#4200ff",
+  "background_color": "#ffffff",
+  "display": "browser",
+  "orientation": "landscape",
+  "scope": "/",
+  "start_url": "/"
+}
