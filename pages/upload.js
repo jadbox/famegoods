@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Page from "../components/Page";
 import { TextField, Slider, Typography, Button } from "@material-ui/core";
 import { addVideo } from "../utils/CTS3";
@@ -8,12 +8,19 @@ import LoadingOverlay from "../components/LoadingOverlay";
 import Link from "next/link";
 import SetTicket from "../components/SetTicket";
 import useAddress from "../utils/Address";
+import { useOvermind } from "../stores/Overmind";
 
 export default function Other() {
   const address = useAddress();
 
   const [state, setState] = useState({ progress: 0 });
   const [formdata, setFormData] = useState({ tokens: 1 });
+
+  const { state: ostate, actions } = useOvermind();
+
+  useEffect(() => {
+    if (ostate.user.balances.length === 0) actions.refreshUser();
+  }, [ostate.user.balances, ostate.user]);
 
   async function onSubmit() {
     const _files = hiddenFileInput.current; // document.getElementById("videoupload");
@@ -178,7 +185,13 @@ export default function Other() {
             </div>
             {/*</div>*/}
 
-            <SetTicket onChange={onTokenChange}></SetTicket>
+            {ostate.user.balances.length > 0 && (
+              <SetTicket
+                tokens={ostate.user.balances}
+                onChange={onTokenChange}
+              ></SetTicket>
+            )}
+            {ostate.user.balances.length === 0 && <p>Loading tokens...</p>}
 
             <div className="flex justify-start">
               <button

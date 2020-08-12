@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import LoadingOverlay from "./LoadingOverlay";
 
-function SetTicket({ onChange }) {
+function SetTicket({ onChange, tokens }) {
   return (
     <div>
       <div className="flex justify-center"></div>
@@ -19,7 +19,7 @@ function SetTicket({ onChange }) {
         </h1>
       </div>
       <div className="mt-4 flex justify-center">
-        <Converter onChange={onChange} />
+        <Converter tokens={tokens} onChange={onChange} />
       </div>
     </div>
   );

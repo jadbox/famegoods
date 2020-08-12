@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../data/Data";
+// import data from "../data/Data";
 import SelectCurrency from "../components/SelectCurrency";
 import Slider from "@material-ui/core/Slider";
 
@@ -40,6 +40,29 @@ const marks = [
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    console.log("this.tokens", this.tokens);
+
+    this.tokens = props.tokens || [];
+
+    this.data = {
+      currencies: this.tokens.map((t) => ({
+        code: t.token.symbol,
+        sellRate: 1,
+        decAmount: t.decAmount,
+        name: t.token.symbol + " Token",
+      })),
+      fiat: [
+        {
+          code: "USD",
+          sellRate: 0.7041,
+          name: "United States Dollars",
+        },
+      ],
+    };
+
+    const data = this.data;
+    console.log("data", data);
 
     this.onChange = props.onChange;
     this.value = 1;
@@ -140,22 +163,25 @@ class App extends React.Component {
             />
           </div>
 
-          <div className="flex justify-center">
-            <input
-              className="w-32 form-control form-control-lg mx-3 my-1 bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
-              type="number"
-              value={currencyBval}
-              aria-describedby="basic-addon3"
-              step="1"
-              pattern="\d\.\d{2}"
-              onChange={(e) => {
-                this.onChangeHandler(e, "B");
-              }}
-            />
+          {false && (
+            <div className="flex justify-center">
+              <input
+                className="w-32 form-control form-control-lg mx-3 my-1 bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
+                type="number"
+                value={currencyBval}
+                aria-describedby="basic-addon3"
+                step="1"
+                pattern="\d\.\d{2}"
+                onChange={(e) => {
+                  this.onChangeHandler(e, "B");
+                }}
+              />
 
-            <div className="mt-3 flexjustify-left">USD</div>
-          </div>
+              <div className="mt-3 flexjustify-left">USD</div>
+            </div>
+          )}
         </div>
+
         <div>
           <div className="flex justify-center ml-2">
             <p className="text-xs">

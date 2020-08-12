@@ -2,6 +2,10 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
 const SelectCurrency = ({ currencies, onSelectCurrency }) => {
+  currencies.sort((a, b) =>
+    parseFloat(a.decAmount) < parseFloat(b.decAmount) ? 1 : -1
+  );
+
   const filteredCurrencies = currencies.filter(
     (currency) => currency.code !== "AUD"
   );
