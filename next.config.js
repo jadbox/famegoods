@@ -20,6 +20,7 @@ module.exports = {
     if (isServer || dev) {
       config.resolve.alias.https = "https-browserify";
       config.resolve.alias.http = "http-browserify";
+      config.resolve.alias.string_decoder = "string_decoder";
     }
 
     // Important: return the modified config
