@@ -158,32 +158,33 @@ function Slug() {
 
           {!ostate.roll.hasAccess && state.file && (
             <>
-              <img
-                src={state.data.gif}
-                className="h-screen w-screen object-cover bg-gray-900 bg-opacity-100"
-              />
-              <div className="absolute top-0 left-0 w-screen h-screen bg-gray-900 bg-opacity-100">
-                <div className="flex ml-4 mt-6">
-                  <ProfileHeader />
-                  <Link href="../">
-                    <Icon
-                      className="fixed top-0 right-0 w-12 h-12 ml-4 mt-6 mr-6"
-                      icon={timesCircle}
-                      color="white"
-                    />
-                  </Link>
+              <div className="bg-black bg-opacity-75">
+                <img
+                  src={state.data.gif}
+                  className="h-screen w-screen object-cover opacity-25"
+                />
+                <div className="absolute top-0 left-0 w-screen h-screen">
+                  <div className="flex ml-4 mt-6">
+                    <ProfileHeader />
+                    <Link href="../">
+                      <Icon
+                        className="fixed top-0 right-0 w-12 h-12 ml-4 mt-6 mr-6"
+                        icon={timesCircle}
+                        color="white"
+                      />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-              <div className="w-full fixed bottom-0">
-                <div className="w-full ml-8 text-white mb-4 font-bold break-words text-4xl text-opacity-100">
-                  {videoObj.title}
-                </div>
-                <a
-                  href={Roll.loginUrl(`${window.location.origin}/post/${slug}`)}
-                >
-                  <button className="mr-6 mb-20 text-white font-bold text-3xl rounded shadow content-center uppercase shadow focus:shadow-outline focus:outline-none tracking-wide py-1 px-auto rounded-lg items-center button-gradient transition duration-500 ease-in-out hover:bg-indigo-400 ">
-                    <style jsx>
-                      {`
+                <div className="w-full fixed bottom-0">
+                  <div className="w-full ml-8 text-white mb-4 font-bold break-words text-4xl text-opacity-100">
+                    {videoObj.title}
+                  </div>
+                  <a
+                    href={Roll.loginUrl(`${window.location.origin}/post/${slug}`)}
+                  >
+                    <button className="mr-6 mb-20 text-white font-bold text-3xl rounded shadow content-center uppercase shadow focus:shadow-outline focus:outline-none tracking-wide py-1 px-auto rounded-lg items-center button-gradient transition duration-500 ease-in-out hover:bg-indigo-400 ">
+                      <style jsx>
+                        {`
                         .button-gradient {
                           background: linear-gradient(
                             90deg,
@@ -197,13 +198,14 @@ function Slug() {
                           margin-right: auto;
                         }
                       `}
-                    </style>
-                    <div className="w-full content-center">Login to Watch</div>
-                    <div className="font-medium text-sm tracking-wide">
-                      No Balance
+                      </style>
+                      <div className="w-full content-center">Login to Watch</div>
+                      <div className="font-medium text-sm tracking-wide">
+                        No Balance
                     </div>
-                  </button>
-                </a>
+                    </button>
+                  </a>
+                </div>
               </div>
             </>
           )}
@@ -211,10 +213,10 @@ function Slug() {
           {ostate.roll.hasAccess && state.file && !hasEnough && (
             <div>
               <a href="https://exchange.tryroll.com/#/swap" target="_blank">
-                <div className="bg-black bg-opacity-100">
+                <div className="bg-gray-800 bg-opacity-75">
                   <img
                     src={state.data.gif}
-                    className="h-screen w-screen object-cover"
+                    className="h-screen w-screen object-cover opacity-75"
                   />
                 </div>
                 <div className="absolute top-0 left-0 w-screen h-screen">

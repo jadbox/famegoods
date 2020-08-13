@@ -11,6 +11,7 @@ import { getVideos } from "../utils/CTS3.js";
 import VideoData from "./videos.json";
 import Others from "../pages/upload";
 import WallCard from "./WallCard";
+import Header from "./header";
 
 function mf(i) {
   const file = "b";
@@ -49,21 +50,10 @@ function Page() {
       // TODO: Add tab icon
       </Head>
 
-      <div className="container h-full">
-        <div className="relative space-y-0 snap snap-y snap-mandatory">
-          <header className="fixed fixed h-16 bg-white w-full top-0 flex">
-            <h3
-              style={{
-                fontStyle: "italic",
-                fontSize: "1.4em",
-                fontWeight: 800,
-                color: "black",
-              }}
-              className="top-0 px-4 py-2 space-y-0 snap snap-y snap-mandatory"
-            >
-              🔥 WHAT'S HOT
-          </h3>
-          </header>
+      <div className="flex-col">
+        <Header>
+        </Header>
+        <div className="snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (
               <WallCard

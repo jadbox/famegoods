@@ -49,13 +49,15 @@ export default function WallCard({ tags, title, video, gif, file }) {
   if (!videoObj) return null;
 
   return (
-    <div className="relative w-screen h-full px-4 pt-2 snap-center always-stop z-0">
+    <div className="relative w-full h-auto px-4 pt-2 snap-center always-stop z-0">
       <Link href="/post/[slug]" as={"/post/" + file.id}>
-        <div className="mb-8 rounded-md shadow-lg h-full mx-auto w-auto max-w-md w-full cursor-pointer bg-gray-800 bg-opacity-75">
-          <img
-            className="rounded-md h-full w-full object-cover opacity-75"
-            src={gif}
-          />
+        <div className="mb-8 rounded-md shadow-lg h-auto mx-auto w-auto max-w-md w-full cursor-pointer bg-gray-800 bg-opacity-75">
+          <div className="relative">
+            <img
+              className="rounded-md w-full object-cover opacity-75"
+              src={gif}
+            />
+          </div>
           <div className="flex absolute top-0 p-6">
             <ProfileHeader />
             <Icon icon={ellipsisVSolid} color="white" className="justify-right mx-0 h-8 w-8" />
@@ -83,6 +85,7 @@ export default function WallCard({ tags, title, video, gif, file }) {
         </div>
       </Link>
     </div >
+
   );
 }
 
