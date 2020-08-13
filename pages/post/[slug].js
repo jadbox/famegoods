@@ -158,13 +158,11 @@ function Slug() {
 
           {!ostate.roll.hasAccess && state.file && (
             <>
-              <div className="bg-black bg-opacity-100">
-                <img
-                  src={state.data.gif}
-                  className="h-screen w-screen object-cover"
-                />
-              </div>
-              <div className="absolute top-0 left-0 w-screen h-screen">
+              <img
+                src={state.data.gif}
+                className="h-screen w-screen object-cover bg-gray-900 bg-opacity-100"
+              />
+              <div className="absolute top-0 left-0 w-screen h-screen bg-gray-900 bg-opacity-100">
                 <div className="flex ml-4 mt-6">
                   <ProfileHeader />
                   <Link href="../">

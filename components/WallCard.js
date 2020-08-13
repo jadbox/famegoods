@@ -4,6 +4,7 @@ import { Icon, InlineIcon } from "@iconify/react";
 import playSolid from "@iconify/icons-la/play-solid";
 import lockSolid from "@iconify/icons-la/lock-solid";
 import heartSolid from "@iconify/icons-la/heart-solid";
+import ellipsisVSolid from '@iconify/icons-la/ellipsis-v-solid';
 import commentsSolid from "@iconify/icons-la/comments-solid";
 import shareAltSquareSolid from "@iconify/icons-la/share-alt-square-solid";
 import baselineShare from "@iconify/icons-ic/baseline-share";
@@ -50,24 +51,14 @@ export default function WallCard({ tags, title, video, gif, file }) {
   return (
     <div className="relative w-screen h-full px-4 pt-2 snap-center always-stop z-0">
       <Link href="/post/[slug]" as={"/post/" + file.id}>
-        <div className="mb-8 rounded-md shadow-lg h-full mx-auto w-auto max-w-md w-full cursor-pointer">
+        <div className="mb-8 rounded-md shadow-lg h-full mx-auto w-auto max-w-md w-full cursor-pointer bg-gray-800 bg-opacity-75">
           <img
-            className="rounded-md h-full w-full object-cover gif-gradient"
+            className="rounded-md h-full w-full object-cover opacity-75"
             src={gif}
           />
-          <style jsx>{`
-            .gif-gradient {
-              background-image: linear-gradient(
-                180deg,
-                rgba(0, 0, 0, 1) 0%,
-                rgba(0, 0, 0, 0.2) 45.31%,
-                rgba(0, 0, 0, 0.4) 60.94%,
-                rgba(0, 0, 0, 0.9) 100%
-              );
-            }
-          `}</style>
-          <div className="absolute top-0 p-6">
+          <div className="flex absolute top-0 p-6">
             <ProfileHeader />
+            <Icon icon={ellipsisVSolid} color="white" className="justify-right mx-0 h-8 w-8" />
           </div>
           <div className="absolute bottom-0 mx-6 mb-24">
             <Icon className="w-10 h-10" icon={lockSolid} color="white" />
@@ -91,7 +82,7 @@ export default function WallCard({ tags, title, video, gif, file }) {
           </div>
         </div>
       </Link>
-    </div>
+    </div >
   );
 }
 

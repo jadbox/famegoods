@@ -46,22 +46,24 @@ function Page() {
     <>
       <Head>
         <title>DFAME</title>
-        // TODO: Add tab icon
+      // TODO: Add tab icon
       </Head>
 
       <div className="container h-full">
         <div className="relative space-y-0 snap snap-y snap-mandatory">
-          <h3
-            style={{
-              fontStyle: "italic",
-              fontSize: "1.4em",
-              fontWeight: 800,
-              color: "black",
-            }}
-            className="px-4 py-2"
-          >
-            🔥 WHAT'S HOT
+          <header className="fixed fixed h-16 bg-white w-full top-0 flex">
+            <h3
+              style={{
+                fontStyle: "italic",
+                fontSize: "1.4em",
+                fontWeight: 800,
+                color: "black",
+              }}
+              className="top-0 px-4 py-2 space-y-0 snap snap-y snap-mandatory"
+            >
+              🔥 WHAT'S HOT
           </h3>
+          </header>
           {videos.map((videoDetail, index) => {
             return (
               <WallCard
