@@ -62,4 +62,7 @@ export const overmind = createOvermind({
       state.username = username;
     },
   },
+},
+{
+  devtools: false,
 });
