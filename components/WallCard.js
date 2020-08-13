@@ -14,22 +14,6 @@ import * as UserData from "../utils/UserData";
 
 export default function WallCard({ tags, title, video, gif, file }) {
   const [videoObj, setVideo] = useState({});
-  // Sample file retrieval logic
-
-  // const [images, setImages] = useState([]);
-  // const [files, setFiles] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [term, setTerm] = useState('');
-  //
-  // useEffect(() => {
-  //   if (file) {
-  //     setFiles(...file.file)
-  //   } else {
-  //     setFiles(`https://source.unsplash.com/random`)
-  //   }
-  // }, []);
-
-  //  Parent css removed: h-auto max-w-screen-sm
 
   const address = file.address;
 
@@ -78,11 +62,6 @@ export default function WallCard({ tags, title, video, gif, file }) {
                 </span>
               </button>
             </div>
-
-            {/*<div className="inline-block bg-gray-200 bg-opacity-50 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
-
-              Tags: {tags}
-  </div>*/}
           </div>
         </div>
       </Link>
@@ -91,15 +70,40 @@ export default function WallCard({ tags, title, video, gif, file }) {
   );
 }
 
-// <Icon icon={commentsSolid} height="3em" className="text-white" />
-// <Icon icon={baselineShare} height="3em" className="text-blue-600" />
-
-/*
-<div className="absolute bottom-0 right-0 space-y-8 mx-6 my-8">
-          <Icon
-            icon={heartSolid}
-            height="3em"
-            className="text-red-700 animate-pulse"
+{/*<Link href="/roll_login">
+        <div className="mb-8 rounded-md shadow-lg h-full mx-auto w-auto max-w-md w-full cursor-pointer">
+          <img
+            className="rounded-md h-full w-full object-cover gif-gradient"
+            src={gif}
           />
+          <style jsx>{`
+            .gif-gradient {
+              background-image: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 1) 0%,
+                rgba(0, 0, 0, 0.2) 45.31%,
+                rgba(0, 0, 0, 0.4) 60.94%,
+                rgba(0, 0, 0, 0.9) 100%
+              );
+            }
+          `}</style>
+          <div className="absolute top-0 p-6">
+            <ProfileHeader />
+          </div>
+          <div className="absolute bottom-0 mx-6 mb-24">
+            <Icon className="w-10 h-10" icon={lockSolid} color="white" />
+            <div className="break-words font-extrabold text-4xl mb-4 p-2 text-white">
+              {videoObj.title || "Loading..."}
+            </div>
+
+            <div className="w-full">
+              <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-64 rounded-lg mr-2 items-center button-gradient">
+                <Icon className="m-1" icon={playSolid} color="black" />
+                <span>
+                  Own {videoObj.tokens} {videoObj.tokenName} to Unlock
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
-*/
+      </Link>*/}

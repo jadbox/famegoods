@@ -19,6 +19,7 @@ import * as Server from "../../utils/CTS3";
 import ProfileHeader from "../../components/profileHeader";
 import * as UserData from "../../utils/UserData";
 import * as Roll from "../../utils/Roll";
+import RollLogin from "../../components/RollLogin";
 
 import { useOvermind } from "../../stores/Overmind";
 
@@ -28,7 +29,7 @@ const init = {
 };
 
 // @inject('store')
-function Slug() {
+export default function Slug() {
   const [state, setState] = useState(init);
   const [videoObj, setVideo] = useState({});
 
@@ -108,7 +109,7 @@ function Slug() {
 
   useEffect(() => {
     if (ostate.user.balances.length === 0) actions.refreshUser();
-  }, [ostate.user.balances, ostate.user]);
+  }, [ostate.user.isUnauthenticated, ostate.user.balances, ostate.user]);
 
   let hasEnough = false;
   let balance = 0;
@@ -156,61 +157,71 @@ function Slug() {
             </div>
           )}
 
-          {!ostate.roll.hasAccess && state.file && (
-            <>
+          {ostate.user.isUnauthenticated && state.file && (
+            <RollLogin />
+          )}
+
+          {!ostate.user.isUnauthenticated && state.file && hasEnough && (
+            <div onClick={unlock}>
               <div className="bg-black bg-opacity-75">
                 <img
                   src={state.data.gif}
                   className="h-screen w-screen object-cover opacity-25"
                 />
-                <div className="absolute top-0 left-0 w-screen h-screen">
-                  <div className="flex ml-4 mt-6">
-                    <ProfileHeader />
-                    <Link href="../">
+              </div>
+              <div className="absolute top-0 left-0 w-screen h-screen">
+                <div className="flex ml-4 mt-6">
+                  <ProfileHeader />
+                  <Link href="../">
+                    <div>
                       <Icon
                         className="fixed top-0 right-0 w-12 h-12 ml-4 mt-6 mr-6"
                         icon={timesCircle}
                         color="white"
                       />
-                    </Link>
-                  </div>
-                </div>
-                <div className="w-full fixed bottom-0">
-                  <div className="w-full ml-8 text-white mb-4 font-bold break-words text-4xl text-opacity-100">
-                    {videoObj.title}
-                  </div>
-                  <a
-                    href={Roll.loginUrl(`${window.location.origin}/post/${slug}`)}
-                  >
-                    <button className="mr-6 mb-20 text-white font-bold text-3xl rounded shadow content-center uppercase shadow focus:shadow-outline focus:outline-none tracking-wide py-1 px-auto rounded-lg items-center button-gradient transition duration-500 ease-in-out hover:bg-indigo-400 ">
-                      <style jsx>
-                        {`
-                        .button-gradient {
-                          background: linear-gradient(
-                            90deg,
-                            #3bdeff 0%,
-                            #635bff 100%
-                          );
-                          box-shadow: 0px 2px 10px rgba(11, 3, 32, 0.05);
-                          width: 90%;
-                          display: block;
-                          margin-left: auto;
-                          margin-right: auto;
-                        }
-                      `}
-                      </style>
-                      <div className="w-full content-center">Login to Watch</div>
-                      <div className="font-medium text-sm tracking-wide">
-                        No Balance
                     </div>
-                    </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
-            </>
+              {/*<div className="fixed top-0 right-0 w-screen h-screen">
+                  <div className="ml-4 mt-6">
+                    <Icon className="top-0 right-0 w-12 h-12" icon={timesCircle} color="white" />
+                  </div>
+          </div>*/}
+              <div className="w-full fixed bottom-0">
+                <div className="w-full ml-8 text-white mb-4 font-bold break-words text-4xl text-opacity-100">
+                  {videoObj.title}
+                </div>
+                <button className="mr-6 mb-20 text-white font-bold text-3xl rounded shadow content-center uppercase shadow focus:shadow-outline focus:outline-none tracking-wide py-1 px-auto rounded-lg items-center button-gradient transition duration-500 ease-in-out hover:bg-indigo-400 ">
+                  <style jsx>
+                    {`
+                      .button-gradient {
+                        background: linear-gradient(
+                          90deg,
+                          #3bdeff 0%,
+                          #635bff 100%
+                        );
+                        box-shadow: 0px 2px 10px rgba(11, 3, 32, 0.05);
+                        width: 90%;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                      }
+                    `}
+                  </style>
+                  <div className="w-full content-center">Watch Now</div>
+                  <div className="font-medium text-sm tracking-wide">
+                    Must Hold: {videoObj.tokens} {videoObj.tokenName}
+                  </div>
+                  <div className="font-medium text-sm tracking-wide">
+                    Current Balance: {balance} TING
+                  </div>
+                </button>
+              </div>
+            </div>
           )}
 
-          {ostate.roll.hasAccess && state.file && !hasEnough && (
+          {!ostate.user.isUnauthenticated && state.file && !hasEnough && (
             <div>
               <a href="https://exchange.tryroll.com/#/swap" target="_blank">
                 <div className="bg-gray-800 bg-opacity-75">
@@ -277,66 +288,6 @@ function Slug() {
             </div>
           )}
 
-          {ostate.roll.hasAccess && state.file && hasEnough && (
-            <div onClick={unlock}>
-              <div className="bg-black bg-opacity-100">
-                <img
-                  src={state.data.gif}
-                  className="h-screen w-screen object-cover"
-                />
-              </div>
-              <div className="absolute top-0 left-0 w-screen h-screen">
-                <div className="flex ml-4 mt-6">
-                  <ProfileHeader />
-                  <Link href="../">
-                    <div>
-                      <Icon
-                        className="fixed top-0 right-0 w-12 h-12 ml-4 mt-6 mr-6"
-                        icon={timesCircle}
-                        color="white"
-                      />
-                    </div>
-                  </Link>
-                </div>
-              </div>
-              {/*<div className="fixed top-0 right-0 w-screen h-screen">
-                  <div className="ml-4 mt-6">
-                    <Icon className="top-0 right-0 w-12 h-12" icon={timesCircle} color="white" />
-                  </div>
-          </div>*/}
-              <div className="w-full fixed bottom-0">
-                <div className="w-full ml-8 text-white mb-4 font-bold break-words text-4xl text-opacity-100">
-                  {videoObj.title}
-                </div>
-                <button className="mr-6 mb-20 text-white font-bold text-3xl rounded shadow content-center uppercase shadow focus:shadow-outline focus:outline-none tracking-wide py-1 px-auto rounded-lg items-center button-gradient transition duration-500 ease-in-out hover:bg-indigo-400 ">
-                  <style jsx>
-                    {`
-                      .button-gradient {
-                        background: linear-gradient(
-                          90deg,
-                          #3bdeff 0%,
-                          #635bff 100%
-                        );
-                        box-shadow: 0px 2px 10px rgba(11, 3, 32, 0.05);
-                        width: 90%;
-                        display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                      }
-                    `}
-                  </style>
-                  <div className="w-full content-center">Watch Now</div>
-                  <div className="font-medium text-sm tracking-wide">
-                    Must Hold: {videoObj.tokens} {videoObj.tokenName}
-                  </div>
-                  <div className="font-medium text-sm tracking-wide">
-                    Current Balance: {balance} TING
-                  </div>
-                </button>
-              </div>
-            </div>
-          )}
-
           {state.unlocked && state.file && (
             <div className="h-screen w-screen object-cover">
               <div className="absolute bottom-0 right-0 space-y-8 mb-32 mr-4">
@@ -360,4 +311,3 @@ function Slug() {
   );
 }
 
-export default Slug;

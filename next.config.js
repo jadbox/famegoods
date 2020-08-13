@@ -1,4 +1,8 @@
-module.exports = {
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
+module.exports = withBundleAnalyzer({
   devIndicators: {
     autoPrerender: false,
   },
@@ -17,13 +21,23 @@ module.exports = {
     // config.externals.push("browser");
     // config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
 
-    //if (isServer || dev) {
-    config.resolve.alias.https = "https-browserify";
-    config.resolve.alias.http = "http-browserify";
-    config.resolve.alias.string_decoder = "string_decoder";
+    // if (config.resolve.mainFields.indexOf("browser") === -1) {
+    config.resolve.alias["https"] = false; // "https-browserify";
+    config.resolve.alias["http"] = false; // "http-browserify";
+    // } else {
+
+    // }
+    // config.resolve.mainFields = config.resolve.mainFields || [];
+    // config.resolve.mainFields = ["browser", ...config.resolve.mainFields];
+
+    // console.log("config", config);
+    // console.log(JSON.stringify(config.resolve));
+
+    config.resolve.alias.string_decoder = false; // "string_decoder";
+    config.resolve.alias["geturl"] = "browser-geturl";
     //}
 
     // Important: return the modified config
     return config;
   },
-};
+});

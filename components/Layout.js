@@ -24,12 +24,11 @@ export default function Layout({ children, url }) {
   useEffect(() => {
     const tokenObj = Roll.getToken();
     console.log("tokenObj", tokenObj);
-    if (!tokenObj) {
-      window.location.href = Roll.loginUrl(window.location.href);
-      return;
-    }
+
+    if (!tokenObj) return;
 
     actions.updateTokens(tokenObj);
+
   }, []);
   // ==================
 
