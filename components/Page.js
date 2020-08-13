@@ -50,7 +50,7 @@ function Page() {
       // TODO: Add tab icon
       </Head>
 
-      <div className="flex-col">
+      <div className="flex flex-col">
         <Header>
         </Header>
         <div className="snap snap-y snap-mandatory">

@@ -49,12 +49,12 @@ export default function WallCard({ tags, title, video, gif, file }) {
   if (!videoObj) return null;
 
   return (
-    <div className="relative w-full h-auto px-4 pt-2 snap-center always-stop z-0">
+    <div className="relative mx-6 my-10 pt-2 snap-center always-stop z-0">
       <Link href="/post/[slug]" as={"/post/" + file.id}>
-        <div className="mb-8 rounded-md shadow-lg h-auto mx-auto w-auto max-w-md w-full cursor-pointer bg-gray-800 bg-opacity-75">
-          <div className="relative">
+        <div className="mb-8 rounded-md shadow-lg mx-auto cursor-pointer bg-gray-800 bg-opacity-75">
+          <div className="relative w-full object-contain">
             <img
-              className="rounded-md w-full object-cover opacity-75"
+              className="rounded-md w-full opacity-75"
               src={gif}
             />
           </div>
