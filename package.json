@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next",
     "devmind": "concurrently overmind-devtools next",
-    "build": "touch ./.next/BUILD_ID && next build",
+    "build": "next build",
     "start": "next start",
     "export": "next export",
     "build:css": "tailwindcss build assets/tailwind.css -o assets/main.css",
