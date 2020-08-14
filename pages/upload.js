@@ -8,9 +8,10 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
 import LoadingOverlay from "../components/LoadingOverlay";
 import Link from "next/link";
-import SetTicket from "../components/SetTicket";
+import SetTicket from "../components/upload/SetTicket";
 import useAddress from "../utils/Address";
 import { useOvermind } from "../stores/Overmind";
+import MetaMask from "../components/MetaMask"
 
 export default function Other() {
   const address = useAddress();
@@ -51,7 +52,15 @@ export default function Other() {
     try {
       setState((x) => ({ ...x, loading: true, progress: 0 }));
 
-      const videoObj = { title: title, ...formdata };
+      const videoObj = {
+        title: title,
+        tokenSet: formdata.tokens,
+        tokens: formdata.tokens["1"].amount,
+        tokenName: formdata.tokens["1"].name,
+      };
+
+      // console.log("videoObj", videoObj);
+      // return;
       addVideo(_files.files, address, videoObj, onProgress)
         .then((x) => {
           // if() setState((x) => ({ ...x, progress: 99 }));
@@ -80,18 +89,6 @@ export default function Other() {
     hiddenFileInput.current.click();
   };
 
-  const handleSubmit = (event) => {
-    const fileUploaded = hiddenFileInput.current.files; // event.target.files[0];
-    if (!fileUploaded || fileUploaded.length === 0) {
-      alert("please select a video");
-      return;
-    }
-    // console.log("fileUploaded", fileUploaded);
-
-    addVideo(fileUploaded, address);
-    // props.handleFile(fileUploaded);
-  };
-
   // The structure of FileUploader breaks the rules of hooks and can result in the error referenced here: https://reactjs.org/warnings/invalid-hook-call-warning.html
 
   // TL;DR: The solution is to not include hooks like useRed inside event handlers. The #2 reason listed in the above mentioned documentation.
@@ -112,20 +109,14 @@ export default function Other() {
     setState((x) => ({ ...x, uploadFilename: fileUploaded[0].name }));
   }
 
-  function onTokenChange(tokens, tokenName) {
-    console.log("onTokenChange", tokens, tokenName);
-    setFormData((x) => ({ ...x, tokens, tokenName }));
+  function onTokenChange(tokens) {
+    // console.log("onTokenChange", tokens);
+
+    setFormData((x) => ({ ...x, tokens }));
   }
 
   if (!address) {
-    return <div>
-      <div className="absolute top-0 right-0 mr-4 mt-4">
-        <Link href="/post/[slug]">
-          <Icon icon={timesSolid} className="h-8 w-8" />
-        </Link>
-      </div>
-      <h1 className="text-center mt-24 font-extrabold text-2xl tracking-wider">Authorize Metamask</h1>
-    </div>;
+    return <MetaMask></MetaMask>;
   }
 
   return (

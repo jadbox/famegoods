@@ -28,18 +28,19 @@ export default function Layout({ children, url }) {
     if (!tokenObj) return;
 
     actions.updateTokens(tokenObj);
-
   }, []);
   // ==================
 
   // let zoom = 1;
-  useScript({
+  /* useScript({
     src: "https://cdn.jsdelivr.net/gh/tengbao/vanta/dist/vanta.waves.min.js",
     checkForExisting: true,
     onload: () => setState((x) => ({ ...x, refresh: x.refresh + 1 })),
-  });
+  }); */
 
   useEffect(() => {
+    return;
+
     if (url === "/") setZoom(2);
     else if (url === "/upload") setZoom(1.5);
     else if (url === "/profile") setZoom(1);
@@ -55,6 +56,7 @@ export default function Layout({ children, url }) {
 
   useEffect(() => {
     return;
+
     if (_vanta2) return;
 
     if (!window.VANTA) {
@@ -90,12 +92,7 @@ export default function Layout({ children, url }) {
 
   return (
     <div ref={element} className="w-screen h-screen">
-      <Head>
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"
-          defer
-        ></script>
-      </Head>
+      <Head></Head>
 
       <div>{children}</div>
 
@@ -123,6 +120,13 @@ export default function Layout({ children, url }) {
 }
 
 /*
+<script
+          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"
+          defer
+        ></script>
+
+
+        
  <header className="flex fixed top-0 w-full h-12 border-solid border-b-4 border-gray-300 bg-white z-50">
         <div className="flex items-center justify-between w-full px-3 py-2 z-auto">
           <Icon icon={walletSolid} height="2em" />

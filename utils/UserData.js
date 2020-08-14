@@ -18,6 +18,10 @@ export function getNewVideos(address) {
 
 // const box = await Box.create(window.ethereum);
 
+export function getProfile(address) {
+  return Box.getProfile(address);
+}
+
 let enabled = false;
 
 export class DataStore {
