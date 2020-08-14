@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Page from "../components/Page";
 import { TextField, Slider, Typography, Button } from "@material-ui/core";
-import { Icon, InlineIcon } from '@iconify/react';
-import timesSolid from '@iconify/icons-la/times-solid';
 import { addVideo } from "../utils/CTS3";
 import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
