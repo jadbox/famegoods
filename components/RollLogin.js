@@ -12,21 +12,21 @@ export default function RollLogin() {
 		<div>
 			<img src="https://pbs.twimg.com/profile_images/1221640912050294784/XBtcYXED_400x400.jpg" />
 			<div className="flex justify-center">
-				<p className="text-5xl font-header" >
-					Roll
-                </p>
+				<p className="text-5xl font-header text-center">
+					Roll Social Token Wallet
+        </p>
 			</div>
-			<div className="flex justify-center mx-auto mt-16">
+			<div className="flex justify-center mx-auto mt-2">
 				<a href={Roll.loginUrl(windowHost)}>
 					<button className="flex justify-center mx-auto mt-8 bg-blue-500 rounded-lg p-3 text-white text-center">
-						Log in to Roll
+						Open Your Roll Wallet
           </button>
 				</a>
 			</div>
 			<div>
 				<a href='https://app.tryroll.com/createAccount/no_claim' target='_blank'>
 					<button className="flex justify-center mx-auto mt-8 bg-blue-500 rounded-lg p-3 text-white text-center">
-						Register on Roll
+						Register for a Roll Wallet
           </button>
 				</a>
 			</div>
