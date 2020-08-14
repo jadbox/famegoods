@@ -110,7 +110,7 @@ export default function Slug() {
   useEffect(() => {
     if (ostate.user.balances.length === 0) actions.refreshUser();
   }, [ostate.user.isUnauthenticated, ostate.user.balances, ostate.user]);
-    
+
   let hasEnough = false;
   let balance = 0;
   if (ostate.user.balances.length > 0 && videoObj.tokenName) {
@@ -128,7 +128,7 @@ export default function Slug() {
       );
     }
   }
-  
+
   return (
     <>
       <Head>
@@ -163,10 +163,10 @@ export default function Slug() {
 
           {!ostate.user.isUnauthenticated && state.file && hasEnough && (
             <div onClick={unlock}>
-              <div className="bg-black bg-opacity-100">
+              <div className="bg-black bg-opacity-75">
                 <img
                   src={state.data.gif}
-                  className="h-screen w-screen object-cover"
+                  className="h-screen w-screen object-cover opacity-25"
                 />
               </div>
               <div className="absolute top-0 left-0 w-screen h-screen">
@@ -224,10 +224,10 @@ export default function Slug() {
           {!ostate.user.isUnauthenticated && state.file && !hasEnough && (
             <div>
               <a href="https://exchange.tryroll.com/#/swap" target="_blank">
-                <div className="bg-black bg-opacity-100">
+                <div className="bg-gray-800 bg-opacity-75">
                   <img
                     src={state.data.gif}
-                    className="h-screen w-screen object-cover"
+                    className="h-screen w-screen object-cover opacity-75"
                   />
                 </div>
                 <div className="absolute top-0 left-0 w-screen h-screen">

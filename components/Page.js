@@ -11,6 +11,7 @@ import { getVideos } from "../utils/CTS3.js";
 import VideoData from "./videos.json";
 import Others from "../pages/upload";
 import WallCard from "./WallCard";
+import Header from "./header";
 
 function mf(i) {
   const file = "b";
@@ -46,22 +47,13 @@ function Page() {
     <>
       <Head>
         <title>DFAME</title>
-        // TODO: Add tab icon
+      // TODO: Add tab icon
       </Head>
 
-      <div className="container h-full">
-        <div className="relative space-y-0 snap snap-y snap-mandatory">
-          <h3
-            style={{
-              fontStyle: "italic",
-              fontSize: "1.4em",
-              fontWeight: 800,
-              color: "black",
-            }}
-            className="px-4 py-2"
-          >
-            🔥 WHAT'S HOT
-          </h3>
+      <div className="flex flex-col">
+        <Header>
+        </Header>
+        <div className="snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (
               <WallCard
