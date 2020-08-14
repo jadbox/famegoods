@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import Page from "../components/Page";
 import { TextField, Slider, Typography, Button } from "@material-ui/core";
+import { Icon, InlineIcon } from '@iconify/react';
+import timesSolid from '@iconify/icons-la/times-solid';
 import { addVideo } from "../utils/CTS3";
 import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
@@ -116,7 +118,14 @@ export default function Other() {
   }
 
   if (!address) {
-    return <div>Looking for metamask...</div>;
+    return <div>
+      <div className="absolute top-0 right-0 mr-4 mt-4">
+        <Link href="/post/[slug]">
+          <Icon icon={timesSolid} className="h-8 w-8" />
+        </Link>
+      </div>
+      <h1 className="text-center mt-24 font-extrabold text-2xl tracking-wider">Authorize Metamask</h1>
+    </div>;
   }
 
   return (
