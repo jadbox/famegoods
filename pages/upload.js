@@ -9,6 +9,7 @@ import Link from "next/link";
 import SetTicket from "../components/upload/SetTicket";
 import useAddress from "../utils/Address";
 import { useOvermind } from "../stores/Overmind";
+import MetaMask from "../components/MetaMask"
 
 export default function Other() {
   const address = useAddress();
@@ -113,7 +114,7 @@ export default function Other() {
   }
 
   if (!address) {
-    return <div>Looking for metamask...</div>;
+    return <MetaMask></MetaMask>;
   }
 
   return (
