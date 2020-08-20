@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Page from "../components/Page";
 import { ethers } from "ethers";
-// import Box from "3box";
+import { getProfile, setProfile } from "../utils/UserData";
 import useAddress from "../utils/Address";
+// import Box from "3box";
 {
   /*const Box = require("3box");*/
 }
 
 export default function Index() {
-  {
-    /*const [profile, setProfile] = useState(null);
-
+  /*{
+    const [profile, setProfile] = useState(null);
   async function getProfile() {
     const _profile = await Box.getProfile(
       "0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D"
@@ -18,13 +18,23 @@ export default function Index() {
     console.log(_profile);
     setProfile(_profile);
   }
-
   useEffect(() => {
     getProfile();
-  }, []);*/
+  }, []);
   }
+  '0x489e4CFfa9B59784C597C51cd24000b1db506c20'
+  '0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D'
+*/
   const [box, setBox] = useState();
-  const [address, setAddress] = useState();
+  const [address, setAddress] = useState('');
+  const [userProfile, setUserProfile] = useState({
+    name: '',
+    description: '',
+    emoji: '',
+    image: [],
+    location: '',
+    website: '',
+  });
 
   let provider;
   let signer;
@@ -71,21 +81,27 @@ export default function Index() {
     }
   };
 
-  // useEffect(() => {
-  //   async function setup() {
-  //     provider = ethers.getDefaultProvider();
-  //     metaMask = window.ethereum;
-  //     if (metaMask.enable) await metaMask.enable();
-  //     const accounts = await metaMask.send('eth_accounts');
-  //     const account = accounts.result[0];
+  let userAddress = useAddress();
+  if (address !== userAddress) {
+    setAddress(userAddress);
+  }
 
-  //     setAddress(account);
-  //     // signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
-  //     console.log(account)
-  //   }
-  //   setup();
+  const get3BoxProfile = async (addr) => {
+    const userProfile = await getProfile(addr);
+    setUserProfile({
+      name: userProfile.name,
+      description: userProfile.description,
+      emoji: userProfile.emoji,
+      image: Object.values(userProfile.image[0].contentUrl),
+      location: userProfile.location,
+      website: userProfile.website,
+    });
+  }
 
-  // }, [])
+  useEffect(() => {
+    if (!address) return;
+    get3BoxProfile(address);
+  }, [address])
 
   return (
     <div>
@@ -101,16 +117,19 @@ export default function Index() {
             <div className="sm:align-middle rounded rounded-t-lg overflow-hidden shadow max-w-md my-3">
               <div className="flex justify-center mt-10">
                 <img
-                  src="https://i.imgur.com/8Km9tLL.jpg"
+                  src={`https://ipfs.infura.io/ipfs/${userProfile.image[0]}`}
                   className="rounded-full border-solid border-white border-2 -mt-3"
                 />
               </div>
               <div className="text-center px-3 pb-6 pt-2">
                 <h1 className="text-black text-lg bold font-sans">
-                  Nele Weißhan
+                  {userProfile.name} {userProfile.emoji}
                 </h1>
                 <p className="mt-2 font-sans font-light text-grey-dark">
-                  Hello, I'm from another the other side!
+                  {userProfile.description}
+                </p>
+                <p className="mt-2 font-sans font-light text-grey-dark">
+                  {userProfile.website}
                 </p>
                 <p className="mt-4">
                   Wallet Address: <br />
