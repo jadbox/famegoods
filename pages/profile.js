@@ -3,28 +3,23 @@ import Page from "../components/Page";
 import { ethers } from "ethers";
 import { getProfile, setProfile } from "../utils/UserData";
 import useAddress from "../utils/Address";
-// import Box from "3box";
-{
-  /*const Box = require("3box");*/
-}
+
+/* 3box addresses that can be used for testing.
+  ---- Luis's 3box address ----
+  '0x489e4CFfa9B59784C597C51cd24000b1db506c20'
+
+  ---- Jonathan's 3box address ----
+  '0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D'
+
+  How to create your own 3box profile for testing &/or leisure:
+1. Get the Metamask wallet Chrome extension. 
+2. Use it to log in at https://3box.io/hub
+3. Create your profile and login to DFAME with the same Metamask account used for 3box.
+
+  You should see your 3box profile data in DFAME's profile tab.
+*/
 
 export default function Index() {
-  /*{
-    const [profile, setProfile] = useState(null);
-  async function getProfile() {
-    const _profile = await Box.getProfile(
-      "0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D"
-    );
-    console.log(_profile);
-    setProfile(_profile);
-  }
-  useEffect(() => {
-    getProfile();
-  }, []);
-  }
-  '0x489e4CFfa9B59784C597C51cd24000b1db506c20'
-  '0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D'
-*/
   const [box, setBox] = useState();
   const [address, setAddress] = useState('');
   const [userProfile, setUserProfile] = useState({
@@ -35,51 +30,6 @@ export default function Index() {
     location: '',
     website: '',
   });
-
-  let provider;
-  let signer;
-  let myAddress;
-  let metaMask;
-  const defaultProvider = ethers.getDefaultProvider();
-  const infuraProvider = new ethers.providers.JsonRpcProvider(
-    "https://mainnet.infura.io/v3/7cc1f1e700c443a7840540140f931831"
-  );
-
-  // if (typeof window !== "undefined") {
-  //   provider = new ethers.providers.Web3Provider(window.ethereum)
-  //   signer = provider.getSigner()
-  //   console.log(provider.address[0])
-  // }
-
-  // This is an expendable private key created only to be used for this purpose
-  // Can also use ethers.Wallet.createRandom() to create a test wallet
-  const pk =
-    "0xd2c63861bd5482b97f25303187772f0d7b94d0f0d2a628e724b3a92041887e8c";
-  const walletInstance = new ethers.Wallet(pk, defaultProvider);
-
-  const init3Box = async () => {
-    // const box = await Box.create();
-    // setBox(box);
-    const address = walletInstance.address;
-    console.log(address);
-  };
-
-  const auth3Box = async () => {
-    const infuraProvider = new ethers.providers.JsonRpcProvider(
-      "https://mainnet.infura.io/v3/7cc1f1e700c443a7840540140f931831"
-    );
-    // const box = await Box.create();
-    // setBox(box);
-    const address = walletInstance.address;
-    console.log(address);
-    try {
-      const spaces = ["myDapp"];
-      console.log(infuraProvider);
-      //await box.auth([], { address: address[0], provider: infuraProvider })
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
   let userAddress = useAddress();
   if (address !== userAddress) {
