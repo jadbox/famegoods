@@ -96,8 +96,8 @@ export default function Layout({ children, url }) {
 
       <div>{children}</div>
 
-      <footer className="fixed h-16 bg-white w-full bottom-0 flex">
-        <div className="flex justify-between w-4/5 mx-auto md:mx-8 py-2">
+      <footer className="fixed h-16 bg-white w-full bottom-0 flex rounded-t-lg">
+        <div className="flex items-center justify-between w-4/5 mx-auto md:mx-8 py-2">
           <Link href="/">
             <div className="sm:px-2 cursor-pointer hover:text-blue-400">
               <Icon icon={streamSolid} height="2em" />

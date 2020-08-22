@@ -47,12 +47,11 @@ function Page() {
     <>
       <Head>
         <title>DFAME</title>
-      // TODO: Add tab icon
+        // TODO: Add tab icon
       </Head>
 
       <div className="flex flex-col">
-        <Header>
-        </Header>
+        <Header></Header>
         <div className="snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (
@@ -85,3 +84,4 @@ function Page() {
 export default Page;
 
 // <SortBy />
+

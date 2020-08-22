@@ -4,7 +4,7 @@ import { Icon, InlineIcon } from "@iconify/react";
 import playSolid from "@iconify/icons-la/play-solid";
 import lockSolid from "@iconify/icons-la/lock-solid";
 import heartSolid from "@iconify/icons-la/heart-solid";
-import ellipsisVSolid from '@iconify/icons-la/ellipsis-v-solid';
+import ellipsisVSolid from "@iconify/icons-la/ellipsis-v-solid";
 import commentsSolid from "@iconify/icons-la/comments-solid";
 import shareAltSquareSolid from "@iconify/icons-la/share-alt-square-solid";
 import baselineShare from "@iconify/icons-ic/baseline-share";
@@ -33,44 +33,52 @@ export default function WallCard({ tags, title, video, gif, file }) {
   if (!videoObj) return null;
 
   return (
-    <div className="relative ml-10 mr-10 justify-center mt-10 mb-20 pt-2 snap-center always-stop z-0 overflow-x-hidden">
+    <div className="container h-screen flex items-center justify-center snap-center always-stop px-6">
       <Link href="/post/[slug]" as={"/post/" + file.id}>
-        <div className="mb-8 rounded-md shadow-lg w-full justify-center cursor-pointer">
-          <div className="relative align-center object-contain bg-black bg-opacity-75 rounded-lg">
-            <img
-              className="object-center rounded-lg w-full object-contain opacity-75"
-              src={gif}
+        <div
+          className="relative rounded-md shadow-lg h-48 w-full justify-center cursor-pointer overflow-hidden"
+          style={{
+            backgroundImage: `url(${gif})`,
+            backgroundSize: "cover",
+            backgroundPosition: "50%",
+            height: "75%",
+          }}
+        >
+          <div className="flex absolute top-0 right-0 left-0 p-6">
+            <ProfileHeader />
+            <Icon
+              icon={ellipsisVSolid}
+              color="white"
+              className="top-0 right-0 h-8 w-8"
             />
           </div>
-          <div className="flex absolute top-0 p-6">
-            <ProfileHeader />
-            <div className="top-0 right-0">
-              <Icon icon={ellipsisVSolid} color="white" className="top-0 right-0 h-8 w-8 ml-20" />
-            </div>
-          </div>
-          <div className="absolute bottom-0 mx-6 mb-24 w-full">
+          <div className="absolute bottom-0 left-0 right-0 p-6">
             <Icon className="w-10 h-10" icon={lockSolid} color="white" />
             <div className="break-words font-extrabold text-4xl mb-4 p-2 text-white">
               {videoObj.title || "Loading..."}
             </div>
 
-            <div className="w-full">
-              <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-9/12 rounded-lg mr-2 items-center button-gradient">
-                <Icon className="m-1" icon={playSolid} color="black" />
-                <span>
-                  Own {videoObj.tokens} {videoObj.tokenName} to Unlock
-                </span>
-              </button>
-            </div>
+            <UnlockButton>
+              Own {videoObj.tokens} {videoObj.tokenName} to Unlock
+            </UnlockButton>
           </div>
         </div>
       </Link>
-    </div >
-
+    </div>
   );
 }
 
-{/*<Link href="/roll_login">
+function UnlockButton({ children }) {
+  return (
+    <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-9/12 rounded-lg mr-2 items-center button-gradient w-full">
+      <Icon className="m-1" icon={playSolid} color="black" />
+      <span>{children}</span>
+    </button>
+  );
+}
+
+{
+  /*<Link href="/roll_login">
         <div className="mb-8 rounded-md shadow-lg h-full mx-auto w-auto max-w-md w-full cursor-pointer">
           <img
             className="rounded-md h-full w-full object-cover gif-gradient"
@@ -105,4 +113,5 @@ export default function WallCard({ tags, title, video, gif, file }) {
             </div>
           </div>
         </div>
-      </Link>*/}
+      </Link>*/
+}

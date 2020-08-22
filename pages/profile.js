@@ -21,14 +21,14 @@ import useAddress from "../utils/Address";
 
 export default function Index() {
   const [box, setBox] = useState();
-  const [address, setAddress] = useState('');
+  const [address, setAddress] = useState("");
   const [userProfile, setUserProfile] = useState({
-    name: '',
-    description: '',
-    emoji: '',
+    name: "",
+    description: "",
+    emoji: "",
     image: [],
-    location: '',
-    website: '',
+    location: "",
+    website: "",
   });
 
   let userAddress = useAddress();
@@ -42,16 +42,18 @@ export default function Index() {
       name: userProfile.name,
       description: userProfile.description,
       emoji: userProfile.emoji,
-      image: Object.values(userProfile.image[0].contentUrl),
+      image: userProfile.image
+        ? Object.values(userProfile.image[0].contentUrl)
+        : [],
       location: userProfile.location,
       website: userProfile.website,
     });
-  }
+  };
 
   useEffect(() => {
     if (!address) return;
     get3BoxProfile(address);
-  }, [address])
+  }, [address]);
 
   return (
     <div>
@@ -107,3 +109,4 @@ export default function Index() {
     </div>
   );
 }
+
