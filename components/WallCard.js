@@ -11,7 +11,7 @@ import * as UserData from "../utils/UserData";
 export default function WallCard({ gif, file }) {
   const [videoMetadata, setVideoMetadata] = useState({});
 
-  useEffect((x) => {
+  useEffect(() => {
     async function run() {
       const box = await UserData.forUser(file.address);
       const video = await box.getVideo(file.id);
