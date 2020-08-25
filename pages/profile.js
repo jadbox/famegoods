@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Page from "../components/Page";
+import Link from "next/link";
 import { ethers } from "ethers";
 import { getProfile, setProfile } from "../utils/UserData";
 import useAddress from "../utils/Address";
@@ -26,27 +27,32 @@ export default function Index() {
     name: "",
     description: "",
     emoji: "",
-    image: [],
+    image: [{
+      "@type": "ImageObject",
+      "contentUrl": {
+        "/": ""
+      }
+    }],
     location: "",
     website: "",
   });
 
+  // This is redundant since address is already stored and returned from Address.js
+  // See profile_edit.js for a better example to implement.
   let userAddress = useAddress();
   if (address !== userAddress) {
     setAddress(userAddress);
   }
 
   const get3BoxProfile = async (addr) => {
-    const userProfile = await getProfile(addr);
+    const userBoxProfile = await getProfile(addr);
     setUserProfile({
-      name: userProfile.name,
-      description: userProfile.description,
-      emoji: userProfile.emoji,
-      image: userProfile.image
-        ? Object.values(userProfile.image[0].contentUrl)
-        : [],
-      location: userProfile.location,
-      website: userProfile.website,
+      name: userBoxProfile.name,
+      description: userBoxProfile.description,
+      emoji: userBoxProfile.emoji,
+      [userBoxProfile.image ? "image" : "noop"]: userBoxProfile.image,        
+      location: userBoxProfile.location,
+      website: userBoxProfile.website,
     });
   };
 
@@ -67,12 +73,19 @@ export default function Index() {
           <div className="text-center absolute w-full"></div>
           <div className="flex justify-center">
             <div className="sm:align-middle rounded rounded-t-lg overflow-hidden shadow max-w-md my-3">
-              <div className="flex justify-center mt-10">
-                <img
-                  src={`https://ipfs.infura.io/ipfs/${userProfile.image[0]}`}
-                  className="rounded-full border-solid border-white border-2 -mt-3"
-                />
-              </div>
+              
+              {userProfile.image[0].contentUrl["/"]
+                ?
+                  <div className="flex justify-center mt-10">
+                    <img
+                      src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
+                      className="rounded-full border-solid border-white border-2 -mt-3"
+                    />
+                  </div>
+
+                : null
+              }                
+              
               <div className="text-center px-3 pb-6 pt-2">
                 <h1 className="text-black text-lg bold font-sans">
                   {userProfile.name} {userProfile.emoji}
@@ -83,6 +96,11 @@ export default function Index() {
                 <p className="mt-2 font-sans font-light text-grey-dark">
                   {userProfile.website}
                 </p>
+                <Link href="/profile_edit">
+                  <p className="mt-2 font-sans font-light text-blue-400">
+                    Edit Profile
+                  </p>
+                </Link>
                 <p className="mt-4">
                   Wallet Address: <br />
                   <span style={{ fontSize: "0.8em" }}>{useAddress()}</span>
