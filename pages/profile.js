@@ -27,12 +27,14 @@ export default function Index() {
     name: "",
     description: "",
     emoji: "",
-    image: [{
-      "@type": "ImageObject",
-      "contentUrl": {
-        "/": ""
-      }
-    }],
+    image: [
+      {
+        "@type": "ImageObject",
+        contentUrl: {
+          "/": "",
+        },
+      },
+    ],
     location: "",
     website: "",
   });
@@ -50,7 +52,7 @@ export default function Index() {
       name: userBoxProfile.name,
       description: userBoxProfile.description,
       emoji: userBoxProfile.emoji,
-      [userBoxProfile.image ? "image" : "noop"]: userBoxProfile.image,        
+      [userBoxProfile.image ? "image" : "noop"]: userBoxProfile.image,
       location: userBoxProfile.location,
       website: userBoxProfile.website,
     });
@@ -73,19 +75,15 @@ export default function Index() {
           <div className="text-center absolute w-full"></div>
           <div className="flex justify-center">
             <div className="sm:align-middle rounded rounded-t-lg overflow-hidden shadow max-w-md my-3">
-              
-              {userProfile.image[0].contentUrl["/"]
-                ?
-                  <div className="flex justify-center mt-10">
-                    <img
-                      src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
-                      className="rounded-full border-solid border-white border-2 -mt-3"
-                    />
-                  </div>
+              {userProfile.image[0].contentUrl["/"] ? (
+                <div className="flex justify-center mt-10">
+                  <img
+                    src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
+                    className="rounded-full border-solid border-white border-2 -mt-3"
+                  />
+                </div>
+              ) : null}
 
-                : null
-              }                
-              
               <div className="text-center px-3 pb-6 pt-2">
                 <h1 className="text-black text-lg bold font-sans">
                   {userProfile.name} {userProfile.emoji}
@@ -97,7 +95,7 @@ export default function Index() {
                   {userProfile.website}
                 </p>
                 <Link href="/profile_edit">
-                  <p className="mt-2 font-sans font-light text-blue-400">
+                  <p className="mt-2 font-sans font-light text-blue-400 cursor-pointer">
                     Edit Profile
                   </p>
                 </Link>
@@ -106,7 +104,16 @@ export default function Index() {
                   <span style={{ fontSize: "0.8em" }}>{useAddress()}</span>
                 </p>
               </div>
-              <div className="flex justify-center pb-3 text-grey-dark ml-10 mr-10 mb-3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/*
+<div className="flex justify-center pb-3 text-grey-dark ml-10 mr-10 mb-3">
                 <div className="text-center mr-3 border-r pr-3">
                   <p className="text-xl">34</p>
                   <span className="text-gray-600 text-sm">Memberships</span>
@@ -121,10 +128,5 @@ export default function Index() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
+*/
