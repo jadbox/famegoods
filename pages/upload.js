@@ -6,16 +6,16 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
 import LoadingOverlay from "../components/LoadingOverlay";
 import { Icon, InlineIcon } from "@iconify/react";
-import cloudUploadAltSolid from '@iconify/icons-la/cloud-upload-alt-solid';
-import uploadSolid from '@iconify/icons-la/upload-solid';
+import cloudUploadAltSolid from "@iconify/icons-la/cloud-upload-alt-solid";
+import uploadSolid from "@iconify/icons-la/upload-solid";
 import Link from "next/link";
 import SetTicket from "../components/upload/SetTicket";
 import useAddress from "../utils/Address";
-import Lottie from 'react-lottie';
+import Lottie from "react-lottie";
 import { useOvermind } from "../stores/Overmind";
-import MetaMask from "../components/MetaMask"
-import blueConfirmation from '../src/lotties/blueConfirmation';
-import CloseOut from '../components/closeOut';
+import MetaMask from "../components/MetaMask";
+import blueConfirmation from "../src/lotties/blueConfirmation";
+import CloseOut from "../components/closeOut";
 
 export default function Other() {
   const defaultOptions = {
@@ -23,8 +23,8 @@ export default function Other() {
     autoplay: true,
     animationData: blueConfirmation,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
 
   const address = useAddress();
@@ -119,7 +119,11 @@ export default function Other() {
     const fileUploaded = hiddenFileInput.current.files;
     if (!fileUploaded || fileUploaded.length === 0) return;
 
-    setState((x) => ({ ...x, fileUploaded: fileUploaded[0], uploadFilename: fileUploaded[0].name }));
+    setState((x) => ({
+      ...x,
+      fileUploaded: fileUploaded[0],
+      uploadFilename: fileUploaded[0].name,
+    }));
   }
 
   function onTokenChange(tokens) {
@@ -137,7 +141,7 @@ export default function Other() {
       {state.loading && (
         <LoadingOverlay open={state.loading} progress={state.progress} />
       )}
-      <div className="h-screen flex justify-center align-middle overflow-visible">
+      <div className="h-screen flex justify-center align-middle overflow-visible max-w-md mx-auto">
         <figure className="flex-auto bg-white rounded-md m-2 p-4 w-full">
           {state.error && (
             <Alert severity="error">
@@ -150,12 +154,14 @@ export default function Other() {
           <div className="container w-full overflow-visible mb-20">
             <CloseOut />
             <div className="my-2">
-              <h1 className="ml-2 my-4 font-extrabold text-2xl text-gray-900 text-opacity-100 pb-2">
+              <h1 className="cursor-pointer ml-2 my-4 font-extrabold text-2xl text-gray-900 text-opacity-100 pb-2">
                 <span alt="camera-emoji">📷</span> Upload a Video
-                </h1>
+              </h1>
 
               <div className="mt-6">
-                <label className="text-gray-800 uppercase tracking-wide font-bold">Video Title</label>
+                <label className="text-gray-800 uppercase tracking-wide font-bold">
+                  Video Title
+                </label>
                 <input
                   className="leading-tight text-xl appearance-none border-2 border-gray-500 rounded w-full p-2 placeholder-gray-400 font-medium leading-tight focus:outline-none focus:shadow-outline pt-3 pb-2 mt-2 tracking-wide"
                   id="videoTitle"
@@ -163,7 +169,9 @@ export default function Other() {
                 ></input>
 
                 <div className="relative mt-4">
-                  <label className="text-gray-800 uppercase tracking-wide font-bold mb-2">Description</label>
+                  <label className="text-gray-800 uppercase tracking-wide font-bold mb-2">
+                    Description
+                  </label>
                   <textarea
                     id="VideoDescription"
                     style={{}}
@@ -196,11 +204,16 @@ export default function Other() {
                     )}
                     {!state.fileUploaded && (
                       <div className="flex flex-row items-center justify-between m-auto">
-                        <Icon icon={uploadSolid} className="h-8 w-8 ml-2 flex-1" />
-                        <label className="text-md uppercase tracking-normal">Upload a Video File
+                        <Icon
+                          icon={uploadSolid}
+                          className="h-8 w-8 ml-2 flex-1"
+                        />
+                        <label className="text-md uppercase tracking-normal">
+                          Upload a Video File
                         </label>
                         <span className="flex-1"></span>
-                      </div>)}
+                      </div>
+                    )}
                   </button>
 
                   <input
@@ -221,15 +234,16 @@ export default function Other() {
                       onChange={onTokenChange}
                     ></SetTicket>
                   )}
-                  {ostate.user.balances.length === 0 &&
-                    <p>You currently do not have any tokens</p>}
+                  {ostate.user.balances.length === 0 && (
+                    <p>You currently do not have any tokens</p>
+                  )}
 
                   <button
                     onClick={onSubmit}
                     className="overflow-visible mt-4 w-full h-12 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold rounded shadow-lg sm:h-16"
                   >
                     Publish Video
-                </button>
+                  </button>
                 </div>
               </div>
             </div>
@@ -237,28 +251,28 @@ export default function Other() {
         </figure>
       </div>
       <style jsx>{`
-          .upload-btn-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-right: 1rem;
-          }
-          .btn {
-            border: 2px solid gray;
-            color: gray;
-            background-color: white;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-size: 20px;
-            font-weight: bold;
-          }
-          .upload-btn-wrapper input[type="file"] {
-            font-size: 100px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-          }
-        `}</style>
+        .upload-btn-wrapper {
+          position: relative;
+          display: inline-block;
+          margin-right: 1rem;
+        }
+        .btn {
+          border: 2px solid gray;
+          color: gray;
+          background-color: white;
+          padding: 8px 20px;
+          border-radius: 8px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .upload-btn-wrapper input[type="file"] {
+          font-size: 100px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0;
+        }
+      `}</style>
     </>
   );
 }
