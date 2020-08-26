@@ -132,7 +132,7 @@ export default function Layout({ children, url }) {
         ></script>
 
 
-        
+
  <header className="flex fixed top-0 w-full h-12 border-solid border-b-4 border-gray-300 bg-white z-50">
         <div className="flex items-center justify-between w-full px-3 py-2 z-auto">
           <Icon icon={walletSolid} height="2em" />

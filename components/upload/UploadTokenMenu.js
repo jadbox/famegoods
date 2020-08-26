@@ -78,11 +78,16 @@ export default function App({ tokens, onChange }) {
 
   return (
     <div className="w-screen">
+      <div className="ml-2 w-full text-xs text-gray-500">
+        <p>
+          Users must hold this amount of tokens to have access
+        </p>
+      </div>
       <div className="my-4 mr-12">
-        <div className="">
-          <Button onClick={addToken}>Add Token</Button>
+        <div>
+          <button className="bg-gray-100 tracking-wide uppercase text-sm font-bold p-2 border-2 border-solid rounded-sm mr-2" onClick={addToken}>Add Token</button>
           {tokenOptions.length > 1 && (
-            <Button onClick={delToken}>Remove Token</Button>
+            <button className="bg-gray-100 tracking-wide uppercase  text-sm font-bold p-2 border-2 border-solid rounded-sm" onClick={delToken}>Remove Token</button>
           )}
         </div>
       </div>
@@ -91,7 +96,7 @@ export default function App({ tokens, onChange }) {
         <FormControl variant="outlined" className="w-full mx-6">
           <OutlinedInput
             key={x}
-            className="w-auto ml-4"
+            className="w-auto mb-2"
             id="outlined-adornment-weight"
             // value={1}
             defaultValue={1}
@@ -114,11 +119,6 @@ export default function App({ tokens, onChange }) {
           />
         </FormControl>
       ))}
-      <div className="mx-6 text-center w-full">
-        <FormHelperText className="text-center w-auto">
-          Must hold this amount of tokens to have access
-        </FormHelperText>
-      </div>
     </div>
   );
 }
