@@ -48,7 +48,8 @@
     "shortid": "^2.2.15",
     "tailwindcss": "^1.5.2",
     "tailwindcss-scroll-snap": "^1.0.2",
-    "uuid": "^8.2.0"
+    "uuid": "^8.2.0",
+    "webpack": "^5.0.0-beta.22"
   },
   "license": "ISC",
   "devDependencies": {
