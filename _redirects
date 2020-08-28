@@ -1,3 +1,5 @@
-/post/* /index.html 200
+/post/* /index.html 200!
+/*  /index.html   200
 /post/* /index.html 404
-/* /index.html 404
+/*  /index.html 404
+/roll/* https://api.tryroll.com/:splat 200
