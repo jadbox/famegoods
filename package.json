@@ -15,11 +15,11 @@
     "postbuild": "next-on-netlify",
     "deploy": "vercel",
     "deploy_prod": "vercel --prod",
-    "test": "jest"
+    "test": "jest",
+    "webpack2": "^5.0.0-beta.22"
   },
   "resolutions": {
-    "identity-wallet": "1.3.0",
-    "webpack": "^5.0.0-beta.22"
+    "identity-wallet": "1.3.0"
   },
   "dependencies": {
     "3box": "^1.21.0",
@@ -51,8 +51,7 @@
     "tailwindcss": "^1.5.2",
     "tailwindcss-scroll-snap": "^1.0.2",
     "utf-8-validate": "^5.0.2",
-    "uuid": "^8.2.0",
-    "webpack": "^5.0.0-beta.22"
+    "uuid": "^8.2.0"
   },
   "license": "ISC",
   "devDependencies": {

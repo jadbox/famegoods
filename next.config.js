@@ -23,8 +23,10 @@ module.exports = withBundleAnalyzer({
     // config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
 
     // if (config.resolve.mainFields.indexOf("browser") === -1) {
-    config.resolve.alias["https"] = false; // "https-browserify";
-    config.resolve.alias["http"] = false; // "http-browserify";
+    
+    //// config.resolve.alias["https"] = false; // "https-browserify";
+    //// config.resolve.alias["http"] = false; // "http-browserify";
+    
     // } else {
 
     // }
@@ -34,8 +36,8 @@ module.exports = withBundleAnalyzer({
     // console.log("config", config);
     // console.log(JSON.stringify(config.resolve));
 
-    config.resolve.alias.string_decoder = false; // "string_decoder";
-    config.resolve.alias["geturl"] = "browser-geturl";
+    //// config.resolve.alias.string_decoder = false; // "string_decoder";
+    //// config.resolve.alias["geturl"] = "browser-geturl";
     //}
 
     // Important: return the modified config
