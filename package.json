@@ -2,7 +2,7 @@
   "name": "DFAME",
   "version": "1.0.1",
   "engines": {
-    "node": "12.x"
+    "node": ">=12.x"
   },
   "scripts": {
     "analyze": "ANALYZE=true next build",
