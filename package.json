@@ -1,6 +1,9 @@
 {
   "name": "DFAME",
   "version": "1.0.0",
+  "engines": {
+  	"node": "14.x"
+  },
   "scripts": {
     "analyze": "ANALYZE=true next build",
     "analyze:server": "BUNDLE_ANALYZE=server next build",
@@ -12,7 +15,7 @@
     "export": "next export",
     "build:css": "tailwindcss build assets/tailwind.css -o assets/main.css",
     "watch:css": "tailwindcss build assets/tailwind.css -o assets/main.css",
-    "postbuild": "next-on-netlify",
+    "__postbuild": "next-on-netlify",
     "deploy": "vercel",
     "deploy_prod": "vercel --prod",
     "test": "jest",
