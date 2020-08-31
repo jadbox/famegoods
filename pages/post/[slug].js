@@ -231,36 +231,37 @@ export default function Slug() {
 
           {ostate.user.isAuthenticated && state.file && !hasEnough && (
             <div>
-              <a href="https://exchange.tryroll.com/#/swap" target="_blank">
-                <div className="bg-black bg-opacity-100">
-                  <img
-                    src={state.data.gif}
-                    className="h-screen w-screen object-cover"
-                  />
-                </div>
-                <div className="absolute top-0 left-0 w-screen h-screen">
-                  <div className="flex ml-4 mt-6">
-                    <ProfileHeader />
-                    <Link href="../">
-                      <div>
-                        <Icon
-                          className="fixed top-0 right-0 w-12 h-12 ml-4 mt-6 mr-6"
-                          icon={timesCircle}
-                          color="white"
-                        />
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-                {/*<div className="fixed top-0 right-0 w-screen h-screen">
-                    <div className="ml-4 mt-6">
-                      <Icon className="top-0 right-0 w-12 h-12" icon={timesCircle} color="white" />
+          
+              <div className="bg-black bg-opacity-100">
+                <img
+                  src={state.data.gif}
+                  className="h-screen w-screen object-cover"
+                />
+              </div>
+              <div className="absolute top-0 left-0 w-screen h-screen">
+                <div className="flex ml-4 mt-6">
+                  <ProfileHeader />
+                  <Link href="../">
+                    <div>
+                      <Icon
+                        className="fixed top-0 right-0 w-12 h-12 ml-4 mt-6 mr-6"
+                        icon={timesCircle}
+                        color="white"
+                      />
                     </div>
-            </div>*/}
-                <div className="w-full fixed bottom-0">
-                  <div className="w-full ml-8 text-white mb-4 font-bold break-words text-4xl text-opacity-100">
-                    {videoObj.title}
+                  </Link>
+                </div>
+              </div>
+              {/*<div className="fixed top-0 right-0 w-screen h-screen">
+                  <div className="ml-4 mt-6">
+                    <Icon className="top-0 right-0 w-12 h-12" icon={timesCircle} color="white" />
                   </div>
+          </div>*/}
+              <div className="w-full fixed bottom-0">
+                <div className="w-full ml-8 text-white mb-4 font-bold break-words text-4xl text-opacity-100">
+                  {videoObj.title}
+                </div>
+                <Link href="../roll_exchange">
                   <button className="mr-6 mb-20 text-white font-bold text-3xl rounded shadow content-center uppercase shadow focus:shadow-outline focus:outline-none tracking-wide py-1 px-auto rounded-lg items-center button-gradient transition duration-500 ease-in-out hover:bg-indigo-400 ">
                     <style jsx>
                       {`
@@ -291,8 +292,9 @@ export default function Slug() {
                       Click to Buy More!
                     </div>
                   </button>
-                </div>
-              </a>
+                </Link>
+              </div>
+              
             </div>
           )}
 

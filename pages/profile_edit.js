@@ -2,8 +2,12 @@ import { useEffect, useState, useRef } from "react";
 import useAddress from "../utils/Address";
 import { useRouter } from "next/router";
 import * as UserData from "../utils/UserData";
-import { setBoxProfile, getBoxProfile } from "../utils/EditProfiles";
 import Box from "3box";
+import { 
+  setBoxProfile, 
+  getBoxProfile, 
+  formatIpfsImageObject 
+} from "../utils/EditProfiles";
 
 const ipfsClient = require("ipfs-http-client");
 const ipfs = ipfsClient({
@@ -15,7 +19,7 @@ const ipfs = ipfsClient({
 const ProfileEditor = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [profile, setProfileData] = useState({
+  const [userProfile, setUserProfile] = useState({
     version: 0,
     name: "",
     description: "",
@@ -45,14 +49,10 @@ const ProfileEditor = () => {
   const handleIpfsSubmit = async () => {
     try {
       const file = await ipfs.add(state.buffer);
+      const formattedFile = formatIpfsImageObject(file);
       setState((x) => ({ ...x, ipfsHash: file.path }));
-      setProfileData((x) => ({ ...x, 
-        image: [{
-          "@type": "ImageObject",
-          "contentUrl": {
-            "/": file.path
-          }
-        }], 
+      setUserProfile((x) => ({ ...x, 
+        image: formattedFile, 
         version: x.version++ 
       }));
       //setIsLoading(false);
@@ -76,19 +76,19 @@ const ProfileEditor = () => {
 
   const handleProfileChange = (e) => {
     e.preventDefault();
-    setProfileData((x) => ({ ...x, [event.target.name]: event.target.value }));
+    setUserProfile((x) => ({ ...x, [event.target.name]: event.target.value }));
   };
 
-  const addr = useAddress();
+  const address = useAddress();
 
   const handleProfileSubmit = async (e) => {
     e.preventDefault();
-    const fields = Object.keys(profile);
-    const values = Object.values(profile);
+    const fields = Object.keys(userProfile);
+    const values = Object.values(userProfile);
     try {
       console.log("Connecting to 3Box...");
       setIsLoading(true);
-      await setBoxProfile(addr, fields, values);
+      await setBoxProfile(address, fields, values);
       console.log("Edits completed");
       setIsLoading(false);
     } catch (err) {
@@ -99,7 +99,7 @@ const ProfileEditor = () => {
   const get3BoxProfile = async (addr) => {
     const userProfile = await getBoxProfile(addr);
     //console.log("userProfile: ", userProfile);
-    setProfileData((x) => ({
+    setUserProfile((x) => ({
       version: x.version + 1,
       name: userProfile.name,
       description: userProfile.description,
@@ -110,17 +110,17 @@ const ProfileEditor = () => {
   };
 
   useEffect(() => {
-    if (!addr) return;
-    if (profile.version > 0) return;
-    get3BoxProfile(addr);
-  }, [profile, addr]);
+    if (!address) return;
+    if (userProfile.version > 0) return;
+    get3BoxProfile(address);
+  }, [userProfile, address]);
 
   return (
     <div>
-      {profile.image[0].contentUrl["/"] ? (
+      {userProfile.image && address ? (
         <div className="flex justify-center mt-10">
           <img
-            src={`https://ipfs.infura.io/ipfs/${profile.image[0].contentUrl["/"]}`}
+            src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
             className="rounded-full border-solid border-white border-2 -mt-3"
           />
         </div>
@@ -135,10 +135,9 @@ const ProfileEditor = () => {
           <div className="flex justify-center pb-6">
             <input
               name="name"
-              type="text"
-              value={profile.name}
+              value={userProfile.name || ""}
               onChange={handleProfileChange}
-              placeholder={profile.name}
+              placeholder={userProfile.name}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             />
           </div>
@@ -146,9 +145,9 @@ const ProfileEditor = () => {
           <div className="flex justify-center pb-6">
             <textarea
               name="description"
-              value={profile.description}
+              value={userProfile.description || ""}
               onChange={handleProfileChange}
-              placeholder={profile.description}
+              placeholder={userProfile.description}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             />
           </div>
@@ -156,10 +155,9 @@ const ProfileEditor = () => {
           <div className="flex justify-center pb-6">
             <input
               name="location"
-              type="text"
-              value={profile.location}
+              value={userProfile.location || ""}
               onChange={handleProfileChange}
-              placeholder={profile.location}
+              placeholder={userProfile.location}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             />
           </div>
@@ -167,10 +165,9 @@ const ProfileEditor = () => {
           <div className="flex justify-center pb-6">
             <input
               name="website"
-              type="text"
-              value={profile.website}
+              value={userProfile.website || ""}
               onChange={handleProfileChange}
-              placeholder={profile.website}
+              placeholder={userProfile.website}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             />
           </div>
