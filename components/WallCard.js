@@ -46,7 +46,7 @@ export default function WallCard({ gif, file }) {
         }}
       >
         <div className="flex absolute top-0 right-0 left-0 p-6">
-          <ProfileHeader />
+          <ProfileHeader address={file.address} />
           <Icon
             icon={ellipsisVSolid}
             color="white"

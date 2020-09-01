@@ -179,7 +179,7 @@ export default function Slug() {
               </div>
               <div className="absolute top-0 left-0 w-screen h-screen">
                 <div className="flex ml-4 mt-6">
-                  <ProfileHeader />
+                  <ProfileHeader address={state.data.address} />
                   <Link href="../">
                     <div>
                       <Icon
@@ -240,7 +240,7 @@ export default function Slug() {
               </div>
               <div className="absolute top-0 left-0 w-screen h-screen">
                 <div className="flex ml-4 mt-6">
-                  <ProfileHeader />
+                  <ProfileHeader address={state.data.address} />
                   <Link href="../">
                     <div>
                       <Icon
