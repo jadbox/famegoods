@@ -54,7 +54,6 @@ function Page() {
     <>
       <Head>
         <title>DFAME</title>
-        // TODO: Add tab icon
       </Head>
 
       <div className="flex flex-col">
