@@ -58,7 +58,7 @@ export default function Index() {
       <div className="container mx-auto max-w-md overflow-hidden py-3">
         <div className="relative mb-2 bg-white rounded-lg shadow-lg">
           <img
-            className="w-full h-64 object-cover"
+            className="rounded-full py-4 px-4 w-full h-64 object-cover"
             src="https://images.unsplash.com/photo-1518549945153-64368b032957?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80"
             alt="Profile picture"
           />
