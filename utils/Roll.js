@@ -44,15 +44,55 @@ export function getToken() {
   }
   return null;
 }
+
+// Original Roll redirect link: https://roll.collab.land?serverURL=${url}&redirect=true&id=recI424YZv232Rg0a
+
+// For Roll login, these are the redirect params:
+// redirectURL?token=${token}&refreshToken=${refreshToken}&id=${id}
+
 export function loginUrl(url) {
-  return `https://roll.collab.land?serverURL=${url}&redirect=true&id=recI424YZv232Rg0a`;
+  return `http://qaroll.collab.land/connect?id=recI424YZv232Rg0a&callbackURL=${url}&redirect=true`;
+}
+// /connect?id=${id}&callbackURL=${callback}&redirect=true  
+
+// Metamask or other web3 wallet login redirect url params: 
+// redirectURL?account=WALLET_ADDR&signature=SIG
+
+export function getWalletData() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const address = urlParams.get("account");
+  const sig = urlParams.get("signature");
+
+  if (address && sig) {
+    localStorage.setItem("address", address);
+    localStorage.setItem("signature", sig);
+
+    return {
+      address: address,
+      signature: sig,
+      hasAccess: true,
+    };
+  } else {
+    const addr = localStorage.getItem("address");
+    const sign = localStorage.getItem("signature");
+
+    if (!addr && !sign) return null;
+
+    return {
+      address: addr,
+      signature: sign,
+      hasAccess: true,
+    };
+  }
+  return null;
 }
 
 export function getUserData() {
   const localToken = localStorage.getItem("apiRefreshToken");
   if (localToken === null) {
     console.log("No refresh token found in localStorage");
-    return Promise.resolve(null);
+    return;
   }
 
   return axios

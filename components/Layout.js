@@ -19,16 +19,23 @@ export default function Layout({ children, url }) {
 
   // Overmind
   const { state: ostate, actions } = useOvermind();
+
   useEffect(() => {
     const tokenObj = Roll.getToken();
-    console.log("tokenObj", tokenObj);
-
-    if (!tokenObj) return;
-
     actions.updateTokens(tokenObj);
-  }, []);
-  // ==================
 
+    if (!tokenObj) {
+      const walletObj = Roll.getWalletData();
+
+      if (!walletObj) return;
+
+      actions.updateWalletData(walletObj);
+    } else {
+      return;
+    }   
+  }, []);
+
+  // ==================
   // let zoom = 1;
   /* useScript({
     src: "https://cdn.jsdelivr.net/gh/tengbao/vanta/dist/vanta.waves.min.js",
