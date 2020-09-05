@@ -22,7 +22,7 @@ export default function Layout({ children, url }) {
 
   useEffect(() => {
     const tokenObj = Roll.getToken();
-    actions.updateTokens(tokenObj);
+    if (tokenObj) actions.updateTokens(tokenObj);
 
     if (!tokenObj) {
       const walletObj = Roll.getWalletData();
