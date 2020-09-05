@@ -22,7 +22,6 @@ const Tabs = ({ color }) => {
   const [openTab, setOpenTab] = React.useState(1);
   const [state, setState] = useState({ progress: 0 });
   const [formdata, setFormData] = useState({ tokens: 1 });
-  const [contentType, setContentType] = useState('default');
 
   const { state: ostate, actions } = useOvermind();
 
@@ -116,11 +115,6 @@ const Tabs = ({ color }) => {
     setFormData((x) => ({ ...x, tokens }));
   }
 
-  function handleContentTypeChange(e) {
-    e.preventDefault;
-    setContentType(e.target.value);
-  }
-
   if (!address) {
     return <MetaMask></MetaMask>;
   }
@@ -160,7 +154,7 @@ const Tabs = ({ color }) => {
                     href="#link1"
                     role="tablist"
                   >
-                    Upload a Video
+                    <span alt="camera-emoji">📷</span> Publish a Video
                   </a>
                 </li>
                 <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -179,7 +173,7 @@ const Tabs = ({ color }) => {
                     href="#link2"
                     role="tablist"
                   >
-                    Share a Link
+                    <span alt="camera-emoji">🌐</span> Share a Link
                   </a>
                 </li>              
               </ul>
@@ -188,9 +182,6 @@ const Tabs = ({ color }) => {
                   <div className="tab-content tab-space">
                     <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                     <div className="mb-2">
-                      <h1 className="cursor-pointer ml-2 font-extrabold text-2xl text-gray-900 text-opacity-100 pb-2">
-                        <span alt="camera-emoji">📷</span> Upload a Video
-                      </h1>
                       <div className="mt-6">
 
                       {state.loading 
@@ -198,24 +189,20 @@ const Tabs = ({ color }) => {
                           <LoadingOverlay open={state.loading} progress={state.progress} />
                         ) : (
                           <>
-                            <label className="text-gray-800 uppercase tracking-wide font-bold">
-                              Video Title
-                            </label>
                             <input
                               className="leading-tight text-xl appearance-none border-2 border-gray-500 rounded w-full p-2 placeholder-gray-400 font-medium leading-tight focus:outline-none focus:shadow-outline pt-3 pb-2 mt-2 tracking-wide"
                               id="videoTitle"
+                              placeholder="Video Title"
                               type="text"
                             />
                             <div className="relative mt-4">
-                              <label className="text-gray-800 uppercase tracking-wide font-bold mb-2">
-                                Description
-                              </label>
                               <textarea
                                 id="VideoDescription"
                                 style={{}}
                                 name="description"
                                 cols="40"
                                 rows="3"
+                                placeholder="Add a video description..."
                                 className="leading-tight tracking-wide appearance-none border-2 border-gray-500 mt-2 p-2 rounded-lg w-full placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline"
                               ></textarea>
                             </div>
