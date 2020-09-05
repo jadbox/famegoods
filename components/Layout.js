@@ -23,16 +23,11 @@ export default function Layout({ children, url }) {
   useEffect(() => {
     const tokenObj = Roll.getToken();
     if (tokenObj) actions.updateTokens(tokenObj);
-
-    if (!tokenObj) {
+    else {
       const walletObj = Roll.getWalletData();
-
       if (!walletObj) return;
-
       actions.updateWalletData(walletObj);
-    } else {
-      return;
-    }   
+    } 
   }, []);
 
   // ==================
