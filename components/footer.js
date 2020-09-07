@@ -24,7 +24,7 @@ export default function Footer() {
                     </div>
                 </Link>
                 <div className="sm:px-2 cursor-pointer hover:text-blue-400">
-                    <img src="/DFAMElogo.png" alt="DFAME Logo" className="h-12 w-14" />
+                    <img src="/DFAMElogo.png" alt="DFAME Logo" />
                 </div>
                 <div className="sm:px-2 cursor-pointer hover:text-blue-400">
                     <Icon icon={twoWayArrowsLine} height="2em" />
