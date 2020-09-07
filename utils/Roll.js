@@ -1,9 +1,15 @@
 import axios from "axios";
 import { ethers } from "ethers";
 
+export function checkForRoll() {
+  const rollAccess = localStorage.getItem("apiRefreshToken");
+  if (!rollAccess) return false;
+  return true;
+}
+
 export function getBalanceObject(balances, tokenName) {
   const tokenBalance = balances.filter((x) => x.token.symbol === tokenName);
-  if (tokenBalance.length === 0) return null;
+  if (!tokenBalance) return null;
   return tokenBalance[0];
 }
 
@@ -55,36 +61,6 @@ export function loginUrl(url) {
 
 // Metamask or other web3 wallet login redirect url params: 
 // redirectURL?account=WALLET_ADDR&signature=SIG
-
-export function getWalletData() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const address = urlParams.get("account");
-  const sig = urlParams.get("signature");
-
-  if (address && sig) {
-    localStorage.setItem("address", address);
-    localStorage.setItem("signature", sig);
-
-    return {
-      address: address,
-      signature: sig,
-      hasAccess: true,
-    };
-  } else {
-    const addr = localStorage.getItem("address");
-    const sign = localStorage.getItem("signature");
-
-    if (!addr && !sign) return null;
-
-    return {
-      address: addr,
-      signature: sign,
-      hasAccess: true,
-    };
-  }
-  return null;
-}
 
 export function getUserData() {
   const localToken = localStorage.getItem("apiRefreshToken");

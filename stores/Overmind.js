@@ -1,6 +1,7 @@
 import { createOvermind } from "overmind";
 import { createHook } from "overmind-react";
 import * as Roll from "../utils/Roll";
+import * as Wallet from "../utils/Web3Wallet";
 
 export const useOvermind = createHook();
 
@@ -34,12 +35,10 @@ export const overmind = createOvermind(
       },
     },
     actions: {
-      async refreshUser({ state, actions }) {
-        const user = await Roll.getUserData();
-
-        if (!user) {
-          return;
-        }
+      async refreshUser({ state, actions }, symbol) {
+        let user = await Roll.getUserData();
+        if (!user && symbol) user = await Wallet.getTokenBalance(symbol);
+        if (!user && !symbol) return;    
         state.user.isAuthenticated = true;
         actions.updateUser(user);
       },

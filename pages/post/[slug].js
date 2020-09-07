@@ -20,6 +20,7 @@ import * as Server from "../../utils/CTS3";
 import ProfileHeader from "../../components/profileHeader";
 import * as UserData from "../../utils/UserData";
 import * as Roll from "../../utils/Roll";
+import * as Wallet from "../../utils/Web3Wallet";
 import RollLogin from "../../components/RollLogin";
 
 import { useOvermind } from "../../stores/Overmind";
@@ -90,9 +91,9 @@ export default function Slug() {
 
   useEffect(() => {
     if (!slug) return;
-    console.log("slug", slug);
+    //console.log("slug", slug);
     Server.getVideo(slug).then((o) => {
-      console.log("Server.getVideo", o);
+      //console.log("Server.getVideo", o);
       setState((x) => ({ ...x, file: o.video, data: o }));
     });
   }, [slug]);
@@ -109,25 +110,37 @@ export default function Slug() {
   }
 
   useEffect(() => {
-    if (ostate.user.balances.length === 0) actions.refreshUser();
+    if (ostate.user.balances.length === 0) actions.refreshUser(videoObj.tokenName);
   }, [ostate.user.isAuthenticated, ostate.user.balances, ostate.user]);
 
+// These could be replaced/refactored with the corresponding values in Ostate.
   let hasEnough = false;
   let balance = 0;
+  //console.log("Balance in ostate:", ostate.user.balances);
+  //console.log("Required token amount:", videoObj.tokens);
   if (ostate.user.balances.length > 0 && videoObj.tokenName) {
-    const tokenBalance = Roll.getBalanceObject(
-      ostate.user.balances,
-      videoObj.tokenName
-    );
-
-    if (tokenBalance) {
-      balance = tokenBalance.decAmount;
-      hasEnough = Roll.hasEnough(
+    if (Roll.checkForRoll()) {
+      const tokenBalance = Roll.getBalanceObject(
         ostate.user.balances,
-        videoObj.tokenName,
-        videoObj.tokens
+        videoObj.tokenName
       );
+
+      if (tokenBalance) {
+        balance = tokenBalance.decAmount;
+        hasEnough = Roll.hasEnough(
+          ostate.user.balances,
+          videoObj.tokenName,
+          videoObj.tokens
+        );
+      }
+      return;
     }
+    if (Wallet.checkForWebWallet()) {
+      balance = ostate.user.balances;
+      //console.log("Running balance:", balance);
+      hasEnough = ostate.user.balances >= videoObj.tokens,toString();
+      //console.log("Authorized:", hasEnough);
+    } 
   }
 
   return (
@@ -222,7 +235,7 @@ export default function Slug() {
                     Must Hold: {videoObj.tokens} {videoObj.tokenName}
                   </div>
                   <div className="font-medium text-sm tracking-wide">
-                    Current Balance: {balance} TING
+                    Current Balance: {balance} {videoObj.tokenName}
                   </div>
                 </button>
               </div>
@@ -286,7 +299,7 @@ export default function Slug() {
                       Must Hold: {videoObj.tokens} {videoObj.tokenName}
                     </div>
                     <div className="font-medium text-sm tracking-wide">
-                      Current Balance: {balance} TING
+                      Current Balance: {balance} {videoObj.tokenName}
                     </div>
                     <div className="font-medium text-base tracking-wide mt-1 underline">
                       Click to Buy More!
