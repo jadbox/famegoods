@@ -6,6 +6,7 @@ import Box from "3box";
 import { 
   setBoxProfile, 
   getBoxProfile, 
+  formatImageObject,
   formatIpfsImageObject 
 } from "../utils/EditProfiles";
 
@@ -105,7 +106,7 @@ const ProfileEditor = () => {
       description: userProfile.description,
       location: userProfile.location,
       website: userProfile.website,
-      [userProfile.image ? "image" : "noop"]: userProfile.image,
+      [userProfile.image ? "image" : "noop"]: formatImageObject(userProfile.image),
     }));
   };
 
@@ -117,7 +118,7 @@ const ProfileEditor = () => {
 
   return (
     <div>
-      {userProfile.image && address ? (
+      {userProfile.image[0].contentUrl["/"] && address ? (
         <div className="flex justify-center mt-10">
           <img
             src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}

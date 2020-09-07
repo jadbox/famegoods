@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Page from "../components/Page";
 import Link from "next/link";
 import { ethers } from "ethers";
-import { getBoxProfile } from "../utils/EditProfiles";
+import { getBoxProfile, formatImageObject } from "../utils/EditProfiles";
 import useAddress from "../utils/Address";
 
 /* 3box addresses that can be used for testing.
@@ -42,7 +42,7 @@ export default function Index() {
       name: userBoxProfile.name,
       description: userBoxProfile.description,
       emoji: userBoxProfile.emoji,
-      [userBoxProfile.image ? "image" : "noop"]: userBoxProfile.image,
+      [userBoxProfile.image ? "image" : "noop"]: formatImageObject(userBoxProfile.image),
       location: userBoxProfile.location,
       website: userBoxProfile.website,
     });
@@ -65,12 +65,12 @@ export default function Index() {
           <div className="text-center absolute w-full"></div>
           <div className="flex justify-center">
             <div className="sm:align-middle rounded rounded-t-lg overflow-hidden shadow max-w-md my-3">
-              {userProfile.image && address ? (
-                <div className="flex justify-center mt-10">
+              {userProfile.image[0].contentUrl["/"] && address ? (
+                <div className="flex justify-center mt-10">                  
                   <img
                     src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
                     className="rounded-full border-solid border-white border-2 -mt-3"
-                  />
+                  />                  
                 </div>
               ) : null}
 
