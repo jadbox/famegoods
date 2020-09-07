@@ -8,6 +8,7 @@ import userIcon from "@iconify/icons-la/user";
 
 import { useOvermind } from "../stores/Overmind";
 import * as Roll from "../utils/Roll";
+import * as Wallet from "../utils/Web3Wallet";
 import RollLogin from "../components/RollLogin";
 import BottomSheetModal from "../components/BottomSheetModal";
 
@@ -24,7 +25,7 @@ export default function Layout({ children, url }) {
     const tokenObj = Roll.getToken();
     if (tokenObj) actions.updateTokens(tokenObj);
     else {
-      const walletObj = Roll.getWalletData();
+      const walletObj = Wallet.getWalletData();
       if (!walletObj) return;
       actions.updateWalletData(walletObj);
     } 
