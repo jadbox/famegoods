@@ -19,8 +19,6 @@ export function getToken() {
   const apiTokenRef = urlParams.get("token");
   const refreshTokenRef = urlParams.get("refreshToken");
 
-  console.log("apiTokenRef", apiTokenRef, refreshTokenRef, urlParams);
-
   if (apiTokenRef && refreshTokenRef) {
     localStorage.setItem("apiToken", apiTokenRef);
     localStorage.setItem("apiRefreshToken", refreshTokenRef);
@@ -91,7 +89,6 @@ export function getWalletData() {
 export function getUserData() {
   const localToken = localStorage.getItem("apiRefreshToken");
   if (localToken === null) {
-    console.log("No refresh token found in localStorage");
     return;
   }
 
