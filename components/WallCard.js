@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
 import playSolid from "@iconify/icons-la/play-solid";
 import lockSolid from "@iconify/icons-la/lock-solid";
-import ellipsisVSolid from "@iconify/icons-la/ellipsis-v-solid";
 import ProfileHeader from "./profileHeader";
 
 import * as UserData from "../utils/UserData";
@@ -37,7 +36,7 @@ export default function WallCard({ gif, file }) {
     <div className="container h-screen flex items-center justify-center snap-center always-stop px-6">
       <div
         onClick={onClick}
-        className="relative rounded-md shadow-lg h-48 w-full justify-center cursor-pointer overflow-hidden"
+        className="relative rounded-md shadow-lg h-40 w-full justify-center cursor-pointer overflow-hidden"
         style={{
           backgroundImage: `url(${gif})`,
           backgroundSize: "cover",
@@ -47,11 +46,9 @@ export default function WallCard({ gif, file }) {
       >
         <div className="flex absolute top-0 right-0 left-0 p-6">
           <ProfileHeader address={file.address} />
-          <Icon
-            icon={ellipsisVSolid}
-            color="white"
-            className="top-0 right-0 h-8 w-8"
-          />
+          <button className="top-0 right-0 h-8 w-16 rounded-lg shadow-lg bg-white">
+            <span>{videoMetadata.tokens} {videoMetadata.tokenName}</span>
+          </button>
         </div>
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <Icon className="w-10 h-10" icon={lockSolid} color="white" />
