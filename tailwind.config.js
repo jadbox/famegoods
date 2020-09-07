@@ -21,7 +21,7 @@ module.exports = {
         pulse: "pulse 4s infinite",
       },
       fontFamily: {
-        header: ["Recursive"],
+        header: ["Syne"],
       },
     },
   },

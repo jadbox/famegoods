@@ -2,6 +2,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
+
 module.exports = withBundleAnalyzer({
   // target: 'serverless',
   devIndicators: {
@@ -23,10 +24,10 @@ module.exports = withBundleAnalyzer({
     // config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
 
     // if (config.resolve.mainFields.indexOf("browser") === -1) {
-    
+
     //// config.resolve.alias["https"] = false; // "https-browserify";
     //// config.resolve.alias["http"] = false; // "http-browserify";
-    
+
     // } else {
 
     // }

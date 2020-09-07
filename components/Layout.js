@@ -10,6 +10,7 @@ import { useOvermind } from "../stores/Overmind";
 import * as Roll from "../utils/Roll";
 import RollLogin from "../components/RollLogin";
 import BottomSheetModal from "../components/BottomSheetModal";
+import Footer from "../components/Footer"
 
 export default function Layout({ children, url }) {
   const [zoom, setZoom] = useState(1);
@@ -96,25 +97,7 @@ export default function Layout({ children, url }) {
 
       <div>{children}</div>
 
-      <footer className="fixed h-16 bg-white w-full bottom-0 flex rounded-t-lg">
-        <div className="flex items-center justify-between w-4/5 mx-auto py-2">
-          <Link href="/">
-            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
-              <Icon icon={streamSolid} height="2em" />
-            </div>
-          </Link>
-          <Link href="/upload">
-            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
-              <Icon icon={uploadSolid} height="2em" />
-            </div>
-          </Link>
-          <Link href="/profile">
-            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
-              <Icon icon={userIcon} height="2em" />
-            </div>
-          </Link>
-        </div>
-      </footer>
+      <Footer></Footer>
 
       {walletConnectModal ? (
         <BottomSheetModal onExit={actions.toggleWalletConnectModal}>
