@@ -27,6 +27,7 @@
   "dependencies": {
     "3box": "^1.21.0",
     "3box-profile-edit-react": "^0.0.9",
+    "@iconify/icons-clarity": "^1.0.0",
     "@iconify/icons-ic": "^1.0.14",
     "@iconify/icons-la": "^1.0.0",
     "@iconify/icons-ps": "^1.0.3",
