@@ -62,7 +62,7 @@ export async function getTokenData() {
 export async function findTokenMatch(symbol) {
 	const data = await getTokenData();
 	if (!data) return;
-
+	
 	const matchedToken = data.filter(function(entry) {
 		return entry.token.symbol == symbol;
 	})
@@ -71,9 +71,8 @@ export async function findTokenMatch(symbol) {
 
 export async function getTokenBalance(symbol) {
 	const address = localStorage.getItem("address");
-  if (address === null) {
-    return;
-  }
+  if (!address) return;
+
 	const privKey = createPrivateKey();
   const wallet = new ethers.Wallet(privKey, provider);
 

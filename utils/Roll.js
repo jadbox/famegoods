@@ -10,13 +10,8 @@ export function checkForRoll() {
 export function getBalanceObject(balances, tokenName) {
   const tokenBalance = balances.filter((x) => x.token.symbol === tokenName);
   if (!tokenBalance) return null;
+  console.log("Token balance after getBalanceObject:", tokenBalance[0]);
   return tokenBalance[0];
-}
-
-export function hasEnough(balances, tokenName, amount) {
-  const balance = getBalanceObject(balances, tokenName);
-  if (!balance) return null;
-  return balance.decAmount >= amount;
 }
 
 export function getToken() {
@@ -50,24 +45,21 @@ export function getToken() {
 }
 
 // Original Roll redirect link: https://roll.collab.land?serverURL=${url}&redirect=true&id=recI424YZv232Rg0a
+// Params for new server: /connect?id=${id}&callbackURL=${callback}&redirect=true
 
 // For Roll login, these are the redirect params:
 // redirectURL?token=${token}&refreshToken=${refreshToken}&id=${id}
 
-export function loginUrl(url) {
-  return `http://qaroll.collab.land/connect?id=recI424YZv232Rg0a&callbackURL=${url}&redirect=true`;
-}
-// /connect?id=${id}&callbackURL=${callback}&redirect=true  
-
 // Metamask or other web3 wallet login redirect url params: 
 // redirectURL?account=WALLET_ADDR&signature=SIG
 
+export function loginUrl(url) {
+  return `http://qaroll.collab.land/connect?id=recI424YZv232Rg0a&callbackURL=${url}&redirect=true`;
+}  
+
 export function getUserData() {
   const localToken = localStorage.getItem("apiRefreshToken");
-  if (localToken === null) {
-    return;
-  }
-
+  if (!localToken) return;
   return axios
     .get("https://api.tryroll.com/v2/users/session", {
       headers: {

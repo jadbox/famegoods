@@ -110,16 +110,21 @@ export default function Slug() {
   }
 
   useEffect(() => {
-    if (ostate.user.balances.length === 0) actions.refreshUser(videoObj.tokenName);
-  }, [ostate.user.isAuthenticated, ostate.user.balances, ostate.user]);
+    actions.refreshUser(videoObj.tokenName);
+  }, [videoObj.tokenName]);
 
-// These could be replaced/refactored with the corresponding values in Ostate.
+  //console.log("Token required for video:", videoObj.tokenName)
+  //console.log("Amount of tokens required:", videoObj.tokens)
+  console.log("Balance in ostate:", ostate.user.balances);
+
+// Could these be replaced/refactored with the corresponding values in Ostate? 
+// Better in local to compare for useEffect changes?
   let hasEnough = false;
   let balance = 0;
-  //console.log("Balance in ostate:", ostate.user.balances);
-  //console.log("Required token amount:", videoObj.tokens);
+
   if (ostate.user.balances.length > 0 && videoObj.tokenName) {
     if (Roll.checkForRoll()) {
+      console.log("Checking for Roll wallet");
       const tokenBalance = Roll.getBalanceObject(
         ostate.user.balances,
         videoObj.tokenName
@@ -127,19 +132,13 @@ export default function Slug() {
 
       if (tokenBalance) {
         balance = tokenBalance.decAmount;
-        hasEnough = Roll.hasEnough(
-          ostate.user.balances,
-          videoObj.tokenName,
-          videoObj.tokens
-        );
+        hasEnough = balance >= videoObj.tokens;
       }
-      return;
     }
     if (Wallet.checkForWebWallet()) {
+      console.log("Checking for web3 wallet");
       balance = ostate.user.balances;
-      //console.log("Running balance:", balance);
       hasEnough = ostate.user.balances >= videoObj.tokens,toString();
-      //console.log("Authorized:", hasEnough);
     } 
   }
 

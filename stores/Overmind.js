@@ -36,11 +36,15 @@ export const overmind = createOvermind(
     },
     actions: {
       async refreshUser({ state, actions }, symbol) {
-        let user = await Roll.getUserData();
-        if (!user && symbol) user = await Wallet.getTokenBalance(symbol);
-        if (!user && !symbol) return;    
+        if (!symbol) return;
+        let user = await Wallet.getTokenBalance(symbol);
+        //console.log("User after web3 check", user);  
+        if (!user) user = await Roll.getUserData();     
+        //console.log("User after Roll check", user);  
+        
         state.user.isAuthenticated = true;
         actions.updateUser(user);
+        console.log("Final user in ostate", user);  
       },
       updateUser({ state }, user) {
         if (!user) return;
