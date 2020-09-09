@@ -4,10 +4,14 @@ import ProfileHeader from "./profileHeader";
 import * as UserData from "../utils/UserData";
 import { useOvermind } from "../stores/Overmind";
 
-export default function ContentCard() {
+export default function ContentCard({ url }) {
 	return (
-    <div className="container h-screen flex items-center justify-center snap-center always-stop px-6">
-      {/*Add content from wherever*/}
+    <div className="pb-24">
+      <iframe 
+        className="max-w-screen w-full min-h-screen" 
+        style={{marginTop: "-68px"}} 
+        src={url}
+      />
     </div>
   );
 }

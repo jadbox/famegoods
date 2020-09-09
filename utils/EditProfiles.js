@@ -28,8 +28,7 @@ export async function getBoxProfile(address) {
 export async function setBoxProfile(address, fields, values) {
   const box = await Box.openBox(address, window.ethereum);
   console.log('Opening 3Box...');
-  const userProfile = await getBoxProfile(address);
-  console.log('Accessing user profile...');
+  
   const space = await box.openSpace(SPACE_APP);
   console.log('syncing...');
   box.onSyncDone(() => console.log('sync done'));

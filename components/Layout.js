@@ -9,7 +9,7 @@ import userIcon from "@iconify/icons-la/user";
 import { useOvermind } from "../stores/Overmind";
 import * as Roll from "../utils/Roll";
 import * as Wallet from "../utils/Web3Wallet";
-import RollLogin from "../components/RollLogin";
+import ConnectWallet from "../components/ConnectWallet";
 import BottomSheetModal from "../components/BottomSheetModal";
 
 export default function Layout({ children, url }) {
@@ -121,7 +121,7 @@ export default function Layout({ children, url }) {
 
       {walletConnectModal ? (
         <BottomSheetModal onExit={actions.toggleWalletConnectModal}>
-          <RollLogin redirectTo={redirectTo} />
+          <ConnectWallet redirectTo={redirectTo} />
         </BottomSheetModal>
       ) : null}
     </div>

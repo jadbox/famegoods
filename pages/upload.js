@@ -36,6 +36,8 @@ const Tabs = ({ color }) => {
 
   const address = useAddress();
 
+// This is why balances don't show after ostate changes: if (ostate.user.balances.length === 0)
+console.log("Ostate user balance from upload.js:", ostate.user.balances);
   useEffect(() => {
     if (ostate.user.balances.length === 0) actions.refreshUser();
   }, [ostate.user.balances, ostate.user]);

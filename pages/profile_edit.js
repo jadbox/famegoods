@@ -51,6 +51,7 @@ const ProfileEditor = () => {
     try {
       const file = await ipfs.add(state.buffer);
       const formattedFile = formatIpfsImageObject(file);
+      //console.log("IPFS file formatted", formattedFile);
       setState((x) => ({ ...x, ipfsHash: file.path }));
       setUserProfile((x) => ({ ...x, 
         image: formattedFile, 
@@ -61,6 +62,7 @@ const ProfileEditor = () => {
       console.error(err);
     }
   };
+  //console.log("userProfile image in local state", userProfile.image);
 
   useEffect(() => {
     if (!state.file) return;
@@ -99,14 +101,14 @@ const ProfileEditor = () => {
 
   const get3BoxProfile = async (addr) => {
     const userProfile = await getBoxProfile(addr);
-    //console.log("userProfile: ", userProfile);
+    console.log("userProfile.image from 3box: ", userProfile.image);
     setUserProfile((x) => ({
       version: x.version + 1,
       name: userProfile.name,
       description: userProfile.description,
       location: userProfile.location,
       website: userProfile.website,
-      [userProfile.image ? "image" : "noop"]: formatImageObject(userProfile.image),
+      [userProfile.image ? "image" : "noop"]: userProfile.image,
     }));
   };
 
@@ -118,7 +120,7 @@ const ProfileEditor = () => {
 
   return (
     <div>
-      {userProfile.image[0].contentUrl["/"] && address ? (
+      {userProfile.image && address ? (
         <div className="flex justify-center mt-10">
           <img
             src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}

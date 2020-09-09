@@ -38,11 +38,12 @@ export default function Index() {
 
   const get3BoxProfile = async (addr) => {
     const userBoxProfile = await getBoxProfile(addr);
+    console.log("Profile image from 3box", userBoxProfile.image)
     setUserProfile({
       name: userBoxProfile.name,
       description: userBoxProfile.description,
       emoji: userBoxProfile.emoji,
-      [userBoxProfile.image ? "image" : "noop"]: formatImageObject(userBoxProfile.image),
+      [userBoxProfile.image ? "image" : "noop"]: userBoxProfile.image,
       location: userBoxProfile.location,
       website: userBoxProfile.website,
     });
