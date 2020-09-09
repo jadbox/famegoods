@@ -53,6 +53,17 @@ export default function Index() {
     get3BoxProfile(address);
   }, [address]);
 
+  let imageDisplay
+  if (userProfile.image[0].contentUrl == undefined) {
+    imageDisplay = null;
+  } else {
+    imageDisplay = 
+      <img
+        src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
+        className="rounded-full border-solid border-white border-2 -mt-3"
+      />
+  }
+
   return (
     <div>
       <div className="container mx-auto max-w-md overflow-hidden py-3">
@@ -67,10 +78,7 @@ export default function Index() {
             <div className="sm:align-middle rounded rounded-t-lg overflow-hidden shadow max-w-md my-3">
               {userProfile.image && address ? (
                 <div className="flex justify-center mt-10">
-                  <img
-                    src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
-                    className="rounded-full border-solid border-white border-2 -mt-3"
-                  />
+                  {imageDisplay}
                 </div>
               ) : null}
 

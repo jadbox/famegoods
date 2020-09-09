@@ -6,6 +6,7 @@ import Box from "3box";
 import { 
   setBoxProfile, 
   getBoxProfile, 
+  formatImageObject,
   formatIpfsImageObject 
 } from "../utils/EditProfiles";
 
@@ -115,14 +116,22 @@ const ProfileEditor = () => {
     get3BoxProfile(address);
   }, [userProfile, address]);
 
+  let imageDisplay
+  if (userProfile.image[0].contentUrl == undefined) {
+    imageDisplay = null;
+  } else {
+    imageDisplay = 
+      <img
+        src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
+        className="rounded-full border-solid border-white border-2 -mt-3"
+      />
+  }
+
   return (
     <div>
       {userProfile.image && address ? (
         <div className="flex justify-center mt-10">
-          <img
-            src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
-            className="rounded-full border-solid border-white border-2 -mt-3"
-          />
+          {imageDisplay}
         </div>
       ) : null}
       <div className="flex justify-center mt-10">
