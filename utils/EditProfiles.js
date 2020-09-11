@@ -34,14 +34,3 @@ export async function setBoxProfile(address, fields, values) {
   box.onSyncDone(() => console.log('sync done'));
   await box.public.setMultiple(fields, values);
 }
-
-export const formatImageObject = (hash) => {
-  const format = [{
-    "@type": "ImageObject",
-    "contentUrl": {
-      "/": hash
-    }
-  }];
-
-  return format;
-};

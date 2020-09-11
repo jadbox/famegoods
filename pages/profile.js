@@ -54,7 +54,7 @@ export default function Index() {
   }, [address]);
 
   let imageDisplay
-  if (userProfile.image[0].contentUrl == undefined) {
+  if (userProfile.image == undefined || !userProfile.image[0].contentUrl) {
     imageDisplay = null;
   } else {
     imageDisplay = 
