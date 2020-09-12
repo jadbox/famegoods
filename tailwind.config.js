@@ -16,6 +16,9 @@ module.exports = {
     borderRadius: {
       xl: "2rem",
     },
+    boxShadow: {
+      round: '35px 35px 60px -15px rgba(0, 0, 0, 0.3)',
+    },
     extend: {
       animation: {
         pulse: "pulse 4s infinite",

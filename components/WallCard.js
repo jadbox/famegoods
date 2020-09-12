@@ -36,7 +36,7 @@ export default function WallCard({ gif, file }) {
     <div className="container h-screen flex items-center justify-center snap-center always-stop px-6">
       <div
         onClick={onClick}
-        className="relative rounded-lg shadow-lg h-40 w-full justify-center cursor-pointer overflow-hidden"
+        className="relative rounded-lg shadow-round h-40 w-full justify-center cursor-pointer overflow-hidden"
         style={{
           backgroundImage: `url(${gif})`,
           backgroundSize: "cover",
@@ -46,8 +46,8 @@ export default function WallCard({ gif, file }) {
       >
         <div className="flex absolute top-0 right-0 left-0 p-6">
           <ProfileHeader address={file.address} />
-          <button className="top-0 right-0 h-8 w-16 rounded-lg shadow-lg bg-white font-sans">
-            <span>{videoMetadata.tokens} {videoMetadata.tokenName}</span>
+          <button className="top-0 right-0 px-1 h-8 w-20 rounded-lg shadow-lg bg-white font-bold font-sans">
+            {videoMetadata.tokens} {videoMetadata.tokenName}
           </button>
         </div>
         <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -55,10 +55,6 @@ export default function WallCard({ gif, file }) {
           <div className="break-words font-extrabold text-4xl mb-4 p-2 text-white">
             {videoMetadata.title || "Loading..."}
           </div>
-
-          <UnlockButton>
-            Own {videoMetadata.tokens} {videoMetadata.tokenName} to Unlock
-          </UnlockButton>
         </div>
       </div>
     </div>
