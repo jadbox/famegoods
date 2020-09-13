@@ -5,12 +5,8 @@ import { ethers } from "ethers";
 import { getBoxProfile } from "../utils/EditProfiles";
 import useAddress from "../utils/Address";
 
-/* 3box addresses that can be used for testing.
-  ---- Luis's 3box address ----
-  '0x489e4CFfa9B59784C597C51cd24000b1db506c20'
-  ---- Jonathan's 3box address ----
-  '0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D'
-  How to create your own 3box profile for testing &/or leisure:
+/*
+  How to create your own 3box profile for testing:
 1. Get the Metamask wallet Chrome extension. 
 2. Use it to log in at https://3box.io/hub
 3. Create your profile and login to DFAME with the same Metamask account used for 3box.
@@ -25,7 +21,7 @@ export default function Index() {
     image: [
       {
         "@type": "ImageObject",
-        contentUrl: {
+        "contentUrl": {
           "/": "",
         },
       },
@@ -126,5 +122,4 @@ export default function Index() {
                 </div>
               </div>
             </div>
-
 */

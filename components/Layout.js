@@ -8,7 +8,8 @@ import userIcon from "@iconify/icons-la/user";
 
 import { useOvermind } from "../stores/Overmind";
 import * as Roll from "../utils/Roll";
-import RollLogin from "../components/RollLogin";
+import * as Wallet from "../utils/Web3Wallet";
+import ConnectWallet from "../components/ConnectWallet";
 import BottomSheetModal from "../components/BottomSheetModal";
 
 export default function Layout({ children, url }) {
@@ -19,16 +20,18 @@ export default function Layout({ children, url }) {
 
   // Overmind
   const { state: ostate, actions } = useOvermind();
+
   useEffect(() => {
     const tokenObj = Roll.getToken();
-    console.log("tokenObj", tokenObj);
-
-    if (!tokenObj) return;
-
-    actions.updateTokens(tokenObj);
+    if (tokenObj) actions.updateTokens(tokenObj);
+    else {
+      const walletObj = Wallet.getWalletData();
+      if (!walletObj) return;
+      actions.updateWalletData(walletObj);
+    } 
   }, []);
-  // ==================
 
+  // ==================
   // let zoom = 1;
   /* useScript({
     src: "https://cdn.jsdelivr.net/gh/tengbao/vanta/dist/vanta.waves.min.js",
@@ -118,7 +121,7 @@ export default function Layout({ children, url }) {
 
       {walletConnectModal ? (
         <BottomSheetModal onExit={actions.toggleWalletConnectModal}>
-          <RollLogin redirectTo={redirectTo} />
+          <ConnectWallet redirectTo={redirectTo} />
         </BottomSheetModal>
       ) : null}
     </div>

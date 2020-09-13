@@ -3,7 +3,7 @@ import { Icon, InlineIcon } from "@iconify/react";
 import timesSolid from "@iconify/icons-la/times-solid";
 import Link from "next/link";
 
-export default function closeOut() {
+export default function CloseOut() {
     return (
         <div>
             <div className="absolute top-0 right-0">

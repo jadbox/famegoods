@@ -20,10 +20,11 @@ import * as Server from "../../utils/CTS3";
 import ProfileHeader from "../../components/profileHeader";
 import * as UserData from "../../utils/UserData";
 import * as Roll from "../../utils/Roll";
-import RollLogin from "../../components/RollLogin";
+import * as Wallet from "../../utils/Web3Wallet";
+import ConnectWallet from "../../components/ConnectWallet";
 
 import { useOvermind } from "../../stores/Overmind";
-
+ 
 const init = {
   feed: [{ file: "small", refresh: 0 }],
   unlocked: false,
@@ -90,9 +91,9 @@ export default function Slug() {
 
   useEffect(() => {
     if (!slug) return;
-    console.log("slug", slug);
+    //console.log("slug", slug);
     Server.getVideo(slug).then((o) => {
-      console.log("Server.getVideo", o);
+      //console.log("Server.getVideo", o);
       setState((x) => ({ ...x, file: o.video, data: o }));
     });
   }, [slug]);
@@ -109,25 +110,36 @@ export default function Slug() {
   }
 
   useEffect(() => {
-    if (ostate.user.balances.length === 0) actions.refreshUser();
-  }, [ostate.user.isAuthenticated, ostate.user.balances, ostate.user]);
+    actions.refreshUser(videoObj.tokenName);
+  }, [videoObj.tokenName]);
 
+  //console.log("Token required for video:", videoObj.tokenName)
+  //console.log("Amount of tokens required:", videoObj.tokens)
+  console.log("Balance in ostate:", ostate.user.balances);
+
+// Could these be replaced/refactored with the corresponding values in Ostate? 
+// Better in local to compare for useEffect changes?
   let hasEnough = false;
   let balance = 0;
-  if (ostate.user.balances.length > 0 && videoObj.tokenName) {
-    const tokenBalance = Roll.getBalanceObject(
-      ostate.user.balances,
-      videoObj.tokenName
-    );
 
-    if (tokenBalance) {
-      balance = tokenBalance.decAmount;
-      hasEnough = Roll.hasEnough(
+  if (ostate.user.balances.length > 0 && videoObj.tokenName) {
+    if (Roll.checkForRoll()) {
+      console.log("Checking for Roll wallet");
+      const tokenBalance = Roll.getBalanceObject(
         ostate.user.balances,
-        videoObj.tokenName,
-        videoObj.tokens
+        videoObj.tokenName
       );
+
+      if (tokenBalance) {
+        balance = tokenBalance.decAmount;
+        hasEnough = balance >= videoObj.tokens;
+      }
     }
+    if (Wallet.checkForWebWallet()) {
+      console.log("Checking for web3 wallet");
+      balance = ostate.user.balances;
+      hasEnough = ostate.user.balances >= videoObj.tokens,toString();
+    } 
   }
 
   return (
@@ -165,7 +177,7 @@ export default function Slug() {
                   <Icon icon={timesSolid} className="h-8 w-8 text-gray-700" />
                 </Link>
               </div>
-              <RollLogin />
+              <ConnectWallet />
             </>
           )}
 
@@ -222,7 +234,7 @@ export default function Slug() {
                     Must Hold: {videoObj.tokens} {videoObj.tokenName}
                   </div>
                   <div className="font-medium text-sm tracking-wide">
-                    Current Balance: {balance} TING
+                    Current Balance: {balance} {videoObj.tokenName}
                   </div>
                 </button>
               </div>
@@ -286,7 +298,7 @@ export default function Slug() {
                       Must Hold: {videoObj.tokens} {videoObj.tokenName}
                     </div>
                     <div className="font-medium text-sm tracking-wide">
-                      Current Balance: {balance} TING
+                      Current Balance: {balance} {videoObj.tokenName}
                     </div>
                     <div className="font-medium text-base tracking-wide mt-1 underline">
                       Click to Buy More!

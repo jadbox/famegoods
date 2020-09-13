@@ -1,16 +1,17 @@
 import axios from "axios";
 import { ethers } from "ethers";
 
-export function getBalanceObject(balances, tokenName) {
-  const tokenBalance = balances.filter((x) => x.token.symbol === tokenName);
-  if (tokenBalance.length === 0) return null;
-  return tokenBalance[0];
+export function checkForRoll() {
+  const rollAccess = localStorage.getItem("apiRefreshToken");
+  if (!rollAccess) return false;
+  return true;
 }
 
-export function hasEnough(balances, tokenName, amount) {
-  const balance = getBalanceObject(balances, tokenName);
-  if (!balance) return null;
-  return balance.decAmount >= amount;
+export function getBalanceObject(balances, tokenName) {
+  const tokenBalance = balances.filter((x) => x.token.symbol === tokenName);
+  if (!tokenBalance) return null;
+  console.log("Token balance after getBalanceObject:", tokenBalance[0]);
+  return tokenBalance[0];
 }
 
 export function getToken() {
@@ -18,8 +19,6 @@ export function getToken() {
   const urlParams = new URLSearchParams(queryString);
   const apiTokenRef = urlParams.get("token");
   const refreshTokenRef = urlParams.get("refreshToken");
-
-  console.log("apiTokenRef", apiTokenRef, refreshTokenRef, urlParams);
 
   if (apiTokenRef && refreshTokenRef) {
     localStorage.setItem("apiToken", apiTokenRef);
@@ -44,17 +43,23 @@ export function getToken() {
   }
   return null;
 }
+
+// Original Roll redirect link: https://roll.collab.land?serverURL=${url}&redirect=true&id=recI424YZv232Rg0a
+// Params for new server: /connect?id=${id}&callbackURL=${callback}&redirect=true
+
+// For Roll login, these are the redirect params:
+// redirectURL?token=${token}&refreshToken=${refreshToken}&id=${id}
+
+// Metamask or other web3 wallet login redirect url params: 
+// redirectURL?account=WALLET_ADDR&signature=SIG
+
 export function loginUrl(url) {
-  return `https://roll.collab.land?serverURL=${url}&redirect=true&id=recI424YZv232Rg0a`;
-}
+  return `http://qaroll.collab.land/connect?id=recI424YZv232Rg0a&callbackURL=${url}&redirect=true`;
+}  
 
 export function getUserData() {
   const localToken = localStorage.getItem("apiRefreshToken");
-  if (localToken === null) {
-    console.log("No refresh token found in localStorage");
-    return Promise.resolve(null);
-  }
-
+  if (!localToken) return;
   return axios
     .get("https://api.tryroll.com/v2/users/session", {
       headers: {

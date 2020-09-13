@@ -93,9 +93,8 @@ export default function App({ tokens, onChange }) {
       </div>
 
       {tokenOptions.map((x) => (
-        <FormControl variant="outlined" className="w-full mx-6">
+        <FormControl key={x} variant="outlined" className="w-full mx-6">
           <OutlinedInput
-            key={x}
             className="w-auto mb-2"
             id="outlined-adornment-weight"
             // value={1}

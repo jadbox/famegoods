@@ -11,7 +11,7 @@ export default function ProfileHeader({ address }) {
     image: [
       {
         "@type": "ImageObject",
-        contentUrl: {
+        "contentUrl": {
           "/": "",
         },
       },
