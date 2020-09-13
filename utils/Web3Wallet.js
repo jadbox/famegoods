@@ -1,8 +1,5 @@
 import axios from "axios";
 import { ethers } from "ethers";
-import { useOvermind } from "../stores/Overmind";
-
-// const { state: ostate, actions } = useOvermind();
 
 const provider = ethers.getDefaultProvider();
 
@@ -77,38 +74,13 @@ export async function getTokenBalance(symbol) {
   const wallet = new ethers.Wallet(privKey, provider);
 
 	const tokenData = await findTokenMatch(symbol);
-	const tokenContract = tokenData[0].token.contractAddress;
-	const token = new ethers.Contract(tokenContract, TOKEN_ABI, wallet);
+	const tokenContractAddress = tokenData[0].token.contractAddress;
+	const tokenContract = new ethers.Contract(tokenContractAddress, TOKEN_ABI, wallet);
 
-	let balance = await token.balanceOf(address);
+	let balance = await tokenContract.balanceOf(address);
   balance = ethers.utils.formatUnits(balance, 4);
   const r = {
     balances: balance,
   };
   return r;
-}
-
-// Redundant step; can be added into getTokenBalance with 2-3 lines
-
-export async function walletBalanceCheck(symbol) {
-  const balance = await getTokenBalance(symbol);
-  const r = {
-    balances: balance,
-  };
-  return r;
-}
-
-// WIP; may just scrap
-
-export function getWalletBalance() {
-  const address = localStorage.getItem("address");
-  if (address === null) {
-    return;
-  }
-  // Add a checks for address (& API tokens in getUserData) from Overmind
-
-  const res = axios.get("https://api.tryroll.com/v1/tokens/exchange");
-  console.log(res);
-
-  // Unfinished bc getInitialProps worked in page test2.js. Finish?
 }

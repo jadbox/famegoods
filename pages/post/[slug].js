@@ -21,10 +21,10 @@ import ProfileHeader from "../../components/profileHeader";
 import * as UserData from "../../utils/UserData";
 import * as Roll from "../../utils/Roll";
 import * as Wallet from "../../utils/Web3Wallet";
-import RollLogin from "../../components/RollLogin";
+import ConnectWallet from "../../components/ConnectWallet";
 
 import { useOvermind } from "../../stores/Overmind";
-
+ 
 const init = {
   feed: [{ file: "small", refresh: 0 }],
   unlocked: false,
@@ -177,7 +177,7 @@ export default function Slug() {
                   <Icon icon={timesSolid} className="h-8 w-8 text-gray-700" />
                 </Link>
               </div>
-              <RollLogin />
+              <ConnectWallet />
             </>
           )}
 
