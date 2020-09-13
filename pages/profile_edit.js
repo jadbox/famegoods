@@ -51,7 +51,6 @@ const ProfileEditor = () => {
     try {
       const file = await ipfs.add(state.buffer);
       const formattedFile = formatIpfsImageObject(file);
-      //console.log("IPFS file formatted", formattedFile);
       setState((x) => ({ ...x, ipfsHash: file.path }));
       setUserProfile((x) => ({ ...x, 
         image: formattedFile, 
@@ -62,7 +61,6 @@ const ProfileEditor = () => {
       console.error(err);
     }
   };
-  //console.log("userProfile image in local state", userProfile.image);
 
   useEffect(() => {
     if (!state.file) return;
@@ -101,7 +99,7 @@ const ProfileEditor = () => {
 
   const get3BoxProfile = async (addr) => {
     const userProfile = await getBoxProfile(addr);
-    console.log("userProfile.image from 3box: ", userProfile.image);
+    //console.log("userProfile: ", userProfile);
     setUserProfile((x) => ({
       version: x.version + 1,
       name: userProfile.name,
@@ -118,14 +116,22 @@ const ProfileEditor = () => {
     get3BoxProfile(address);
   }, [userProfile, address]);
 
+  let imageDisplay
+  if (userProfile.image == undefined || !userProfile.image[0].contentUrl) {
+    imageDisplay = null;
+  } else {
+    imageDisplay = 
+      <img
+        src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
+        className="rounded-full border-solid border-white border-2 -mt-3"
+      />
+  }
+
   return (
     <div>
       {userProfile.image && address ? (
         <div className="flex justify-center mt-10">
-          <img
-            src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
-            className="rounded-full border-solid border-white border-2 -mt-3"
-          />
+          {imageDisplay}
         </div>
       ) : null}
       <div className="flex justify-center mt-10">

@@ -2,15 +2,11 @@ import React, { useEffect, useState } from "react";
 import Page from "../components/Page";
 import Link from "next/link";
 import { ethers } from "ethers";
-import { getBoxProfile, formatImageObject } from "../utils/EditProfiles";
+import { getBoxProfile } from "../utils/EditProfiles";
 import useAddress from "../utils/Address";
 
-/* 3box addresses that can be used for testing.
-  ---- Luis's 3box address ----
-  '0x489e4CFfa9B59784C597C51cd24000b1db506c20'
-  ---- Jonathan's 3box address ----
-  '0xffaDc07f1BFb127F4312e8652fE94aB0c771b54D'
-  How to create your own 3box profile for testing &/or leisure:
+/*
+  How to create your own 3box profile for testing:
 1. Get the Metamask wallet Chrome extension. 
 2. Use it to log in at https://3box.io/hub
 3. Create your profile and login to DFAME with the same Metamask account used for 3box.
@@ -25,7 +21,7 @@ export default function Index() {
     image: [
       {
         "@type": "ImageObject",
-        contentUrl: {
+        "contentUrl": {
           "/": "",
         },
       },
@@ -38,7 +34,6 @@ export default function Index() {
 
   const get3BoxProfile = async (addr) => {
     const userBoxProfile = await getBoxProfile(addr);
-    console.log("Profile image from 3box", userBoxProfile.image)
     setUserProfile({
       name: userBoxProfile.name,
       description: userBoxProfile.description,
@@ -54,6 +49,17 @@ export default function Index() {
     get3BoxProfile(address);
   }, [address]);
 
+  let imageDisplay
+  if (userProfile.image == undefined || !userProfile.image[0].contentUrl) {
+    imageDisplay = null;
+  } else {
+    imageDisplay = 
+      <img
+        src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
+        className="rounded-full border-solid border-white border-2 -mt-3"
+      />
+  }
+
   return (
     <div>
       <div className="container mx-auto max-w-md overflow-hidden py-3">
@@ -66,12 +72,9 @@ export default function Index() {
           <div className="text-center absolute w-full"></div>
           <div className="flex justify-center">
             <div className="sm:align-middle rounded rounded-t-lg overflow-hidden shadow max-w-md my-3">
-              {userProfile.image[0].contentUrl["/"] && address ? (
-                <div className="flex justify-center mt-10">                  
-                  <img
-                    src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
-                    className="rounded-full border-solid border-white border-2 -mt-3"
-                  />                  
+              {userProfile.image && address ? (
+                <div className="flex justify-center mt-10">
+                  {imageDisplay}
                 </div>
               ) : null}
 
@@ -119,5 +122,4 @@ export default function Index() {
                 </div>
               </div>
             </div>
-
 */

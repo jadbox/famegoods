@@ -4,7 +4,6 @@ import useAddress from "./Address";
 
 // ---- IPFS stuf ----
 
-// Used to format image data from IPFS then submit to 3box
 export const formatIpfsImageObject = (returnedData) => {
   const format = [{
     "@type": "ImageObject",
@@ -28,22 +27,10 @@ export async function getBoxProfile(address) {
 export async function setBoxProfile(address, fields, values) {
   const box = await Box.openBox(address, window.ethereum);
   console.log('Opening 3Box...');
-  
+  const userProfile = await getBoxProfile(address);
+  console.log('Accessing user profile...');
   const space = await box.openSpace(SPACE_APP);
   console.log('syncing...');
   box.onSyncDone(() => console.log('sync done'));
   await box.public.setMultiple(fields, values);
 }
-
-// Used to format image data from 3box then save in state
-// TODO: consolidate formatIpfsImageObject & below func into 1 with conditional (e.g. if (returnedData.path) {...})
-export const formatImageObject = (ipfsHash) => {
-  const format = [{
-    "@type": "ImageObject",
-    "contentUrl": {
-      "/": ipfsHash
-    }
-  }];
-
-  return format;
-};
