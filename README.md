@@ -1,4 +1,4 @@
-# CollabTube
+# DFAME (Formerly FAMEGOODS)
 
 
 Usually splitting your app state into `pages` feels natural but sometimes you'll want to have global state for your app. This is an example on how you can use mobx that also works with our universal rendering approach.
@@ -49,3 +49,5 @@ yarn dev
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+Powered by ![Image](public/vercel.svg)
