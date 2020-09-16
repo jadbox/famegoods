@@ -38,10 +38,8 @@ export default function Tabs({ color="black", data }) {
 
   const address = useAddress();
 
-  console.log("Fetch data:", data);
-
 // This is why balances don't show after ostate changes: if (ostate.user.balances.length === 0)
-console.log("Ostate user balance from upload.js:", ostate.user.balances);
+//console.log("Ostate user balance from test2.js:", ostate.user.balances);
   useEffect(() => {
     if (ostate.user.balances.length === 0) actions.refreshUser();
   }, [ostate.user.balances, ostate.user]);
@@ -260,15 +258,13 @@ console.log("Ostate user balance from upload.js:", ostate.user.balances);
                                 accept="video/*;capture=camcorder"
                               />
 
-                              {ostate.user.balances.length > 0 && (
+                              
                                 <SetTicket
-                                  tokens={ostate.user.balances}
+                                  tokens={data}
                                   onChange={onTokenChange}
                                 ></SetTicket>
-                              )}
-                              {ostate.user.balances.length === 0 && (
-                                <p>You currently do not have any tokens</p>
-                              )}
+                              
+                              
 
                               <button
                                 onClick={onSubmit}

@@ -109,18 +109,20 @@ export default function Slug() {
     setState((x) => ({ ...x, unlocked: true }));
   }
 
-  useEffect(() => {
-    actions.refreshUser(videoObj.tokenName);
-  }, [videoObj.tokenName]);
-
-  //console.log("Token required for video:", videoObj.tokenName)
-  //console.log("Amount of tokens required:", videoObj.tokens)
-  console.log("Balance in ostate:", ostate.user.balances);
-
 // Could these be replaced/refactored with the corresponding values in Ostate? 
 // Better in local to compare for useEffect changes?
   let hasEnough = false;
   let balance = 0;
+
+  useEffect(() => {
+    actions.refreshUser(videoObj.tokenName);
+
+    return () => { actions.resetBalance(0); }
+  }, [videoObj.tokenName]);
+
+  //console.log("Token required for video:", videoObj.tokenName)
+  //console.log("Amount of tokens required:", videoObj.tokens)
+  //console.log("Balance in ostate:", ostate.user.balances);
 
   if (ostate.user.balances.length > 0 && videoObj.tokenName) {
     if (Roll.checkForRoll()) {

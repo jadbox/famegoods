@@ -44,7 +44,7 @@ export const overmind = createOvermind(
         
         state.user.isAuthenticated = true;
         actions.updateUser(user);
-        console.log("Final user in ostate", user);  
+        //console.log("Final user in ostate", user);  
       },
       updateUser({ state }, user) {
         if (!user) return;
@@ -74,6 +74,9 @@ export const overmind = createOvermind(
         if (state.user.wallets.address) {
           state.user.isAuthenticated = true;
         }
+      },
+      resetBalance({ state }, balance) {
+        state.user.balances = balance;
       },
       updateStep({ state }, step) {
         state.currentStep = step;

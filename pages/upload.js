@@ -3,7 +3,8 @@ import Page from "../components/Page";
 import { TextField, Slider, Typography, Button } from "@material-ui/core";
 import { addVideo } from "../utils/CTS3";
 import { Alert, AlertTitle } from "@material-ui/lab";
-// import { createGif } from "../utils/GifUtil";
+import axios from "axios";
+import { ethers } from "ethers";
 import LoadingOverlay from "../components/LoadingOverlay";
 import { Icon, InlineIcon } from "@iconify/react";
 import cloudUploadAltSolid from "@iconify/icons-la/cloud-upload-alt-solid";
@@ -17,8 +18,9 @@ import MetaMask from "../components/MetaMask";
 import blueConfirmation from "../src/lotties/blueConfirmation";
 import CloseOut from "../components/closeOut";
 import ExternalContentSubmitForm from "../components/upload/ExternalContentSubmitForm";
+import * as Wallet from "../utils/Web3Wallet";
 
-const Tabs = ({ color }) => {
+export default function Tabs({ color="black", data }) {
   const [openTab, setOpenTab] = React.useState(1);
   const [state, setState] = useState({ progress: 0 });
   const [formdata, setFormData] = useState({ tokens: 1 });
@@ -35,12 +37,6 @@ const Tabs = ({ color }) => {
   };
 
   const address = useAddress();
-
-// This is why balances don't show after ostate changes: if (ostate.user.balances.length === 0)
-console.log("Ostate user balance from upload.js:", ostate.user.balances);
-  useEffect(() => {
-    if (ostate.user.balances.length === 0) actions.refreshUser();
-  }, [ostate.user.balances, ostate.user]);
 
   async function onSubmit() {
     const _files = hiddenFileInput.current; // document.getElementById("videoupload");
@@ -117,7 +113,7 @@ console.log("Ostate user balance from upload.js:", ostate.user.balances);
     setFormData((x) => ({ ...x, tokens }));
   }
 
-  if (!address) {
+  if (!address && !data) {
     return <MetaMask></MetaMask>;
   }
 
@@ -255,17 +251,10 @@ console.log("Ostate user balance from upload.js:", ostate.user.balances);
                                 name="myfile"
                                 accept="video/*;capture=camcorder"
                               />
-
-                              {ostate.user.balances.length > 0 && (
-                                <SetTicket
-                                  tokens={ostate.user.balances}
-                                  onChange={onTokenChange}
-                                ></SetTicket>
-                              )}
-                              {ostate.user.balances.length === 0 && (
-                                <p>You currently do not have any tokens</p>
-                              )}
-
+                              <SetTicket
+                                tokens={data}
+                                onChange={onTokenChange}
+                              />                            
                               <button
                                 onClick={onSubmit}
                                 className="overflow-visible mb-8 mt-4 w-full h-12 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold rounded shadow-lg sm:h-16"
@@ -293,10 +282,10 @@ console.log("Ostate user balance from upload.js:", ostate.user.balances);
   );
 };
 
-export default function TabsRender() {
-  return (
-    <>
-      <Tabs color="black" />;
-    </>
-  );
+export async function getStaticProps() {
+  const data = await Wallet.listRollTokens();
+  return {
+    props: { data },
+    revalidate: 3600
+  }
 }

@@ -35,12 +35,6 @@ function Page() {
     }
   }, []);
 
-  // Being undone by new conditional in actions.refreshUser(); is it necessary here?
-  console.log("Ostate user balance from Page.js:", ostate.user.balances);
-  useEffect(() => {
-    if (ostate.user.balances.length === 0) actions.refreshUser();
-  }, [ostate.user.balances, ostate.user]);
-
   return (
     <>
       <Head>

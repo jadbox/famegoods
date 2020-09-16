@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import data from "../data/Data";
 import SelectCurrency from "./SelectCurrency";
 import Slider from "@material-ui/core/Slider";
-
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import Input from "@material-ui/core/Input";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -16,8 +14,6 @@ export default function App({ tokens, onChange }) {
 
   const [state, setState] = useState({});
 
-  tokens = tokens || [];
-
   useEffect(
     (x) => {
       onChange(state);
@@ -25,32 +21,12 @@ export default function App({ tokens, onChange }) {
     [state]
   );
 
-  const data = {
-    currencies: tokens.map((t) => ({
-      code: t.token.symbol,
-      sellRate: 1,
-      decAmount: t.decAmount,
-      name: t.token.symbol + " Token",
-    })),
-    fiat: [
-      {
-        code: "USD",
-        sellRate: 0.7041,
-        name: "United States Dollars",
-      },
-    ],
-  };
-
   function onSelectCurrency(idx, x, val) {
-    // console.log("x", idx, x, val);
     const y = { ...state };
-
     y[idx] = y[idx] || {};
-
     if (x) {
       y[idx] = { ...y[idx], name: x, amount: 1 || y[idx].amount };
     }
-
     if (val) {
       val = parseFloat(val);
       y[idx] = { ...y[idx], amount: val };
@@ -73,8 +49,6 @@ export default function App({ tokens, onChange }) {
       return y;
     });
   }
-
-  // console.log("state", state);
 
   return (
     <div className="w-screen">
@@ -105,7 +79,7 @@ export default function App({ tokens, onChange }) {
             endAdornment={
               <InputAdornment position="end">
                 <SelectCurrency
-                  currencies={data.currencies}
+                  tokens={tokens}
                   onSelectCurrency={(d) => onSelectCurrency(x, d)}
                 />
               </InputAdornment>
