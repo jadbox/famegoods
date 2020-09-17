@@ -24,7 +24,8 @@ export default function ProfileHeader({ address }) {
     if (!address) return
     async function setup() {
       const profile = await getBoxProfile(address);
-      setUserProfile((x) => ({...x, 
+      setUserProfile((x) => ({
+        ...x,
         name: profile.name,
         description: profile.description,
         emoji: profile.emoji,
@@ -38,14 +39,14 @@ export default function ProfileHeader({ address }) {
 
   let imageDisplay
   if (userProfile.image[0].contentUrl == undefined || !userProfile.image[0].contentUrl["/"]) {
-    imageDisplay = 
+    imageDisplay =
       <img
         className="h-12 w-12 object-cover rounded-full border-solid border-white border-2"
         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
         alt="User profile image"
       />
   } else {
-    imageDisplay = 
+    imageDisplay =
       <img
         className="h-12 w-12 object-cover rounded-full border-solid border-white border-2"
         src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
@@ -58,16 +59,16 @@ export default function ProfileHeader({ address }) {
     namePlace = "Guest";
   }
 
-// "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-  
+  // "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+
   return (
     <div className="flex flex-auto">
-      {imageDisplay}     
-      <div className="flex-auto">
-        <p className="ml-4 text-extrabold tracking-wide text-white text-lg align-text-top">
+      {imageDisplay}
+      <div className="flex-auto font-mont">
+        <p className="ml-4 text-extrabold tracking-wide text-white text-lg align-text-top font-mont">
           {userProfile.name || namePlace}
         </p>
-        <p className="ml-4 text-extrabold tracking-wide text-white text-sm align-text-top">
+        <p className="ml-4 text-extrabold tracking-wide text-white text-sm align-text-top font-mont">
           3 Hours Ago
         </p>
       </div>

@@ -3,13 +3,16 @@ import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
 import playSolid from "@iconify/icons-la/play-solid";
 import lockSolid from "@iconify/icons-la/lock-solid";
-import ellipsisVSolid from "@iconify/icons-la/ellipsis-v-solid";
 import ProfileHeader from "./profileHeader";
+import FeedTabs from "../components/feedTabs";
+import Memberships from "../components/membership";
 
 import * as UserData from "../utils/UserData";
 import { useOvermind } from "../stores/Overmind";
 
+
 export default function WallCard({ gif, file }) {
+  const [openTab, setOpenTab] = React.useState(1);
   const [videoMetadata, setVideoMetadata] = useState({});
   const router = useRouter();
   const { state: ostate, actions } = useOvermind();
@@ -34,10 +37,10 @@ export default function WallCard({ gif, file }) {
   }
 
   return (
-    <div className="container h-screen flex items-center justify-center snap-center always-stop px-6">
+    <div className="container h-screen flex flex-col items-center justify-center snap-center always-stop px-4">
       <div
         onClick={onClick}
-        className="relative rounded-md shadow-lg h-48 w-full justify-center cursor-pointer overflow-hidden"
+        className="relative shadow-round rounded-xl w-full lg:w-2/6 justify-center cursor-pointer overflow-hidden mt-10"
         style={{
           backgroundImage: `url(${gif})`,
           backgroundSize: "cover",
@@ -45,23 +48,16 @@ export default function WallCard({ gif, file }) {
           height: "75%",
         }}
       >
-        <div className="flex absolute top-0 right-0 left-0 p-6">
+        <div className="flex absolute top-0 right-0 left-0 p-6 mb-4">
           <ProfileHeader address={file.address} />
-          <Icon
-            icon={ellipsisVSolid}
-            color="white"
-            className="top-0 right-0 h-8 w-8"
-          />
+          <button className="top-0 right-0 px-1 w-20 h-8 text-center shadow-lg bg-white font-mont">
+            <p className="bg-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-fill-transparent font-extrabold">{videoMetadata.tokens} {videoMetadata.tokenName}</p>
+          </button>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 p-6">
-          <Icon className="w-10 h-10" icon={lockSolid} color="white" />
-          <div className="break-words font-extrabold text-4xl mb-4 p-2 text-white">
+        <div className="justify-center mt-32">
+          <div className="break-words font-black text-4xl text-white font-mont text-center">
             {videoMetadata.title || "Loading..."}
           </div>
-
-          <UnlockButton>
-            Own {videoMetadata.tokens} {videoMetadata.tokenName} to Unlock
-          </UnlockButton>
         </div>
       </div>
     </div>
@@ -70,7 +66,7 @@ export default function WallCard({ gif, file }) {
 
 function UnlockButton({ children }) {
   return (
-    <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-9/12 rounded-lg mr-2 items-center button-gradient w-full">
+    <button className="flex bg-white hover:bg-gray-300 text-black font-medium tracking-wide py-2 px-4 w-9/12 mr-2 items-center button-gradient w-full">
       <Icon className="m-1" icon={playSolid} color="black" />
       <span>{children}</span>
     </button>
