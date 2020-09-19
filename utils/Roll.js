@@ -54,7 +54,8 @@ export function getToken() {
 // redirectURL?account=WALLET_ADDR&signature=SIG
 
 export function loginUrl(url) {
-  return `http://qaroll.collab.land/connect?id=recI424YZv232Rg0a&callbackURL=${url}&redirect=true`;
+  if (!url) url = window.location.href;
+  return `https://roll.collab.land/connect?id=recI424YZv232Rg0a&callbackURL=${url}&redirect=true`;
 }  
 
 export function getUserData() {
