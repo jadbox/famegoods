@@ -24,24 +24,24 @@ module.exports = {
       'mfs': { paintOrder: 'markers fill stroke' },
       'msf': { paintOrder: 'markers stroke fill' },
     },
-    backgroundColor: theme => ({
-      'primary': '#FF8CFF',
-      'secondary': '#785DFF'
-    }),
     gradientColorStops: theme => ({
       'primary': '#FF8CFF',
       'secondary': '#785DFF'
     }),
-    borderRadius: {
-      xl: "2rem",
-    },
     extend: {
+      colors: {
+        'primary': '#FF8CFF',
+        'secondary': '#785DFF'
+      },
       animation: {
         pulse: "pulse 4s infinite",
       },
       fontFamily: {
         'head': ["Syne"],
-        'mont': ["Montserrat"]
+        body: ['Montserrat', 'sans-serif']
+      },
+      borderRadius: {
+        xl: "2rem",
       },
     },
   },
