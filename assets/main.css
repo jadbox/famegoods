@@ -6687,6 +6687,10 @@ body {
   height: 100vh;
 }
 
+.h-xl{
+  height: 75%;
+}
+
 .text-xs{
   font-size: 0.75rem;
 }
@@ -13725,6 +13729,10 @@ body {
   box-shadow: none;
 }
 
+.shadow-focus{
+  box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+}
+
 .hover\:shadow-xs:hover{
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
@@ -13765,6 +13773,10 @@ body {
   box-shadow: none;
 }
 
+.hover\:shadow-focus:hover{
+  box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+}
+
 .focus\:shadow-xs:focus{
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
@@ -13803,6 +13815,10 @@ body {
 
 .focus\:shadow-none:focus{
   box-shadow: none;
+}
+
+.focus\:shadow-focus:focus{
+  box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
 }
 
 .fill-current{
@@ -27271,6 +27287,10 @@ body {
     height: 100vh;
   }
 
+  .sm\:h-xl{
+    height: 75%;
+  }
+
   .sm\:text-xs{
     font-size: 0.75rem;
   }
@@ -34309,6 +34329,10 @@ body {
     box-shadow: none;
   }
 
+  .sm\:shadow-focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .sm\:hover\:shadow-xs:hover{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -34349,6 +34373,10 @@ body {
     box-shadow: none;
   }
 
+  .sm\:hover\:shadow-focus:hover{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .sm\:focus\:shadow-xs:focus{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -34387,6 +34415,10 @@ body {
 
   .sm\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .sm\:focus\:shadow-focus:focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
   }
 
   .sm\:fill-current{
@@ -46064,6 +46096,10 @@ body {
     height: 100vh;
   }
 
+  .md\:h-xl{
+    height: 75%;
+  }
+
   .md\:text-xs{
     font-size: 0.75rem;
   }
@@ -53102,6 +53138,10 @@ body {
     box-shadow: none;
   }
 
+  .md\:shadow-focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .md\:hover\:shadow-xs:hover{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -53142,6 +53182,10 @@ body {
     box-shadow: none;
   }
 
+  .md\:hover\:shadow-focus:hover{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .md\:focus\:shadow-xs:focus{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -53180,6 +53224,10 @@ body {
 
   .md\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .md\:focus\:shadow-focus:focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
   }
 
   .md\:fill-current{
@@ -64857,6 +64905,10 @@ body {
     height: 100vh;
   }
 
+  .lg\:h-xl{
+    height: 75%;
+  }
+
   .lg\:text-xs{
     font-size: 0.75rem;
   }
@@ -71895,6 +71947,10 @@ body {
     box-shadow: none;
   }
 
+  .lg\:shadow-focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .lg\:hover\:shadow-xs:hover{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -71935,6 +71991,10 @@ body {
     box-shadow: none;
   }
 
+  .lg\:hover\:shadow-focus:hover{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .lg\:focus\:shadow-xs:focus{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -71973,6 +72033,10 @@ body {
 
   .lg\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .lg\:focus\:shadow-focus:focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
   }
 
   .lg\:fill-current{
@@ -83650,6 +83714,10 @@ body {
     height: 100vh;
   }
 
+  .xl\:h-xl{
+    height: 75%;
+  }
+
   .xl\:text-xs{
     font-size: 0.75rem;
   }
@@ -90688,6 +90756,10 @@ body {
     box-shadow: none;
   }
 
+  .xl\:shadow-focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .xl\:hover\:shadow-xs:hover{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -90728,6 +90800,10 @@ body {
     box-shadow: none;
   }
 
+  .xl\:hover\:shadow-focus:hover{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .xl\:focus\:shadow-xs:focus{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -90766,6 +90842,10 @@ body {
 
   .xl\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .xl\:focus\:shadow-focus:focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
   }
 
   .xl\:fill-current{

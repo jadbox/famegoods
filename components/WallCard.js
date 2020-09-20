@@ -37,15 +37,15 @@ export default function WallCard({ gif, file }) {
   }
 
   return (
-    <div className="container h-screen flex flex-col items-center justify-center snap-center always-stop px-4 shadow-2xl">
+    <div className="h-screen w-full flex flex-col items-center justify-center snap-center always-stop px-4">
       <div
         onClick={onClick}
-        className="relative shadow-2xl rounded-xl w-full lg:w-2/6 justify-center cursor-pointer overflow-hidden mt-10"
+        className="relative shadow-focus rounded-xl w-full lg:w-2/6 justify-center cursor-pointer overflow-hidden sm:mt-10 md:mt-6 lg:mt-2"
         style={{
           backgroundImage: `url(${gif})`,
           backgroundSize: "cover",
           backgroundPosition: "50%",
-          height: "75%",
+          height: "70%",
         }}
       >
         <div className="flex absolute top-0 right-0 left-0 p-6 mb-4">
@@ -55,7 +55,7 @@ export default function WallCard({ gif, file }) {
           </button>
         </div>
         <div className="justify-center mt-32">
-          <div className="break-words font-extrabold text-4xl text-white font-mont text-center tracking-wide">
+          <div className="w-4/5 break-words font-extrabold text-4xl text-white font-mont text-center tracking-wide m-auto">
             {videoMetadata.title || "Loading..."}
           </div>
         </div>

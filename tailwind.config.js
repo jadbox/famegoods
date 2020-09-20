@@ -43,6 +43,12 @@ module.exports = {
       borderRadius: {
         xl: "2rem",
       },
+      boxShadow: {
+        focus: '5px 5px 10px 10px rgba(196, 196, 196, 1)'
+      },
+      height: {
+        xl: '75%'
+      },
     },
   },
   variants: {

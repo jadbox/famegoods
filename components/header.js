@@ -22,14 +22,14 @@ export default function Header() {
   }, [])
 
   return (
-    <nav className="bg-white pt-4 pb-2 justify-left fixed w-full z-10 top-0 rounded-b-lg px-5">
-      <div className="flex flex-row justify-evenly items-start">
+    <nav className="bg-white fixed w-full z-10 top-0 rounded-b-lg px-5">
+      <div className="flex flex-row justify-between items-center">
         <div className="relative">
           <button
             onClick={e => setIsOpen(!isOpen)}
             className={isOpen ? "relative z-10 cursor-pointer focus:outline-none text-blue-400" : "relative z-10 cursor-pointer focus:outline-none hover:text-blue-400 text-black"}
           >
-            <Icon icon={IconWalletSolid} className="h-12 w-12 p-2 bg-white rounded-full" />
+            <Icon icon={IconWalletSolid} className="h-12 w-12 p-2 bg-white rounded-full align-middle" />
           </button>
           {isOpen
             ? (
@@ -56,11 +56,13 @@ export default function Header() {
             ) : null
           }
         </div>
-        <span className="font-syne text-3xl text-center">
-          DFAME
+        <div className="font-syne text-3xl text-center">
+          <span>
+            DFAME
         </span>
+        </div>
         <div className="align-middle">
-          <Icon icon={filterSolid} className="h-8 w-8 align-middle" />
+          <Icon icon={filterSolid} className="h-8 w-8 bg-white align-middle" color="#333333" />
         </div>
       </div>
     </nav>
