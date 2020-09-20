@@ -43,6 +43,7 @@ function Page() {
 
       <div className="flex flex-col">
         <Header></Header>
+
         <div className="snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (
@@ -51,8 +52,8 @@ function Page() {
                 title={videoDetail.title}
                 gif={videoDetail.gif}
                 file={videoDetail}
-                // tags={videoDetail.tags}
-                // video={videoDetail.video}
+              // tags={videoDetail.tags}
+              // video={videoDetail.video}
               />
             );
           })}

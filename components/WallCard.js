@@ -50,7 +50,7 @@ export default function WallCard({ gif, file }) {
       >
         <div className="flex absolute top-0 right-0 left-0 p-6 mb-4">
           <ProfileHeader address={file.address} />
-          <button className="top-0 right-0 px-1 w-20 h-8 text-center shadow-lg bg-white font-mont rounded-md">
+          <button className="top-0 right-0 w-20 h-8 text-center shadow-xl bg-white font-mont rounded-md">
             <p className="bg-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-fill-transparent font-extrabold text-sm">{videoMetadata.tokens} {videoMetadata.tokenName}</p>
           </button>
         </div>

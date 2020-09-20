@@ -56,7 +56,7 @@ export default function Header() {
             ) : null
           }
         </div>
-        <div className="font-syne text-3xl text-center">
+        <div className="font-syne font-extrabold text-3xl text-center">
           <span>
             DFAME
         </span>
