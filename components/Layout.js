@@ -2,15 +2,15 @@ import { useRef, useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import streamSolid from "@iconify/icons-la/stream-solid";
-import uploadSolid from "@iconify/icons-la/upload-solid";
-import userIcon from "@iconify/icons-la/user";
 
 import { useOvermind } from "../stores/Overmind";
 import * as Roll from "../utils/Roll";
 import * as Wallet from "../utils/Web3Wallet";
 import ConnectWallet from "../components/ConnectWallet";
 import BottomSheetModal from "../components/BottomSheetModal";
+import Footer from "../components/footer";
+import FeedTabs from "../components/feedTabs"
+
 
 export default function Layout({ children, url }) {
   const [zoom, setZoom] = useState(1);
@@ -28,7 +28,7 @@ export default function Layout({ children, url }) {
       const walletObj = Wallet.getWalletData();
       if (!walletObj) return;
       actions.updateWalletData(walletObj);
-    } 
+    }
   }, []);
 
   // ==================
@@ -99,25 +99,7 @@ export default function Layout({ children, url }) {
 
       <div>{children}</div>
 
-      <footer className="fixed h-16 bg-white w-full bottom-0 flex rounded-t-lg">
-        <div className="flex items-center justify-between w-4/5 mx-auto py-2">
-          <Link href="/">
-            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
-              <Icon icon={streamSolid} height="2em" />
-            </div>
-          </Link>
-          <Link href="/upload">
-            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
-              <Icon icon={uploadSolid} height="2em" />
-            </div>
-          </Link>
-          <Link href="/profile">
-            <div className="sm:px-2 cursor-pointer hover:text-blue-400">
-              <Icon icon={userIcon} height="2em" />
-            </div>
-          </Link>
-        </div>
-      </footer>
+      <Footer></Footer>
 
       {walletConnectModal ? (
         <BottomSheetModal onExit={actions.toggleWalletConnectModal}>

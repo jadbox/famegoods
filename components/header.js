@@ -4,6 +4,7 @@ import Link from "next/link";
 import * as Roll from "../utils/Roll";
 import IconWalletSolid from "@iconify/icons-la/wallet-solid";
 
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,17 +20,10 @@ export default function Header() {
   }, [])
 
   return (
-    <nav className="px-5 pt-4 pb-2 w-full z-10 justify-left fixed top-0 bg-white rounded-b-lg ">
-      <div className="container mx-auto flex flex-wrap items-center justify-between">
-        <h3
-          style={{
-            fontStyle: "italic",
-            fontSize: "1.4em",
-            fontWeight: 800,
-            color: "black",
-          }}
-        >
-          🔥 WHAT'S HOT
+    <nav className="bg-white pt-4 pb-2 justify-left fixed w-full z-10 top-0 rounded-b-lg px-5">
+      <div className="container font-head text-center">
+        <h3 className="font-head text-3xl text-center">
+          DFAME
         </h3>
 
         <div className="relative">

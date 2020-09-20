@@ -27,6 +27,7 @@
   "dependencies": {
     "3box": "^1.21.0",
     "3box-profile-edit-react": "^0.0.9",
+    "@iconify/icons-clarity": "^1.0.0",
     "@iconify/icons-ic": "^1.0.14",
     "@iconify/icons-la": "^1.0.0",
     "@iconify/icons-ps": "^1.0.3",
@@ -51,7 +52,7 @@
     "react-lottie": "^1.2.3",
     "react-script-hook": "^1.1.1",
     "shortid": "^2.2.15",
-    "tailwindcss": "^1.5.2",
+    "tailwindcss": "^1.8.10",
     "tailwindcss-scroll-snap": "^1.0.2",
     "utf-8-validate": "^5.0.2",
     "uuid": "^8.2.0"
@@ -63,6 +64,7 @@
     "@next/bundle-analyzer": "^9.5.2",
     "autoprefixer": "^9.8.4",
     "concurrently": "^5.3.0",
-    "overmind-devtools": "^26.0.1"
+    "overmind-devtools": "^26.0.1",
+    "tailwindcss-text-fill-stroke": "^1.1.2"
   }
 }
