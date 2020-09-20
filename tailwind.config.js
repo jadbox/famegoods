@@ -37,8 +37,8 @@ module.exports = {
         pulse: "pulse 4s infinite",
       },
       fontFamily: {
-        'head': ["Syne"],
-        body: ['Montserrat', 'sans-serif']
+        'syne': ['Syne', 'sans-serif'],
+        'body': ['Montserrat', 'sans-serif']
       },
       borderRadius: {
         xl: "2rem",

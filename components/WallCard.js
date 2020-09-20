@@ -37,10 +37,10 @@ export default function WallCard({ gif, file }) {
   }
 
   return (
-    <div className="container h-screen flex flex-col items-center justify-center snap-center always-stop px-4">
+    <div className="container h-screen flex flex-col items-center justify-center snap-center always-stop px-4 shadow-2xl">
       <div
         onClick={onClick}
-        className="relative shadow-round rounded-xl w-full lg:w-2/6 justify-center cursor-pointer overflow-hidden mt-10"
+        className="relative shadow-2xl rounded-xl w-full lg:w-2/6 justify-center cursor-pointer overflow-hidden mt-10"
         style={{
           backgroundImage: `url(${gif})`,
           backgroundSize: "cover",
@@ -50,12 +50,12 @@ export default function WallCard({ gif, file }) {
       >
         <div className="flex absolute top-0 right-0 left-0 p-6 mb-4">
           <ProfileHeader address={file.address} />
-          <button className="top-0 right-0 px-1 w-20 h-8 text-center shadow-lg bg-white font-mont">
-            <p className="bg-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-fill-transparent font-extrabold">{videoMetadata.tokens} {videoMetadata.tokenName}</p>
+          <button className="top-0 right-0 px-1 w-20 h-8 text-center shadow-lg bg-white font-mont rounded-md">
+            <p className="bg-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-fill-transparent font-extrabold text-sm">{videoMetadata.tokens} {videoMetadata.tokenName}</p>
           </button>
         </div>
         <div className="justify-center mt-32">
-          <div className="break-words font-black text-4xl text-white font-mont text-center">
+          <div className="break-words font-extrabold text-4xl text-white font-mont text-center tracking-wide">
             {videoMetadata.title || "Loading..."}
           </div>
         </div>

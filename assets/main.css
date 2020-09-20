@@ -6483,8 +6483,8 @@ body {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.font-head{
-  font-family: Syne;
+.font-syne{
+  font-family: Syne, sans-serif;
 }
 
 .font-body{
@@ -27067,8 +27067,8 @@ body {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .sm\:font-head{
-    font-family: Syne;
+  .sm\:font-syne{
+    font-family: Syne, sans-serif;
   }
 
   .sm\:font-body{
@@ -45860,8 +45860,8 @@ body {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .md\:font-head{
-    font-family: Syne;
+  .md\:font-syne{
+    font-family: Syne, sans-serif;
   }
 
   .md\:font-body{
@@ -64653,8 +64653,8 @@ body {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .lg\:font-head{
-    font-family: Syne;
+  .lg\:font-syne{
+    font-family: Syne, sans-serif;
   }
 
   .lg\:font-body{
@@ -83446,8 +83446,8 @@ body {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .xl\:font-head{
-    font-family: Syne;
+  .xl\:font-syne{
+    font-family: Syne, sans-serif;
   }
 
   .xl\:font-body{
