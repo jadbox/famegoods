@@ -41,9 +41,9 @@ function Page() {
         <title>DFAME</title>
       </Head>
 
-      <div className="flex flex-col">
-        <Header></Header>
+      <Header></Header>
 
+      <div className="flex flex-col">
         <div className="snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (

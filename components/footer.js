@@ -23,9 +23,11 @@ export default function Footer() {
                         <Icon icon={compassIcon} height="2em" />
                     </div>
                 </Link>
-                <div className="sm:px-2 cursor-pointer hover:text-blue-400">
-                    <img src="/DFAMElogo.png" alt="DFAME Logo" />
-                </div>
+                <Link href="/">
+                    <div className="sm:px-2 cursor-pointer hover:text-blue-400">
+                        <img src="/DFAMElogo.png" alt="DFAME Logo" />
+                    </div>
+                </Link>
                 <Link href="/roll_exchange">
                     <div className="sm:px-2 cursor-pointer hover:text-blue-400">
                         <Icon icon={twoWayArrowsLine} height="2em" />

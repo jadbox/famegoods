@@ -24,7 +24,7 @@ import * as Wallet from "../../utils/Web3Wallet";
 import ConnectWallet from "../../components/ConnectWallet";
 
 import { useOvermind } from "../../stores/Overmind";
- 
+
 const init = {
   feed: [{ file: "small", refresh: 0 }],
   unlocked: false,
@@ -109,8 +109,8 @@ export default function Slug() {
     setState((x) => ({ ...x, unlocked: true }));
   }
 
-// Could these be replaced/refactored with the corresponding values in Ostate? 
-// Better in local to compare for useEffect changes?
+  // Could these be replaced/refactored with the corresponding values in Ostate? 
+  // Better in local to compare for useEffect changes?
   let hasEnough = false;
   let balance = 0;
 
@@ -140,8 +140,8 @@ export default function Slug() {
     if (Wallet.checkForWebWallet()) {
       console.log("Checking for web3 wallet");
       balance = ostate.user.balances;
-      hasEnough = ostate.user.balances >= videoObj.tokens,toString();
-    } 
+      hasEnough = ostate.user.balances >= videoObj.tokens, toString();
+    }
   }
 
   return (
@@ -154,7 +154,7 @@ export default function Slug() {
         />
       </Head>
 
-      <div className="h-screen w-screen">
+      <div className="h-xl rounded-xl w-full lg:w-2/6">
         <div className="flex h-full justify-center w-screen pb-16">
           {state.unlocked && (
             <div id="video" className="w-screen">
@@ -245,7 +245,7 @@ export default function Slug() {
 
           {ostate.user.isAuthenticated && state.file && !hasEnough && (
             <div>
-          
+
               <div className="bg-black bg-opacity-100">
                 <img
                   src={state.data.gif}
@@ -308,7 +308,7 @@ export default function Slug() {
                   </button>
                 </Link>
               </div>
-              
+
             </div>
           )}
 
