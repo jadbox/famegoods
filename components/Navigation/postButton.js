@@ -7,7 +7,7 @@ export default function post() {
         <div>
             <Link href="/upload">
                 <button>
-                    <div className="flex flex-row items-center align-middle bg-white rounded-lg px-4 py-2 font-body shadow-lg cursor-pointer">
+                    <div className="flex flex-row items-center align-middle bg-white rounded-lg px-4 py-2 font-body shadow-lg cursor-pointer md:right-0 md:top-0 lg:right-0 lg:top-0">
                         <img src="/DFAMElogo.png" alt="DFAME Logo" />
                         <span className="bg-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-fill-transparent font-bold ml-2">Post</span>
                     </div>

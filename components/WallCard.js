@@ -40,7 +40,7 @@ export default function WallCard({ gif, file }) {
     <div className="h-screen w-full flex flex-col items-center justify-center snap-center always-stop px-4">
       <div
         onClick={onClick}
-        className="relative shadow-focus rounded-xl w-full lg:w-2/6 justify-center cursor-pointer overflow-hidden mt-12 md:mt-6 lg:mt-2"
+        className="relative shadow-focus rounded-xl w-full lg:w-2/6 justify-center cursor-pointer overflow-hidden mt-12 md:mt-6 lg:mt-24"
         style={{
           backgroundImage: `url(${gif})`,
           backgroundSize: "cover",
