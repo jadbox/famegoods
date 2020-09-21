@@ -11,31 +11,35 @@ import twoWayArrowsLine from '@iconify/icons-clarity/two-way-arrows-line';
 export default function Footer() {
 
     return (
-        <footer className="fixed h-16 bg-white w-full bottom-0 flex rounded-t-lg">
+        <footer className="fixed h-16 bg-white w-full bottom-0 flex rounded-t-lg md:top-0 md:w-1/2 md:right-0 lg:top-0 lg:right-0 lg:w-1/2 visible">
             <div className="flex items-center justify-between w-4/5 mx-auto py-2">
                 <Link href="/">
-                    <div className="sm:px-2 cursor-pointer hover:text-blue-400">
+                    <div className="sm:px-2 cursor-pointer hover:text-blue-400 flex flex-col md:flex-row lg:flex-row items-center align-middle">
                         <Icon icon={streamSolid} height="2em" />
+                        <span className="font-bold ml-1 md:mt-0 lg:mt-0 text-nonexist md:text-sm lg:text-md md:visible lg:visible">Feed</span>
                     </div>
                 </Link>
                 <Link href="/upload">
-                    <div className="sm:px-2 cursor-pointer hover:text-blue-400">
+                    <div className="sm:px-2 cursor-pointer hover:text-blue-400 flex flex-col md:flex-row lg:flex-row items-center align-middle">
                         <Icon icon={compassIcon} height="2em" />
+                        <span className="md:mt-0 lg:mt-0 font-bold ml-1 text-nonexist md:text-sm lg:text-md md:visible lg:visible">Discover</span>
                     </div>
                 </Link>
                 <Link href="/">
-                    <div className="sm:px-2 cursor-pointer hover:text-blue-400">
-                        <img src="/DFAMElogo.png" alt="DFAME Logo" />
+                    <div className="sm:px-2 cursor-pointer hover:text-blue-400 flex flex-col md:flex-row lg:flex-row items-center align-middle">
+                        <img src="/DFAMElogo.png" alt="DFAME Logo" className="md:mt-0 lg:mt-0 visible" />
                     </div>
                 </Link>
                 <Link href="/roll_exchange">
-                    <div className="sm:px-2 cursor-pointer hover:text-blue-400">
+                    <div className="sm:px-2 cursor-pointer hover:text-blue-400 flex flex-col md:flex-row lg:flex-row items-center align-middle">
                         <Icon icon={twoWayArrowsLine} height="2em" />
+                        <span className="text-nonexist md:text-sm lg:text-md md:mt-0 lg:mt-0 font-bold ml-1 md:visible lg:visible">Exchange</span>
                     </div>
                 </Link>
                 <Link href="/profile">
-                    <div className="sm:px-2 cursor-pointer hover:text-blue-400">
+                    <div className="sm:px-2 cursor-pointer hover:text-blue-400 flex flex-col md:flex-row lg:flex-row items-center align-middle">
                         <Icon icon={userIcon} height="2em" />
+                        <span className="md:mt-0 text-nonexist md:text-sm lg:text-md lg:mt-0 font-bold ml-1 md:visible lg:visible">Profile</span>
                     </div>
                 </Link>
             </div>

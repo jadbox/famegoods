@@ -49,6 +49,10 @@ module.exports = {
       height: {
         xl: '75%'
       },
+      fontSize: {
+        'tiny': '.3rem',
+        'nonexist': '0rem'
+      },
     },
   },
   variants: {

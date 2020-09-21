@@ -154,7 +154,7 @@ export default function Slug() {
         />
       </Head>
 
-      <div className="h-xl rounded-xl w-full lg:w-2/6">
+      <div className="rounded-xl w-full lg:w-2/6">
         <div className="flex h-full justify-center w-screen pb-16">
           {state.unlocked && (
             <div id="video" className="w-screen">
@@ -162,7 +162,7 @@ export default function Slug() {
                 <video
                   width="100%"
                   ref={videoRef}
-                  className="h-full w-screen video-js vjs-default-skin vjs-big-play-centered"
+                  className="mt-10 w-screen video-js vjs-default-skin vjs-big-play-centered"
                   controls
                   preload="auto"
                 >

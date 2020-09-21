@@ -6731,6 +6731,14 @@ body {
   font-size: 4rem;
 }
 
+.text-tiny{
+  font-size: .3rem;
+}
+
+.text-nonexist{
+  font-size: 0rem;
+}
+
 .leading-3{
   line-height: .75rem;
 }
@@ -27331,6 +27339,14 @@ body {
     font-size: 4rem;
   }
 
+  .sm\:text-tiny{
+    font-size: .3rem;
+  }
+
+  .sm\:text-nonexist{
+    font-size: 0rem;
+  }
+
   .sm\:leading-3{
     line-height: .75rem;
   }
@@ -46138,6 +46154,14 @@ body {
 
   .md\:text-6xl{
     font-size: 4rem;
+  }
+
+  .md\:text-tiny{
+    font-size: .3rem;
+  }
+
+  .md\:text-nonexist{
+    font-size: 0rem;
   }
 
   .md\:leading-3{
@@ -64949,6 +64973,14 @@ body {
     font-size: 4rem;
   }
 
+  .lg\:text-tiny{
+    font-size: .3rem;
+  }
+
+  .lg\:text-nonexist{
+    font-size: 0rem;
+  }
+
   .lg\:leading-3{
     line-height: .75rem;
   }
@@ -83756,6 +83788,14 @@ body {
 
   .xl\:text-6xl{
     font-size: 4rem;
+  }
+
+  .xl\:text-tiny{
+    font-size: .3rem;
+  }
+
+  .xl\:text-nonexist{
+    font-size: 0rem;
   }
 
   .xl\:leading-3{
