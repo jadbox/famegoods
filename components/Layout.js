@@ -8,6 +8,7 @@ import * as Roll from "../utils/Roll";
 import * as Wallet from "../utils/Web3Wallet";
 import ConnectWallet from "../components/ConnectWallet";
 import BottomSheetModal from "../components/BottomSheetModal";
+import Header from "../components/header"
 import Footer from "../components/footer";
 import FeedTabs from "../components/feedTabs"
 
@@ -96,6 +97,8 @@ export default function Layout({ children, url }) {
   return (
     <div ref={element} className="w-screen h-screen">
       <Head></Head>
+
+      <Header></Header>
 
       <div>{children}</div>
 

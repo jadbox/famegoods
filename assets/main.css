@@ -6483,8 +6483,8 @@ body {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.font-head{
-  font-family: Syne;
+.font-syne{
+  font-family: Syne, sans-serif;
 }
 
 .font-body{
@@ -6687,6 +6687,10 @@ body {
   height: 100vh;
 }
 
+.h-xl{
+  height: 75%;
+}
+
 .text-xs{
   font-size: 0.75rem;
 }
@@ -6725,6 +6729,14 @@ body {
 
 .text-6xl{
   font-size: 4rem;
+}
+
+.text-tiny{
+  font-size: .3rem;
+}
+
+.text-nonexist{
+  font-size: 0rem;
 }
 
 .leading-3{
@@ -13725,6 +13737,10 @@ body {
   box-shadow: none;
 }
 
+.shadow-focus{
+  box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+}
+
 .hover\:shadow-xs:hover{
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
@@ -13765,6 +13781,10 @@ body {
   box-shadow: none;
 }
 
+.hover\:shadow-focus:hover{
+  box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+}
+
 .focus\:shadow-xs:focus{
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
@@ -13803,6 +13823,10 @@ body {
 
 .focus\:shadow-none:focus{
   box-shadow: none;
+}
+
+.focus\:shadow-focus:focus{
+  box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
 }
 
 .fill-current{
@@ -27067,8 +27091,8 @@ body {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .sm\:font-head{
-    font-family: Syne;
+  .sm\:font-syne{
+    font-family: Syne, sans-serif;
   }
 
   .sm\:font-body{
@@ -27271,6 +27295,10 @@ body {
     height: 100vh;
   }
 
+  .sm\:h-xl{
+    height: 75%;
+  }
+
   .sm\:text-xs{
     font-size: 0.75rem;
   }
@@ -27309,6 +27337,14 @@ body {
 
   .sm\:text-6xl{
     font-size: 4rem;
+  }
+
+  .sm\:text-tiny{
+    font-size: .3rem;
+  }
+
+  .sm\:text-nonexist{
+    font-size: 0rem;
   }
 
   .sm\:leading-3{
@@ -34309,6 +34345,10 @@ body {
     box-shadow: none;
   }
 
+  .sm\:shadow-focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .sm\:hover\:shadow-xs:hover{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -34349,6 +34389,10 @@ body {
     box-shadow: none;
   }
 
+  .sm\:hover\:shadow-focus:hover{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .sm\:focus\:shadow-xs:focus{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -34387,6 +34431,10 @@ body {
 
   .sm\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .sm\:focus\:shadow-focus:focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
   }
 
   .sm\:fill-current{
@@ -45860,8 +45908,8 @@ body {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .md\:font-head{
-    font-family: Syne;
+  .md\:font-syne{
+    font-family: Syne, sans-serif;
   }
 
   .md\:font-body{
@@ -46064,6 +46112,10 @@ body {
     height: 100vh;
   }
 
+  .md\:h-xl{
+    height: 75%;
+  }
+
   .md\:text-xs{
     font-size: 0.75rem;
   }
@@ -46102,6 +46154,14 @@ body {
 
   .md\:text-6xl{
     font-size: 4rem;
+  }
+
+  .md\:text-tiny{
+    font-size: .3rem;
+  }
+
+  .md\:text-nonexist{
+    font-size: 0rem;
   }
 
   .md\:leading-3{
@@ -53102,6 +53162,10 @@ body {
     box-shadow: none;
   }
 
+  .md\:shadow-focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .md\:hover\:shadow-xs:hover{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -53142,6 +53206,10 @@ body {
     box-shadow: none;
   }
 
+  .md\:hover\:shadow-focus:hover{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .md\:focus\:shadow-xs:focus{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -53180,6 +53248,10 @@ body {
 
   .md\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .md\:focus\:shadow-focus:focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
   }
 
   .md\:fill-current{
@@ -64653,8 +64725,8 @@ body {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .lg\:font-head{
-    font-family: Syne;
+  .lg\:font-syne{
+    font-family: Syne, sans-serif;
   }
 
   .lg\:font-body{
@@ -64857,6 +64929,10 @@ body {
     height: 100vh;
   }
 
+  .lg\:h-xl{
+    height: 75%;
+  }
+
   .lg\:text-xs{
     font-size: 0.75rem;
   }
@@ -64895,6 +64971,14 @@ body {
 
   .lg\:text-6xl{
     font-size: 4rem;
+  }
+
+  .lg\:text-tiny{
+    font-size: .3rem;
+  }
+
+  .lg\:text-nonexist{
+    font-size: 0rem;
   }
 
   .lg\:leading-3{
@@ -71895,6 +71979,10 @@ body {
     box-shadow: none;
   }
 
+  .lg\:shadow-focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .lg\:hover\:shadow-xs:hover{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -71935,6 +72023,10 @@ body {
     box-shadow: none;
   }
 
+  .lg\:hover\:shadow-focus:hover{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .lg\:focus\:shadow-xs:focus{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -71973,6 +72065,10 @@ body {
 
   .lg\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .lg\:focus\:shadow-focus:focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
   }
 
   .lg\:fill-current{
@@ -83446,8 +83542,8 @@ body {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .xl\:font-head{
-    font-family: Syne;
+  .xl\:font-syne{
+    font-family: Syne, sans-serif;
   }
 
   .xl\:font-body{
@@ -83650,6 +83746,10 @@ body {
     height: 100vh;
   }
 
+  .xl\:h-xl{
+    height: 75%;
+  }
+
   .xl\:text-xs{
     font-size: 0.75rem;
   }
@@ -83688,6 +83788,14 @@ body {
 
   .xl\:text-6xl{
     font-size: 4rem;
+  }
+
+  .xl\:text-tiny{
+    font-size: .3rem;
+  }
+
+  .xl\:text-nonexist{
+    font-size: 0rem;
   }
 
   .xl\:leading-3{
@@ -90688,6 +90796,10 @@ body {
     box-shadow: none;
   }
 
+  .xl\:shadow-focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .xl\:hover\:shadow-xs:hover{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -90728,6 +90840,10 @@ body {
     box-shadow: none;
   }
 
+  .xl\:hover\:shadow-focus:hover{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
+  }
+
   .xl\:focus\:shadow-xs:focus{
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -90766,6 +90882,10 @@ body {
 
   .xl\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .xl\:focus\:shadow-focus:focus{
+    box-shadow: 5px 5px 10px 10px rgba(196, 196, 196, 1);
   }
 
   .xl\:fill-current{

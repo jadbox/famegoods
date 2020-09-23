@@ -41,14 +41,14 @@ export default function ProfileHeader({ address }) {
   if (userProfile.image[0].contentUrl == undefined || !userProfile.image[0].contentUrl["/"]) {
     imageDisplay =
       <img
-        className="h-12 w-12 object-cover rounded-full border-solid border-white border-2"
+        className="h-12 w-12 object-cover rounded-full shadow-lg"
         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
         alt="User profile image"
       />
   } else {
     imageDisplay =
       <img
-        className="h-12 w-12 object-cover rounded-full border-solid border-white border-2"
+        className="h-12 w-12 object-cover rounded-full shadow-lg"
         src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
         alt="User profile image"
       />
@@ -64,12 +64,9 @@ export default function ProfileHeader({ address }) {
   return (
     <div className="flex flex-auto">
       {imageDisplay}
-      <div className="flex-auto font-mont">
-        <p className="ml-4 text-extrabold tracking-wide text-white text-lg align-text-top font-mont">
+      <div className="flex font-mont">
+        <p className="ml-4 text-extrabold tracking-wide text-white text-lg align-text-top font-mont align-middle capitalize">
           {userProfile.name || namePlace}
-        </p>
-        <p className="ml-4 text-extrabold tracking-wide text-white text-sm align-text-top font-mont">
-          3 Hours Ago
         </p>
       </div>
     </div>

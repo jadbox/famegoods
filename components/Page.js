@@ -20,6 +20,7 @@ const init = {
 
 // @inject('store')
 function Page() {
+  const [openTab, setOpenTab] = React.useState(1);
   const [state, setState] = useState(init);
   const [sampleData, setSampleData] = useState([]);
   const [videos, setVideos] = useState([]);
@@ -41,8 +42,58 @@ function Page() {
         <title>DFAME</title>
       </Head>
 
+      <Header></Header>
+
+      <div className="flex flex-wrap mt-16 md:mt-20 lg:mt-20 fixed w-full items-center">
+        <div className="align-center items-center justify-center mx-auto">
+          <ul
+            className="flex list-none flex-wrap pb-4 flex-row"
+            role="tablist"
+          >
+            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a
+                className={
+                  "text-xs lg:text-base lg:tracking-wide lg:normal-case font-bold uppercase px-5 py-3 shadow-lg rounded-lg block leading-normal " +
+                  (openTab === 1
+                    ? "text-" + "black" + " bg-white"
+                    : "text-" + "black" + " bg-white text-opacity-50")
+                }
+                onClick={e => {
+                  e.preventDefault();
+                  setOpenTab(1);
+                }}
+                data-toggle="tab"
+                href="#link1"
+                role="tablist"
+              >
+                <span>Discovery</span>
+              </a>
+            </li>
+            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a
+                className={
+                  "text-xs lg:text-base lg:tracking-wide lg:normal-case font-bold uppercase px-5 py-3 shadow-lg rounded-lg block leading-normal" +
+                  (openTab === 2
+                    ? "text-" + "black" + " bg-white"
+                    : "text-" + "black" + " bg-white text-opacity-50")
+                }
+                onClick={e => {
+                  e.preventDefault();
+                  setOpenTab(2);
+                }}
+                data-toggle="tab"
+                href="#link2"
+                role="tablist"
+              >
+                <span>Memberships</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
       <div className="flex flex-col">
-        <Header></Header>
         <div className="snap snap-y snap-mandatory">
           {videos.map((videoDetail, index) => {
             return (
@@ -51,8 +102,8 @@ function Page() {
                 title={videoDetail.title}
                 gif={videoDetail.gif}
                 file={videoDetail}
-                // tags={videoDetail.tags}
-                // video={videoDetail.video}
+              // tags={videoDetail.tags}
+              // video={videoDetail.video}
               />
             );
           })}

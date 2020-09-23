@@ -53,7 +53,7 @@ export default function Index() {
   if (userProfile.image == undefined || !userProfile.image[0].contentUrl) {
     imageDisplay = null;
   } else {
-    imageDisplay = 
+    imageDisplay =
       <img
         src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
         className="rounded-full border-solid border-white border-2 -mt-3"
@@ -62,7 +62,7 @@ export default function Index() {
 
   return (
     <div>
-      <div className="container mx-auto max-w-md overflow-hidden py-3">
+      <div className="container mx-auto mt-10 overflow-hidden py-3">
         <div className="relative mb-2 bg-white rounded-lg shadow-lg">
           <img
             className="rounded-full py-4 px-4 w-full h-64 object-cover"
