@@ -187,8 +187,8 @@ export default function Tabs({ color = "black", data }) {
                               <LoadingOverlay open={state.loading} progress={state.progress} />
                             ) : (
                               <>
-                                <div className="container">
-                                  <div className="relative mt-4 lg:flex lg:flex-row items-stretch">
+                                <div className="container w-full flex items-center justify-center">
+                                  <div className="relative mt-4 lg:flex lg:flex-row lg:w-3/4">
                                     <div className="flex flex-col lg:flex-1">
                                       <input
                                         className="leading-tight text-xl appearance-none border-2 border-gray-500 rounded w-full p-2 placeholder-gray-400 font-medium leading-tight focus:outline-none focus:shadow-outline pt-3 pb-2 mt-2 tracking-wide"
@@ -255,7 +255,7 @@ export default function Tabs({ color = "black", data }) {
                                       />
                                     </div>
 
-                                    <div className="flex flex-col lg:flex-1">
+                                    <div className="flex flex-col lg:flex-1 md:w-1/2 lg:w-1/2">
 
                                       <SetTicket
                                         tokens={data}
@@ -263,7 +263,7 @@ export default function Tabs({ color = "black", data }) {
                                       />
                                       <button
                                         onClick={onSubmit}
-                                        className="overflow-visible mb-8 mt-4 w-full h-12 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold rounded shadow-lg sm:h-16"
+                                        className="lg:mt-2 md:ml-10 lg:ml-10 overflow-visible mb-8 mt-4 w-full h-12 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold rounded shadow-lg sm:h-16"
                                       >
                                         Publish Video
                               </button>

@@ -6,7 +6,6 @@ import { getVideos } from "../utils/CTS3.js";
 
 import WallCard from "./WallCard";
 import Header from "./header";
-import PostButton from "./navigation/postButton"
 
 import { useOvermind } from "../stores/Overmind";
 

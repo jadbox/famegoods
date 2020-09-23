@@ -21,8 +21,8 @@ export default function ExternalContentSubmitForm() {
     setFormData((x) => ({ ...x, tokens }));
   }
 
-	return (
-		<div className="mt-6">
+  return (
+    <div className="justify-center mt-6">
       <span>Share a private link with your community. Make sure that the content is only visible for those who have the link. <a className="text-blue-400">Learn more...</a></span>
       <form onSubmit={handleSubmit} className="w-full max-w-lg">
         <div className="flex justify-center my-6">
@@ -58,5 +58,5 @@ export default function ExternalContentSubmitForm() {
         </div>
       </form>
     </div>
-	);
+  );
 }

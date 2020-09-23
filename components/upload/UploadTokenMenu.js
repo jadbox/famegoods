@@ -51,7 +51,7 @@ export default function App({ tokens, onChange }) {
   }
 
   return (
-    <div className="w-screen">
+    <div className="w-screen lg:mt-0 md:ml-10 lg:ml-10">
       <div className="ml-2 w-full text-xs text-gray-500">
         <p>
           Users must hold this amount of tokens to have access
