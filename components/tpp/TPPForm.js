@@ -7,7 +7,7 @@ export default function tppform() {
 
 
     return (
-        <div className="justify-center mt-20">
+        <div className="justify-center mt-20 max-w-lg mx-auto">
             <div class="w-full px-2">
                 <div class="rounded-lg shadow-sm mb-4">
                     <div class="rounded-lg bg-purple-300 shadow-lg md:shadow-xl relative overflow-hidden flex flex-col justify-center align-middle items-center py-6">
