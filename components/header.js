@@ -22,14 +22,15 @@ export default function Header() {
   }, [])
 
   return (
-    <nav className="bg-white fixed h-16 w-full md:w-5/6 lg:w-10/12 z-10 top-0 rounded-b-lg md:rounded-none lg:rounded-none px-5 align-center">
-      <div className="flex flex-row justify-between items-center md:w-1/2 lg:w-1/2">
-        <div className="relative order-2">
+    <nav className="bg-transparent md:bg-white lg:bg-white fixed h-16 w-full md:w-5/6 lg:w-5/6 z-10 top-0 rounded-b-lg md:rounded-none lg:rounded-none px-5 align-center">
+      <div className="flex flex-row justify-between items-center">
+        <div className="relative order-2 justify-end">
           <button
             onClick={e => setIsOpen(!isOpen)}
-            className={isOpen ? "relative z-10 cursor-pointer focus:outline-none text-blue-400" : "relative z-10 cursor-pointer focus:outline-none hover:text-blue-400 text-black"}
+            className={isOpen ? "relative z-10 cursor-pointer focus:outline-none text-blue-400 align-middle justify-center font-karla whitespace-no-wrap" : "relative z-10 cursor-pointer focus:outline-none hover:text-blue-400 text-black align-middle justify-center font-karla whitespace-no-wrap"}
           >
-            <Icon icon={IconWalletSolid} className="h-12 w-12 p-2 bg-white rounded-full align-middle" />
+            <Icon icon={IconWalletSolid} className="h-8 w-8 md:h-12 md:w-12 lg:w-12 lg:w-12 bg-transparent rounded-full align-middle inline-block relative" />
+            <span className="text-nonexist md:text-sm lg:text-md font-bold md:visible lg:visible align-middle inline-block">Wallet</span>
           </button>
           {isOpen
             ? (
@@ -57,13 +58,12 @@ export default function Header() {
           }
         </div>
         <Link href="/">
-          <div className="font-syne font-extrabold text-3xl md:text-4xl lg:text-4xl text-center order-1 order-1 hover:bg-blue">
-            <span>
-              DFAME
-          </span>
+          <div className="bg-transparent font-syne font-extrabold text-3xl md:text-4xl lg:text-4xl text-center order-1">
+            <img src="/DFAMEtext.svg" className="cursor-pointer h-18 hover:bg-gradient">
+            </img>
           </div>
         </Link>
-        {/*<div className="align-middle order-3 order-3">
+        {/* <div className="align-middle order-3 order-3">
           <Icon icon={filterSolid} className="h-8 w-8 bg-white align-middle" color="#333333" />
         </div>*/}
       </div>
