@@ -11,7 +11,7 @@ export default function tpplink() {
     }, [])
 
     return (
-        <div className="flex flex-col items-center max-w-lg mx-auto">
+        <div className="animate__animated animate__backInDown flex flex-col items-center max-w-lg mx-auto">
             <p className="font-mont text-lg">Here's your link</p>
             <p className="break-all max-w-lg font-extrabold tracking-wide font-mont text-xs">{link}</p>
             <br />

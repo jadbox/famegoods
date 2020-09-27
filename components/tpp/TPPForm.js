@@ -49,7 +49,7 @@ export default function tppform() {
     }
 
     return (
-        <div className="justify-center mt-20 max-w-lg mx-auto">
+        <div className="justify-center mt-20 max-w-lg mx-auto animate__animated animate__backInDown">
             <div className="w-full px-2">
                 <div className="rounded-lg shadow-sm mb-4 ">
                     <div className="rounded-lg bg-purple-300 shadow-lg md:shadow-xl relative overflow-hidden flex flex-col justify-center align-middle items-center py-6">
@@ -91,7 +91,7 @@ export default function tppform() {
                             enabled={toString(!isLoading)}
                             onClick={onSubmit}
                             type="submit"
-                            className="overflow-visible mb-8 mt-4 py-1 px-10 w-full h-20 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold rounded shadow-lg sm:h-16 text-lg bg-gradient-to-r from-primary to-secondary"
+                            className="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 overflow-visible mb-8 mt-4 py-1 px-10 w-full h-20 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold rounded shadow-lg sm:h-16 text-lg bg-gradient-to-r from-primary to-secondary"
                         >
                             Generate Link
           </button>}
