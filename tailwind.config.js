@@ -29,6 +29,9 @@ module.exports = {
       'secondary': '#785DFF'
     }),
     extend: {
+      backgroundImage: {
+        'top-blur': "url('/top-blur.png')",
+      },
       colors: {
         'primary': '#FF8CFF',
         'secondary': '#785DFF'

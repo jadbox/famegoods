@@ -4,8 +4,8 @@ export default function membership() {
     return (
         <div className="flex flex-row">
             <div id="titles">
-                <h2 className="font-mont">Mayer and Sons</h2>
-                <p className="font-mont">A fun community</p>
+                <h2 className="font-karla">Mayer and Sons</h2>
+                <p className="font-karla">A fun community</p>
             </div>
         </div>
     );
