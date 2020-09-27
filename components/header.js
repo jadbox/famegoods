@@ -22,12 +22,12 @@ export default function Header() {
   }, [])
 
   return (
-    <nav className="bg-transparent md:bg-white lg:bg-white fixed h-16 w-full md:w-5/6 lg:w-5/6 z-10 top-0 rounded-b-lg md:rounded-none lg:rounded-none px-5 align-center">
-      <div className="flex flex-row justify-between items-center">
+    <nav className="bg-white md:bg-white lg:bg-white fixed h-12 lg:h-16 md:h-16 w-full md:w-5/6 lg:w-5/6 z-10 top-0 rounded-b-lg md:rounded-none lg:rounded-none px-5 align-center">
+      <div className="flex flex-row justify-between items-center mt-2 md:mt-0 lg:mt-0">
         <div className="relative order-2 justify-end">
           <button
             onClick={e => setIsOpen(!isOpen)}
-            className={isOpen ? "relative z-10 cursor-pointer focus:outline-none text-blue-400 align-middle justify-center font-karla whitespace-no-wrap md:mt-4 lg:mt-4" : "relative z-10 cursor-pointer focus:outline-none hover:text-blue-400 text-black align-middle justify-center font-karla whitespace-no-wrap md:mt-4 lg:mt-4 "}
+            className={isOpen ? "relative z-10 cursor-pointer focus:outline-none text-blue-400 align-middle justify-center font-karla whitespace-no-wrap md:mt-2 lg:mt-2" : "relative z-10 cursor-pointer focus:outline-none hover:text-blue-400 text-black align-middle justify-center font-karla whitespace-no-wrap md:mt-4 lg:mt-4 "}
           >
             <Icon icon={IconWalletSolid} className="h-8 w-8 md:h-12 md:w-12 lg:w-12 lg:w-12 md:p-2 lg:p-2 bg-transparent rounded-full align-middle inline-block relative" />
             <span className="text-nonexist md:text-sm lg:text-md font-bold md:visible lg:visible align-middle inline-block">Wallet</span>
