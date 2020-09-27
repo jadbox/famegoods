@@ -11,6 +11,8 @@ export default function tppform() {
 
     // <Link href="../tpp/LinkDisplay">
     const onSubmit = function (e) {
+        if (isLoading) return;
+
         if (e.preventDefault) e.preventDefault();
         let address = document.getElementById('form_address').value;
         let url = document.getElementById('form_url').value;
@@ -85,14 +87,14 @@ export default function tppform() {
                     </div>
                     <div className="justify-center mb-8">
 
-                        <button
+                        {!isLoading && <button
                             enabled={toString(!isLoading)}
                             onClick={onSubmit}
                             type="submit"
                             className="overflow-visible mb-8 mt-4 py-1 px-10 w-full h-20 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold rounded shadow-lg sm:h-16 text-lg bg-gradient-to-r from-primary to-secondary"
                         >
                             Generate Link
-          </button>
+          </button>}
                         <p>
                             {isLoading ? <b>Loading...</b> : ''}
                         </p>
