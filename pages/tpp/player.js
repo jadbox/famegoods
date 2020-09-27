@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useOvermind } from "../../stores/Overmind";
 import TPPForm from "../../components/tpp/TPPForm";
 import { useRouter } from 'next/router'
@@ -27,17 +27,23 @@ export default function TokenProtection() {
 
         setLink(page);
 
+        setTimeout(() => {
+            window.location.href = page;
+        }, 33000);
+
         setState({ link: _link, code, namespace, template });
     }, [])
 
     return (
         <div className="w-full h-screen">
             <iframe className="w-full min-h-full"
-                referrerpolicy="origin"
-                allowfullscreen="true"
+                referrerPolicy="origin"
+                allowFullScreen={true}
                 title="link player"
+                sandbox="allow-same-origin allow-top-navigation allow-scripts allow-popups allow-forms"
+                frameBorder="0"
                 src={link}>
             </iframe>
-        </div>
+        </div >
     );
 }
