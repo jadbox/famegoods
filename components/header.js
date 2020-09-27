@@ -27,9 +27,9 @@ export default function Header() {
         <div className="relative order-2 justify-end">
           <button
             onClick={e => setIsOpen(!isOpen)}
-            className={isOpen ? "relative z-10 cursor-pointer focus:outline-none text-blue-400 align-middle justify-center font-karla whitespace-no-wrap" : "relative z-10 cursor-pointer focus:outline-none hover:text-blue-400 text-black align-middle justify-center font-karla whitespace-no-wrap"}
+            className={isOpen ? "relative z-10 cursor-pointer focus:outline-none text-blue-400 align-middle justify-center font-karla whitespace-no-wrap md:mt-4 lg:mt-4" : "relative z-10 cursor-pointer focus:outline-none hover:text-blue-400 text-black align-middle justify-center font-karla whitespace-no-wrap md:mt-4 lg:mt-4 "}
           >
-            <Icon icon={IconWalletSolid} className="h-8 w-8 md:h-12 md:w-12 lg:w-12 lg:w-12 bg-transparent rounded-full align-middle inline-block relative" />
+            <Icon icon={IconWalletSolid} className="h-8 w-8 md:h-12 md:w-12 lg:w-12 lg:w-12 md:p-2 lg:p-2 bg-transparent rounded-full align-middle inline-block relative" />
             <span className="text-nonexist md:text-sm lg:text-md font-bold md:visible lg:visible align-middle inline-block">Wallet</span>
           </button>
           {isOpen
