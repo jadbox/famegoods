@@ -55,9 +55,8 @@ export default function tppform() {
             <div className="justify-center mt-20 max-w-lg mx-auto animate__animated animate__backInDown">
                 <div className="w-full px-2 bg-white px-10 pb-2 pt-10 rounded-lg shadow-lg">
                     <div className="rounded-lg shadow-sm mb-4 ">
-                        <div className="rounded-lg bg-purple-300 shadow-lg md:shadow-xl relative overflow-hidden flex flex-col justify-center align-middle items-center py-6">
-                            <h2 className="font-karla text-2xl font-extrabold tracking-widest text-left">Token Premissoned Pages</h2>
-                            <span className="mx-10 text-left font-karla tracking-wider text-lg">Share a private link with your community.</span>
+                        <div className="rounded-lg shadow-lg md:shadow-xl relative overflow-hidden flex flex-col justify-center align-middle items-center">
+                            <img src="/tpp-title.svg"></img>
                         </div>
                     </div>
                     <form className="w-full items-center">

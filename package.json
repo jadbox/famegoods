@@ -39,6 +39,7 @@
     "animate.css": "^4.1.1",
     "aws-sdk": "^2.711.0",
     "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
     "encoding": "^0.1.13",
     "ethers": "^5.0.4",
     "ipfs-http-client": "^46.0.0",
