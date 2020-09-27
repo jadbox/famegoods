@@ -96,7 +96,7 @@ export default function tppform() {
                             Generate Link
           </button>}
                         <p>
-                            {isLoading ? <b>Loading...</b> : ''}
+                            {isLoading ? <b className="animate-ping">Loading...</b> : ''}
                         </p>
                     </div>
                 </form>
