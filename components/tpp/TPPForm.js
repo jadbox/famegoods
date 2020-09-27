@@ -36,6 +36,9 @@ export default function tppform() {
 
                 const link = data.social;
                 localStorage.setItem('genurl', link);
+                localStorage.setItem('tpp_code', data.code);
+                localStorage.setItem('tpp_namespace', data.namespace);
+                localStorage.setItem('tpp_template', data.template);
                 setLoading(false);
 
                 router.push('/tpp/linkdisplay');
