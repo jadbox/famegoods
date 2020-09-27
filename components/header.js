@@ -56,11 +56,13 @@ export default function Header() {
             ) : null
           }
         </div>
-        <div className="font-syne font-extrabold text-3xl md:text-4xl lg:text-4xl text-center order-2 md:order-1 lg:order-1">
-          <span>
-            DFAME
-        </span>
-        </div>
+        <Link href="/">
+          <div className="font-syne font-extrabold text-3xl md:text-4xl lg:text-4xl text-center order-2 md:order-1 lg:order-1">
+            <span className="cursor-pointer">
+              DFAME
+           </span>
+          </div>
+        </Link>
         <div className="align-middle order-3 order-3">
           <Icon icon={filterSolid} className="h-8 w-8 bg-white align-middle" color="#333333" />
         </div>
