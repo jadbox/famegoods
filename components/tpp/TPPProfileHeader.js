@@ -5,8 +5,6 @@ import { Icon, InlineIcon } from "@iconify/react";
 
 export default function ProfileHeader({ address }) {
 
-
-
     return (
         <div className="flex flex-auto">
             <img
