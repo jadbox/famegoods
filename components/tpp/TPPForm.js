@@ -36,7 +36,7 @@ export default function tppform() {
                 localStorage.setItem('genurl', link);
                 setLoading(false);
 
-                router.push('/tpp/LinkDisplay');
+                router.push('/tpp/linkdisplay');
             })
             .catch((e) => {
                 setLoading(false);

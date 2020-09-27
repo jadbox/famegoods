@@ -17,7 +17,7 @@ export default function Footer() {
                         </button>
                     </div>
                 </Link>
-                <Link href="/tpp/Form">
+                <Link href="/tpp/form">
                     <div className="sm:px-2 cursor-pointer hover:text-blue-400 flex flex-col md:flex-row lg:flex-row items-center align-middle order-2">
                         <button className="bg-white shadow-lg px-6 py-2 md:mt-2 lg:mt-2">
                             <img src="/DFAMElogo.png" alt="DFAME Logo" className="h-7 w-8 md:mt-0 visible inline-block relative" />
