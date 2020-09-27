@@ -4,22 +4,6 @@ import SetTicket from "../upload/SetTicket";
 import Link from "next/link";
 
 export default function tppform() {
-    const [state, setState] = useState({});
-    const [formdata, setFormData] = useState({ tokens: 1 });
-
-    const { state: ostate, actions } = useOvermind();
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const url = e.target.contentUrl.value;
-        console.log(url);
-        setState((x) => ({ ...x, contentUrl: url }));
-    }
-
-    function onTokenChange(tokens) {
-        // console.log("onTokenChange", tokens);
-        setFormData((x) => ({ ...x, tokens }));
-    }
 
     return (
         <div className="justify-center mt-20">
