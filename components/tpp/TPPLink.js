@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function tpplink() {
 
-    const [state, setState] = useState({});
+    // const [state, setState] = useState({});
 
     const [link, setLink] = useState('');
     const [rellink, setRelLink] = useState('');
@@ -17,8 +17,6 @@ export default function tpplink() {
         const namespace = localStorage.getItem('tpp_namespace');
         const template = localStorage.getItem('tpp_template');
 
-        const root = `https://${namespace}.link.dfame.app/http/tppsocial/{code}/`
-
         const rel = `/tpp/player?code=${code}&ns=${namespace}`;
         let w = window.location.origin + rel;
         // w = w.split('//').join(`//${namespace}.`);
@@ -26,7 +24,7 @@ export default function tpplink() {
         setLink(w);
         setRelLink(rel);
 
-        setState({ link: _link, code, namespace, template });
+        // setState({ link: _link, code, namespace, template });
     }, [])
 
     return (

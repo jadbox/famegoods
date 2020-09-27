@@ -33,8 +33,10 @@ export default function TokenProtection() {
     return (
         <div className="w-full h-screen">
             <iframe className="w-full min-h-full"
+                referrerpolicy="origin"
+                allowfullscreen="true"
+                title="link player"
                 src={link}>
-
             </iframe>
         </div>
     );
