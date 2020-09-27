@@ -8,7 +8,7 @@ import lockSolid from '@iconify/icons-la/lock-solid';
 export default function TPPCard({ gif, file }) {
 
     return (
-        <div className="h-screen bg-top-blur bg-cover bg-no-repeat w-full flex flex-col lg:flex-row items-center justify-center snap-center always-stop px-4">
+        <div className="h-screen w-full flex flex-col lg:flex-row items-center justify-center snap-center always-stop px-4">
             <div
                 className="relative bg-white shadow-lg rounded-xl w-full lg:w-2/6 justify-center cursor-pointer overflow-hidden mt-12 md:mt-6 lg:mt-24"
             >

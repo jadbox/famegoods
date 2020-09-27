@@ -42,11 +42,10 @@ function Page() {
       <Head>
         <title>DFAME</title>
       </Head>
-
       <Header></Header>
 
       <div className="flex flex-col">
-        <div className="snap snap-mandatory snap-y">
+        <div className="snap snap-mandatory snap-y bg-top-blur bg-cover bg-no-repeat">
           <TPPCard></TPPCard>
           <TPPCard></TPPCard>
           <TPPCard></TPPCard>
