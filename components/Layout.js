@@ -11,6 +11,7 @@ import BottomSheetModal from "../components/BottomSheetModal";
 import Header from "../components/header"
 import Footer from "../components/footer";
 import FeedTabs from "../components/feedTabs"
+import TPPFooter from "../components/TPP/TPPfooter"
 
 
 export default function Layout({ children, url }) {
@@ -102,7 +103,8 @@ export default function Layout({ children, url }) {
 
       <div>{children}</div>
 
-      <Footer></Footer>
+      <TPPFooter></TPPFooter>
+      {/*<Footer></Footer>*/}
 
       {walletConnectModal ? (
         <BottomSheetModal onExit={actions.toggleWalletConnectModal}>

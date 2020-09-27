@@ -22,9 +22,9 @@ export default function Header() {
   }, [])
 
   return (
-    <nav className="bg-white fixed h-16 w-1/2 z-10 top-0 rounded-b-lg md:rounded-none lg:rounded-none px-5">
+    <nav className="bg-white fixed h-16 w-full md:w-4/6 lg:w-4/6 z-10 top-0 rounded-b-lg md:rounded-none lg:rounded-none px-5">
       <div className="flex flex-row justify-between items-center md:w-1/2 lg:w-1/2">
-        <div className="relative">
+        <div className="relative order-1 md:order-2 lg:order-2">
           <button
             onClick={e => setIsOpen(!isOpen)}
             className={isOpen ? "relative z-10 cursor-pointer focus:outline-none text-blue-400" : "relative z-10 cursor-pointer focus:outline-none hover:text-blue-400 text-black"}
@@ -56,12 +56,12 @@ export default function Header() {
             ) : null
           }
         </div>
-        <div className="font-syne font-extrabold text-3xl text-center">
+        <div className="font-syne font-extrabold text-3xl md:text-4xl lg:text-4xl text-center order-2 md:order-1 lg:order-1">
           <span>
             DFAME
         </span>
         </div>
-        <div className="align-middle">
+        <div className="align-middle order-3 order-3">
           <Icon icon={filterSolid} className="h-8 w-8 bg-white align-middle" color="#333333" />
         </div>
       </div>
