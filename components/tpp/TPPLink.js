@@ -35,7 +35,7 @@ export default function tpplink() {
         fetch(page)
             .then(response => response.text())
             .then(page => {
-                console.log('page', page);
+                // console.log('page', page);
                 const $ = cheerio.load(page);
                 const title = $("title").text();
 
@@ -44,7 +44,7 @@ export default function tpplink() {
 
                 const desc = desc1.length > desc2.length ? desc1 : desc2;
 
-                console.log('page---', title, desc);
+                // console.log('page---', title, desc);
                 setState({ title, desc });
             });
 
@@ -54,11 +54,11 @@ export default function tpplink() {
     return (
         <div className="animate__animated animate__backInDown flex flex-col items-center max-w-lg mx-auto">
             { state.title &&
-                <p className="text-center">
+                <><p className="text-center">
                     <b>Title: {state.title}</b>
-                    <br />
-                    <blockquote>"<i>{state.desc}</i>"</blockquote>
                 </p>
+                    <blockquote>"<i>{state.desc}</i>"</blockquote>
+                </>
             }
             { !state.title &&
                 <p className="bold animate-ping">
