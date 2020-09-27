@@ -38,7 +38,12 @@ export default function tpplink() {
                 console.log('page', page);
                 const $ = cheerio.load(page);
                 const title = $("title").text();
-                const desc = $("description").text();
+
+                const desc1 = $("meta[property='og:title']").attr("content");
+                const desc2 = $("meta[property='og:description']").attr("content");
+
+                const desc = desc1.length > desc2.length ? desc1 : desc2;
+
                 console.log('page---', title, desc);
                 setState({ title, desc });
             });
@@ -49,10 +54,15 @@ export default function tpplink() {
     return (
         <div className="animate__animated animate__backInDown flex flex-col items-center max-w-lg mx-auto">
             { state.title &&
-                <p>
-                    Page Title: {state.title}
+                <p className="text-center">
+                    <b>Title: {state.title}</b>
                     <br />
-                    {state.desc}
+                    <blockquote>"<i>{state.desc}</i>"</blockquote>
+                </p>
+            }
+            { !state.title &&
+                <p className="bold animate-ping">
+                    Loading page info...
                 </p>
             }
             <p className="pt-4 font-mont text-lg">Here's your link</p>
