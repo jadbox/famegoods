@@ -38,7 +38,8 @@ module.exports = {
       },
       fontFamily: {
         'syne': ['Syne', 'sans-serif'],
-        body: ['Montserrat', 'sans-serif']
+        body: ['Montserrat', 'sans-serif'],
+        'karla': ['Karla']
       },
       borderRadius: {
         xl: "2rem",
