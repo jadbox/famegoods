@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useOvermind } from "../../stores/Overmind";
 import Link from 'next/link';
 
+const cheerio = require('cheerio');
 
 export default function tpplink() {
 
-    // const [state, setState] = useState({});
+    const [state, setState] = useState({});
 
     const [link, setLink] = useState('');
     const [rellink, setRelLink] = useState('');
@@ -24,12 +25,37 @@ export default function tpplink() {
         setLink(w);
         setRelLink(rel);
 
+        //====
+
+        const root = `https://${namespace}.link.dfame.app/http/tppsocial/{code}/`
+
+        const page = root.replace('{namespace}', namespace)
+            .replace('{code}', code);
+
+        fetch(page)
+            .then(response => response.text())
+            .then(page => {
+                console.log('page', page);
+                const $ = cheerio.load(page);
+                const title = $("title").text();
+                const desc = $("description").text();
+                console.log('page---', title, desc);
+                setState({ title, desc });
+            });
+
         // setState({ link: _link, code, namespace, template });
     }, [])
 
     return (
         <div className="animate__animated animate__backInDown flex flex-col items-center max-w-lg mx-auto">
-            <p className="font-mont text-lg">Here's your link</p>
+            { state.title &&
+                <p>
+                    Page Title: {state.title}
+                    <br />
+                    {state.desc}
+                </p>
+            }
+            <p className="pt-4 font-mont text-lg">Here's your link</p>
             <p className="break-all max-w-lg font-extrabold tracking-wide font-mont text-xs">
                 {link}
             </p>
