@@ -11,7 +11,7 @@ import BottomSheetModal from "../components/BottomSheetModal";
 import Header from "../components/header"
 import Footer from "../components/footer";
 import FeedTabs from "../components/feedTabs"
-import TPPFooter from "../components/TPP/TPPfooter"
+import TPPFooter from "../components/tpp/TPPfooter"
 
 
 export default function Layout({ children, url }) {
