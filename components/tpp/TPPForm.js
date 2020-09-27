@@ -7,6 +7,8 @@ import { useRouter } from 'next/router'
 export default function tppform() {
     const router = useRouter();
 
+    const [isLoading, setLoading] = useState(false);
+
     // <Link href="../tpp/LinkDisplay">
     const onSubmit = function (e) {
         if (e.preventDefault) e.preventDefault();
@@ -24,7 +26,7 @@ export default function tppform() {
         const token2 = encodeURIComponent(address);
         const balance2 = balance;
 
-
+        setLoading(true);
         fetch(`https://gen.link.dfame.app/gen?url=${url2}&token=${token2}&balance=${balance2}`)
             .then(response => response.json())
             .then(data => {
@@ -32,10 +34,12 @@ export default function tppform() {
 
                 const link = data.social;
                 localStorage.setItem('genurl', link);
+                setLoading(false);
 
                 router.push('/tpp/LinkDisplay');
             })
             .catch((e) => {
+                setLoading(false);
                 console.error(e);
             });
 
@@ -82,12 +86,16 @@ export default function tppform() {
                     <div className="justify-center mb-8">
 
                         <button
+                            enabled={!isLoading}
                             onClick={onSubmit}
                             type="submit"
                             className="overflow-visible mb-8 mt-4 py-1 px-10 w-full h-20 bg-black rounded-lg hover:bg-gray-700 text-white font-semibold rounded shadow-lg sm:h-16 text-lg bg-gradient-to-r from-primary to-secondary"
                         >
                             Generate Link
           </button>
+                        <p>
+                            {isLoading ? <b>Loading...</b> : ''}
+                        </p>
                     </div>
                 </form>
             </div>
