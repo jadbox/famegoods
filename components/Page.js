@@ -46,7 +46,9 @@ function Page() {
       <Header></Header>
 
       <div className="flex flex-col">
-        <div className="snap snap-y snap-mandatory">
+        <div className="snap snap-mandatory snap-y">
+          <TPPCard></TPPCard>
+          <TPPCard></TPPCard>
           <TPPCard></TPPCard>
           {/*{videos.map((videoDetail, index) => {
             return (

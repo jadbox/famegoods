@@ -22,7 +22,7 @@ export default function Header() {
   }, [])
 
   return (
-    <nav className="bg-white fixed h-16 w-full md:w-4/6 lg:w-4/6 z-10 top-0 rounded-b-lg md:rounded-none lg:rounded-none px-5">
+    <nav className="bg-white fixed h-16 w-full md:w-5/6 lg:w-5/6 z-10 top-0 rounded-b-lg md:rounded-none lg:rounded-none px-5">
       <div className="flex flex-row justify-between items-center md:w-1/2 lg:w-1/2">
         <div className="relative order-1 md:order-2 lg:order-2">
           <button
