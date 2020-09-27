@@ -3611,6 +3611,10 @@ body {
   background-image: linear-gradient(to top left, var(--gradient-color-stops));
 }
 
+.bg-top-blur{
+  background-image: url('/top-blur.png');
+}
+
 .from-primary{
   --gradient-from-color: #FF8CFF;
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 140, 255, 0));
@@ -24223,6 +24227,10 @@ body {
     background-image: linear-gradient(to top left, var(--gradient-color-stops));
   }
 
+  .sm\:bg-top-blur{
+    background-image: url('/top-blur.png');
+  }
+
   .sm\:from-primary{
     --gradient-from-color: #FF8CFF;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 140, 255, 0));
@@ -43042,6 +43050,10 @@ body {
 
   .md\:bg-gradient-to-tl{
     background-image: linear-gradient(to top left, var(--gradient-color-stops));
+  }
+
+  .md\:bg-top-blur{
+    background-image: url('/top-blur.png');
   }
 
   .md\:from-primary{
@@ -61865,6 +61877,10 @@ body {
     background-image: linear-gradient(to top left, var(--gradient-color-stops));
   }
 
+  .lg\:bg-top-blur{
+    background-image: url('/top-blur.png');
+  }
+
   .lg\:from-primary{
     --gradient-from-color: #FF8CFF;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 140, 255, 0));
@@ -80684,6 +80700,10 @@ body {
 
   .xl\:bg-gradient-to-tl{
     background-image: linear-gradient(to top left, var(--gradient-color-stops));
+  }
+
+  .xl\:bg-top-blur{
+    background-image: url('/top-blur.png');
   }
 
   .xl\:from-primary{

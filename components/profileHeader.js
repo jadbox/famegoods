@@ -64,8 +64,8 @@ export default function ProfileHeader({ address }) {
   return (
     <div className="flex flex-auto">
       {imageDisplay}
-      <div className="flex font-mont">
-        <p className="ml-4 text-extrabold tracking-wide text-white text-lg align-text-top font-mont align-middle capitalize">
+      <div className="flex font-karla">
+        <p className="ml-4 text-extrabold tracking-wide text-white text-lg align-text-top font-karla align-middle capitalize">
           {userProfile.name || namePlace}
         </p>
       </div>
