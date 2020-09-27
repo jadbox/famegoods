@@ -15,7 +15,7 @@ export default function tppform() {
                         <span className="mx-10 text-center font-mont tracking-wider text-lg">Share a private link with your community.</span>
                     </div>
                 </div>
-                <form onSubmit={handleSubmit} className="w-full items-center">
+                <form className="w-full items-center">
                     <div className="justify-center my-6">
                         <h3 className="text-center justify-center font-bold text-xl tracking-wide">Contract Address</h3>
                         <input
