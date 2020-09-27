@@ -58,9 +58,10 @@ export default function Header() {
           }
         </div>
         <Link href="/">
-          <div className="bg-transparent font-syne font-extrabold text-3xl md:text-4xl lg:text-4xl text-center order-1">
-            <img src="/DFAMEtext.svg" className="cursor-pointer h-18 hover:bg-gradient">
-            </img>
+          <div className="bg-transparent font-syne font-extrabold italic text-2xl md:text-4xl lg:text-4xl text-center order-1">
+            <h2 className="cursor-pointer h-18 hover:bg-gradient font-syne">
+              DFAME
+            </h2>
           </div>
         </Link>
         {/* <div className="align-middle order-3 order-3">
