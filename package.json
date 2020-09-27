@@ -36,6 +36,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@tailwindcss/typography": "^0.2.0",
+    "animate.css": "^4.1.1",
     "aws-sdk": "^2.711.0",
     "axios": "^0.19.2",
     "encoding": "^0.1.13",
