@@ -30,7 +30,7 @@ module.exports = {
     }),
     extend: {
       backgroundImage: {
-        'top-blur': "url('/top-blur.png')",
+        'top-blur': "url('/dfame-bg.svg')",
       },
       colors: {
         'primary': '#FF8CFF',

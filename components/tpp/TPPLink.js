@@ -65,8 +65,8 @@ export default function tpplink() {
                     Loading page info...
                 </p>
             }
-            <p className="pt-4 font-mont text-lg">Here's your link</p>
-            <p className="break-all max-w-lg font-extrabold tracking-wide font-mont text-xs">
+            <p className="pt-4 font-karla text-lg">Here's your link</p>
+            <p className="break-all max-w-lg font-extrabold tracking-wide font-karla text-xs">
                 {link}
             </p>
             <br />

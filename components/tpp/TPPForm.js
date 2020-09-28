@@ -51,7 +51,7 @@ export default function tppform() {
     }
 
     return (
-        <div className="h-screen bg-top-blur bg-cover bg-no-repeat">
+        <div className="h-screen bg-top-blur bg-cover bg-fixed bg-no-repeat">
             <div className="justify-center mt-20 max-w-lg mx-auto animate__animated animate__backInDown">
                 <div className="w-full px-2 bg-white px-10 pb-2 pt-10 rounded-lg shadow-lg">
                     <div className="rounded-lg shadow-sm mb-4 ">
@@ -61,7 +61,7 @@ export default function tppform() {
                     </div>
                     <form className="w-full items-center">
                         <div className="justify-center my-6">
-                            <h3 className="text-center justify-center font-bold text-m tracking-wide">Contract Address</h3>
+                            <h3 className="text-left justify-center font-bold font-karla text-m tracking-wide">Contract Address</h3>
                             <input
                                 id="form_address"
                                 name="address"
@@ -70,7 +70,7 @@ export default function tppform() {
                             />
                         </div>
                         <div className="justify-center pb-6">
-                            <h3 className="text-center justify-center font-bold text-m tracking-wide">Private Link</h3>
+                            <h3 className="text-left justify-center font-bold font-karla text-m tracking-wide">Private Link</h3>
                             <input
                                 id="form_url"
                                 name="contentUrl"
@@ -79,7 +79,7 @@ export default function tppform() {
                             />
                         </div>
                         <div className="justify-center pb-6">
-                            <h3 className="text-center justify-center font-bold text-m tracking-wide">Minimum Amount</h3>
+                            <h3 className="text-left justify-center font-bold font-karla text-m tracking-wide">Minimum Amount</h3>
                             <input
                                 id="form_balance"
                                 name="numberOfToken"

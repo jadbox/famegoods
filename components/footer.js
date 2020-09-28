@@ -11,7 +11,7 @@ import twoWayArrowsLine from '@iconify/icons-clarity/two-way-arrows-line';
 export default function Footer() {
 
     return (
-        <footer className="fixed h-16 bg-white w-full bottom-0 flex rounded-t-lg md:top-0 md:w-1/2 md:right-0 lg:top-0 lg:right-0 lg:w-1/2 visible">
+        <footer className="fixed h-16 bg-opacity-100 w-full bottom-0 flex rounded-t-lg md:top-0 md:w-1/2 md:right-0 lg:top-0 lg:right-0 lg:w-1/2 visible">
             <div className="flex items-center justify-between w-4/5 mx-auto py-2 md:p-0 lg:p-0">
                 <Link href="/">
                     <div className="sm:px-2 cursor-pointer hover:text-blue-400 flex flex-col md:flex-row lg:flex-row items-center align-middle order-1">

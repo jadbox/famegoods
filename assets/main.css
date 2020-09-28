@@ -3612,7 +3612,7 @@ body {
 }
 
 .bg-top-blur{
-  background-image: url('/top-blur.png');
+  background-image: url('/dfame-bg.svg');
 }
 
 .from-primary{
@@ -24228,7 +24228,7 @@ body {
   }
 
   .sm\:bg-top-blur{
-    background-image: url('/top-blur.png');
+    background-image: url('/dfame-bg.svg');
   }
 
   .sm\:from-primary{
@@ -43053,7 +43053,7 @@ body {
   }
 
   .md\:bg-top-blur{
-    background-image: url('/top-blur.png');
+    background-image: url('/dfame-bg.svg');
   }
 
   .md\:from-primary{
@@ -61878,7 +61878,7 @@ body {
   }
 
   .lg\:bg-top-blur{
-    background-image: url('/top-blur.png');
+    background-image: url('/dfame-bg.svg');
   }
 
   .lg\:from-primary{
@@ -80703,7 +80703,7 @@ body {
   }
 
   .xl\:bg-top-blur{
-    background-image: url('/top-blur.png');
+    background-image: url('/dfame-bg.svg');
   }
 
   .xl\:from-primary{
