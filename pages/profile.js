@@ -89,7 +89,7 @@ export default function Index() {
                   {userProfile.website}
                 </p>
                 <Link href="/profile_edit">
-                  <p className="mt-2 font-sans font-light text-blue-400 cursor-pointer">
+                  <p className="mt-2 font-sans font-light text-purple-600 cursor-pointer">
                     Edit Profile
                   </p>
                 </Link>
