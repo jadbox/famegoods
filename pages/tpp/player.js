@@ -29,7 +29,7 @@ export default function TokenProtection() {
 
         setTimeout(() => {
             window.location.href = page;
-        }, 33000);
+        }, 300);
 
         setState({ link: _link, code, namespace, template });
     }, [])
