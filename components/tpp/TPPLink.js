@@ -39,9 +39,11 @@ export default function tpplink() {
                 const $ = cheerio.load(page);
                 const title = $("title").text();
 
-                const desc1 = $("meta[property='og:title']").attr("content");
-                const desc2 = $("meta[property='og:description']").attr("content");
+                let desc1 = $("meta[property='og:title']").attr("content");
+                let desc2 = $("meta[property='og:description']").attr("content");
 
+                desc1 = desc1 || '';
+                desc2 = desc2 || '';
                 const desc = desc1.length > desc2.length ? desc1 : desc2;
 
                 // console.log('page---', title, desc);
