@@ -24,22 +24,34 @@ const tppHome = () => {
                         <SearchInput></SearchInput>
 
                         <div className="flex flex-row mb-3">
-                            <div className="h-24 w-full flex-shrink bg-gray-400 mr-3"></div>
-                            <div className="h-24 w-full flex-shrink bg-gray-400 ml-3"></div>
+                            <div className="h-24 w-full flex-shrink mr-3">
+                                <img src="/Trending.svg" />
+                            </div>
+                            <div className="h-24 w-full flex-shrink ml-3">
+                                <img src="/AllCreators.svg" />
+                            </div>
                         </div>
-                        <div className="h-24 w-full flex-shrink bg-gray-400">
+                        <div className="h-24 mt-12 w-full flex-shrink">
+                            <img src="/News.svg" />
                         </div>
                     </div>
                 </div>
 
                 <div className="h-screen w-full lg:h-full lg:w-1/2">
-                    <div className="h-full lg:w-3/4 bg-no-repeat bg-center pl-10 pt-40 lg:overflow-scroll">
-                        <h1 className="font-karla text-xl">Your Feed.</h1>
-                        <TPPCard></TPPCard>
-                        <TPPCard></TPPCard>
-                        <TPPCard></TPPCard>
-                        <TPPCard></TPPCard>
-                        <TPPCard></TPPCard>
+                    <div className="h-full lg:w-3/4 bg-no-repeat bg-center pl-10 pt-16 lg:overflow-scroll">
+                        <div className="mt-12">
+                            <h1 className="font-karla text-xl mb-4">Your Feed.</h1>
+                            <TPPCard></TPPCard>
+                        </div>
+                        <div className="mt-12">
+                            <TPPCard></TPPCard>
+                        </div>
+                        <div className="mt-12">
+                            <TPPCard></TPPCard>
+                        </div>
+                        <div className="mt-12">
+                            <TPPCard></TPPCard>
+                        </div>
                     </div>
                 </div>
 
