@@ -4,6 +4,10 @@ import Link from "next/link";
 import { ethers } from "ethers";
 import { getBoxProfile } from "../utils/EditProfiles";
 import useAddress from "../utils/Address";
+import TPPCard from "../components/tpp/TPPCard"
+import { Icon, InlineIcon } from '@iconify/react';
+import userEditSolid from '@iconify/icons-la/user-edit-solid';
+
 
 /*
   How to create your own 3box profile for testing:
@@ -62,45 +66,86 @@ export default function Index() {
 
   return (
     <div>
-      <div className="container mx-auto mt-10 overflow-hidden py-3">
-        <div className="relative mb-2 bg-white rounded-lg shadow-lg">
-          <img
-            className="rounded-full py-4 px-4 w-full h-64 object-cover"
-            src="https://images.unsplash.com/photo-1518549945153-64368b032957?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80"
-            alt="Profile picture"
-          />
-          <div className="text-center absolute w-full"></div>
-          <div className="flex justify-center">
-            <div className="sm:align-middle rounded rounded-t-lg overflow-hidden shadow max-w-md my-3">
-              {userProfile.image && address ? (
-                <div className="flex justify-center mt-10">
-                  {imageDisplay}
-                </div>
-              ) : null}
+      <div className="h-screen w-screen fixed bg-top-blur bg-cover bg-no-repeat overflow-auto">
+        <div className="w-full h-64 md:h-full flex flex-wrap">
 
-              <div className="text-center px-3 pb-6 pt-2">
-                <h1 className="text-black text-lg bold font-sans">
-                  {userProfile.name} {userProfile.emoji}
-                </h1>
-                <p className="mt-2 font-sans font-light text-grey-dark">
-                  {userProfile.description}
-                </p>
-                <p className="mt-2 font-sans font-light text-grey-dark">
-                  {userProfile.website}
-                </p>
-                <Link href="/profile_edit">
-                  <p className="mt-2 font-sans font-light text-purple-600 cursor-pointer">
-                    Edit Profile
-                  </p>
-                </Link>
-                <p className="mt-4">
-                  Wallet Address: <br />
-                  <span style={{ fontSize: "0.8em" }}>{useAddress()}</span>
-                </p>
+          <div className="mt-20 md:mt-0 md:h-screen w-full lg:h-full lg:w-1/2 flex justify-center items-center">
+            <div className="max-w-xl px-6 md:px-0 lg:pl-24">
+              <div className="flex flex-row">
+                <div className="overflow-hidden">
+                  {userProfile.image && address ? (
+                    <div className="flex flex-row w-full items-center">
+                      <div className="w-12 md:w-24 justify-left pt-2 md:mt-0">
+                        {imageDisplay}
+                      </div>
+                      <h1 className="ml-4 md-6 text-black text-xl md:text-3xl text-lg uppercase bold font-karla">
+                        {userProfile.name} {userProfile.emoji}
+                      </h1>
+                      <div className="mb-12 md:mb-16">
+                        <Link href="/profile_edit">
+                          <Icon icon={userEditSolid} height="1.2em" />
+                        </Link>
+                      </div>
+                    </div>
+                  ) : null}
+                  <div className="text-left p-2">
+                    <p className="md:mt-2 font-light text-grey-dark font-karla">
+                      {userProfile.description}
+                    </p>
+                    <p className="mb-2 font-light text-grey-dark font-karla">
+                      {userProfile.website}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="mb-6 h-12 flex justify-between" >
+                  <Link href="/roll_exchange">
+                    <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-lg hover:shadow"> Buy $Token </button>
+                  </Link>
+                  <Link href="/roll_exchange">
+                    <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-lg hover:shadow"> Sell $Token </button>
+                  </Link>
+                </div>
+                <div className="flex flex-row cursor-pointer">
+                  <div className="h-24 w-full flex-shrink mr-3">
+                    <img src="/Trending.svg" className="hover:shadow-xl rounded-lg" />
+                  </div>
+                  <div className="h-24 w-full flex-shrink cursor-pointer">
+                    <img src="/AllCreators.svg" className="hover:shadow-xl rounded-lg" />
+                  </div>
+                </div>
+                <div className="h-24 md:mt-10 w-full flex-shrink cursor-pointer">
+                  <img src="/News.svg" className="hover:shadow-xl rounded-lg" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+
+          <div className="h-screen w-full lg:h-full lg:w-1/2">
+            <div className="md:h-full md:w-4/5 lg:w-3/4 bg-no-repeat bg-center px-4 md:px-12 pt-16 md:overflow-auto">
+              <div className="-mt-16 md:mt-24">
+                <div className="flex flex-row items-center justify-between m-3">
+                  <h1 className="font-karla text-m font-semibold mb-2 md:ml-0 justify-items-start">$Token Feed.</h1>
+                  <div className="flex flex-row flex-no-wrap px-1">
+                    <h1 className="font-karla text-m mb-2 md:ml-0 justify-items-start">Feed</h1>
+                    <h1 className="font-karla text-m text-gray-400 mb-2 ml-3 justify-items-start">Stats</h1></div>
+                </div>
+                <TPPCard></TPPCard>
+              </div>
+              <div className="mt-6">
+                <TPPCard></TPPCard>
+              </div>
+              <div className="mt-6">
+                <TPPCard></TPPCard>
+              </div>
+              <div className="mt-6">
+                <TPPCard></TPPCard>
+              </div>
+            </div>
+          </div>
+
+        </div >
       </div>
     </div>
   );

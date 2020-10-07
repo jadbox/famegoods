@@ -8207,6 +8207,11 @@ body {
   overflow: visible;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
 .overflow-scroll{
   overflow: scroll;
 }

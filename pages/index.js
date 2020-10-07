@@ -2,15 +2,19 @@ import React from 'react';
 import Link from "next/link";
 import SearchInput from "../components/SearchInput"
 import TPPCard from "../components/tpp/TPPCard"
+import { Icon } from '@iconify/react';
+import filterSolid from '@iconify/icons-la/filter-solid';
+
+
 
 const TppHome = () => {
   return (
-    <div className="h-screen bg-top-blur bg-cover bg-fixed bg-no-repeat">
-      <div className="lg:pt-18 w-full h-screen flex flex-wrap ">
+    <div className="h-screen w-screen fixed bg-top-blur bg-cover bg-no-repeat overflow-auto">
+      <div className="w-full md:h-full flex flex-wrap">
 
-        <div className="h-screen w-full lg:h-full lg:w-1/2 flex justify-center items-center">
+        <div className="mt-24 md:mt-0 md:h-screen w-full lg:h-full lg:w-1/2 flex justify-center items-center">
 
-          <div className="max-w-xl pl-12 lg:pl-24">
+          <div className="max-w-xl px-8 md:px-0 lg:pl-24">
             <Link href="/">
               <div className="bg-transparent font-syne font-extrabold italic text-2xl md:text-4xl lg:text-4xl text-center order-1">
                 <div className="bg-transparent font-syne font-extrabold text-3xl md:text-4xl lg:text-4xl text-center order-1 mb-5">
@@ -19,37 +23,40 @@ const TppHome = () => {
               </div>
             </Link>
 
-            <h1 className="text-s md:text-s leading-normal mb-4 font-Karla">Your social app for creator tokens, unique content & new community possibilities!</h1>
+            <h1 className="text-xs md:text-sm leading-normal mb-4 font-Karla">Search and Discover the passion economy:</h1>
 
             <SearchInput></SearchInput>
 
-            <div className="flex flex-row mb-3">
+            <div className="flex flex-row cursor-pointer">
               <div className="h-24 w-full flex-shrink mr-3">
-                <img src="/Trending.svg" />
+                <img src="/Trending.svg" className="hover:shadow-xl rounded-lg" />
               </div>
-              <div className="h-24 w-full flex-shrink ml-3">
-                <img src="/AllCreators.svg" />
+              <div className="h-24 w-full flex-shrink cursor-pointer">
+                <img src="/AllCreators.svg" className="hover:shadow-xl rounded-lg" />
               </div>
             </div>
-            <div className="h-24 mt-12 w-full flex-shrink">
-              <img src="/News.svg" />
+            <div className="h-24 md:mt-12 w-full flex-shrink cursor-pointer">
+              <img src="/News.svg" className="hover:shadow-xl rounded-lg" />
             </div>
           </div>
         </div>
 
         <div className="h-screen w-full lg:h-full lg:w-1/2">
-          <div className="h-full lg:w-3/4 bg-no-repeat bg-center pl-10 pt-16 lg:overflow-scroll">
-            <div className="mt-12">
-              <h1 className="font-karla text-xl mb-4">Your Feed.</h1>
+          <div className="h-full md:w-4/5 lg:w-3/4 bg-no-repeat bg-center px-4 md:px-12 pt-16 md:overflow-auto">
+            <div className="-mt-16 md:mt-24">
+              <div className="flex flex-row items-center justify-between m-2">
+                <h1 className="font-karla text-m font-semibold mb-2 md:ml-0 justify-items-start">Your Feed.</h1>
+                <Icon icon={filterSolid} height="1.5em" />
+              </div>
               <TPPCard></TPPCard>
             </div>
-            <div className="mt-12">
+            <div className="mt-6">
               <TPPCard></TPPCard>
             </div>
-            <div className="mt-12">
+            <div className="mt-6">
               <TPPCard></TPPCard>
             </div>
-            <div className="mt-12">
+            <div className="mt-6">
               <TPPCard></TPPCard>
             </div>
           </div>
