@@ -1,10 +1,14 @@
 const RollExchange = () => {
   return (
-    <div className="pb-24">
-      <iframe 
-        className="max-w-screen w-full min-h-screen" 
-        style={{marginTop: "-24px"}} 
-        src='https://exchange.tryroll.com/#/swap'
+    <div>
+      <iframe
+        scrolling="no"
+        className="mt-24 w-full h-screen"
+        style={{
+          zoom: 0.9,
+          transform: 0.9
+        }}
+        src='https://exchange.tryroll.com/swap'
       />
     </div>
   );

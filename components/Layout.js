@@ -12,6 +12,7 @@ import Header from "../components/header"
 import Footer from "../components/footer";
 import FeedTabs from "../components/feedTabs"
 import TPPFooter from "../components/tpp/TPPfooter"
+import Disclaimer from "../components/Disclaimer"
 
 
 export default function Layout({ children, url }) {
@@ -91,12 +92,15 @@ export default function Layout({ children, url }) {
     return () => _vanta2.destroy();
   }, [state]);
 
+
+
   // Previous parent css removed: "grid grid-rows-3" style={{ gridTemplateRows: 'auto 1fr auto' }}
 
   const { walletConnectModal, redirectTo } = ostate.application;
 
   return (
     <div ref={element} className="w-screen h-screen">
+      <Disclaimer></Disclaimer>
       <Head></Head>
 
       <Header></Header>

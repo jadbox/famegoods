@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useOvermind } from "../../stores/Overmind";
+import SetTicket from "../upload/SetTicket";
+import Link from "next/link";
+import { useRouter } from 'next/router'
 import { Icon } from "@iconify/react";
 import TPPProfileHeader from "../../components/tpp/TPPProfileHeader";
 import lockSolid from '@iconify/icons-la/lock-solid';
 
 export default function TPPCard({ gif, file }) {
 
+
+
     return (
         <div className="w-full flex flex-col lg:flex-row items-center justify-center snap-center always-stop">
             <div
-                className="relative bg-white border-solid border-4 border-gray-200 shadow-lg rounded-xl w-full justify-center cursor-pointer overflow-hidden"
+                className="relative bg-white border-solid border-4 border-gray-200 shadow-lg rounded-2xl w-full justify-center cursor-pointer overflow-hidden"
             >
                 <div className="flex absolute top-0 right-0 left-0 p-8 mb-10 items-center">
                     <TPPProfileHeader></TPPProfileHeader>

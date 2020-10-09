@@ -34,7 +34,9 @@ module.exports = {
       },
       colors: {
         'primary': '#FF8CFF',
-        'secondary': '#785DFF'
+        'secondary': '#785DFF',
+        'DFAME-purple': '#9923FF',
+        'DFAME-pink': '#F8B6C3'
       },
       animation: {
         pulse: "pulse 4s infinite",
@@ -45,7 +47,8 @@ module.exports = {
         'karla': ['Karla']
       },
       borderRadius: {
-        xl: "2rem",
+        xl: "1em",
+        '2-xl': "2rem",
       },
       boxShadow: {
         focus: '5px 5px 10px 10px rgba(196, 196, 196, 1)'

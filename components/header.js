@@ -23,7 +23,7 @@ export default function Header() {
   }, [])
 
   return (
-    <nav className="bg-opacity-100 fixed h-12 lg:h-16 md:h-16 w-full md:w-5/6 lg:w-5/6 z-10 top-0 px-5 mt-2 align-center">
+    <nav className="bg-opacity-100 fixed h-12 lg:h-16 md:h-16 w-full md:w-5/6 lg:w-5/6 z-10 top-0 px-5 mt-10 align-center">
       <div className="w-screen flex flex-row items-center p-1 justify-between">
         <div className="w-3/4 md:w-1/2 h-10 flex order-2">
           <SearchInputSmall></SearchInputSmall>
