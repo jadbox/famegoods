@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Svelte app</title>
+    <title>DFAME</title>
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="/index.css" />
@@ -19,6 +19,20 @@
     />
 
     <script defer src="/build/bundle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-37514942YF"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-37514942YF");
+    </script>
 
     <!-- Required styles for Material Web -->
     <link
@@ -27,7 +41,7 @@
     />
   </head>
 
-  <body style="height: 100%;">
+  <body style="height: 100%">
     <div id="base" />
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script src="https://unpkg.com/three@0.118.3/build/three.min.js"></script>

@@ -11,6 +11,8 @@ import BottomSheetModal from "../components/BottomSheetModal";
 import Header from "../components/header"
 import Footer from "../components/footer";
 import FeedTabs from "../components/feedTabs"
+import TPPFooter from "../components/tpp/TPPfooter"
+import Disclaimer from "../components/Disclaimer"
 
 
 export default function Layout({ children, url }) {
@@ -90,25 +92,31 @@ export default function Layout({ children, url }) {
     return () => _vanta2.destroy();
   }, [state]);
 
+
+
   // Previous parent css removed: "grid grid-rows-3" style={{ gridTemplateRows: 'auto 1fr auto' }}
 
   const { walletConnectModal, redirectTo } = ostate.application;
 
   return (
-    <div ref={element} className="w-screen h-screen">
-      <Head></Head>
+    <div className="h-screen w-screen fixed bg-top-blur bg-cover bg-no-repeat overflow-auto">
 
-      <Header></Header>
+      <div ref={element} className="w-screen h-screen">
+        <Disclaimer></Disclaimer>
+        <Head></Head>
+        <Header></Header>
 
-      <div>{children}</div>
+        <div>{children}</div>
 
-      <Footer></Footer>
+        {/*<TPPFooter></TPPFooter>*/}
 
-      {walletConnectModal ? (
-        <BottomSheetModal onExit={actions.toggleWalletConnectModal}>
-          <ConnectWallet redirectTo={redirectTo} />
-        </BottomSheetModal>
-      ) : null}
+        {walletConnectModal ? (
+          <BottomSheetModal onExit={actions.toggleWalletConnectModal}>
+            <ConnectWallet redirectTo={redirectTo} />
+          </BottomSheetModal>
+        ) : null}
+        <Footer></Footer>
+      </div>
     </div>
   );
 }

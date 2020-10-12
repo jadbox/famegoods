@@ -29,7 +29,7 @@ export default function SimpleBottomNavigation() {
         onClick(newValue);
       }}
       showLabels
-      className="w-full fixed bottom-0"
+      className="w-full fixed bottom-0 bg-opacity-100 "
     >
       <BottomNavigationAction
         value="1"
