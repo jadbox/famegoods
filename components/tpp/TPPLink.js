@@ -125,7 +125,7 @@ export default function tpplink() {
 
                 <div className="h-screen w-full lg:h-full lg:w-1/2">
                     <div className="h-full md:w-4/5 lg:w-3/4 bg-no-repeat bg-center px-4 md:px-16 flex md:overflow-auto">
-                        <div className="animate__animated animate__backInDown flex flex-col items-center mt-10 md:m-auto">
+                        <div className="mx-auto animate__animated animate__backInDown flex flex-col items-center mt-10 md:m-auto">
                             <div className="w-full flex flex-col lg:flex-row items-center justify-center snap-center always-stop">
                                 <Link href={rellink}>
                                     <div

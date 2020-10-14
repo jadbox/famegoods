@@ -51,9 +51,9 @@ export default function tppform() {
     }
 
     return (
-        <div className="h-screen w-screen fixed overflow-scroll md:overflow-hidden">
+        <div className="h-screen w-screen fixed overflow-scroll lg:overflow-hidden">
             <div className="w-full md:h-full flex flex-wrap">
-                <div className="mt-24 m-6 md:mx-0 md:-ml-4 md:ml-0 md:mt-0 md:h-screen md:mb-4 w-full lg:h-full lg:w-1/2 flex justify-center items-center">
+                <div className="mt-24 m-6 lg:mx-0 lg:-ml-4 lg:ml-0 lg:mt-0 lg:h-screen lg:mb-4 w-full lg:h-full lg:w-1/2 flex justify-center items-center">
                     <div className="max-w-xl md:pl-32">
                         <div className="rounded-lg relative shadow-md overflow-hidden flex flex-col justify-center align-middle items-center">
                             <img src="/tpp-title.jpg"></img>
@@ -66,8 +66,8 @@ export default function tppform() {
                 </div>
 
                 <div className="h-screen w-full lg:h-full lg:w-1/2">
-                    <div className="h-screen md:w-4/5 lg:w-3/4 bg-no-repeat bg-center flex">
-                        <div className="animate__animated animate__backInDown flex-col md:m-auto mt-0 w-full">
+                    <div className="h-screen lg:w-3/4 bg-no-repeat bg-center flex">
+                        <div className="animate__animated animate__backInDown flex-col lg:m-auto mt-0 w-full">
                             <div className="w-full px-4 md:px-10">
                                 <form className="w-full bg-white border-2 p-6 border-gray-200 shadow-lg rounded-xl bg-opacity-50 animate__animated animate__backInDown">
                                     <div className="justify-center pb-6">
