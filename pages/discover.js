@@ -8,10 +8,10 @@ import ProfileCard from '../components/ProfileCard';
 export default function Discover() {
     return (
         <section className="blog text-gray-700 body-font">
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container mt-24 mx-auto overflow-auto">
                 <div className="flex flex-wrap w-full flex-col items-center text-center">
                     <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Discover Creators</h1>
-                    <p className="lg:w-1/2 w-full leading-relaxed text-base">
+                    <p className="md:w-1/3 text-sm leading-normal px-6 mb-2 font-Karla">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 <div className="container mx-auto px-4 sm:px-8">
@@ -32,172 +32,58 @@ export default function Discover() {
                                 </div>
                             </div>
                         </div>
-                        <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                            <div className="inline-block min-w-full shadow-lg rounded-lg border-2 border-gray-200 overflow-hidden">
-                                <table className="min-w-full leading-normal">
-                                    <thead>
-                                        <tr>
-                                            <th
-                                                className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                                Creator
-                                </th>
-                                            <th
-                                                className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                                Token Name
-                                </th>
-                                            <th
-                                                className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                                $ Buy price
-                                </th>
-                                            <th
-                                                className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                                $ Sell price
-                                </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr className="hover:shadow-lg hover:border-2">
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <div className="flex items-center">
-                                                    <div className="flex-shrink-0 w-10 h-10">
-                                                        <img className="w-full h-full rounded-full"
-                                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                            alt="" />
-                                                    </div>
-                                                    <div className="ml-3">
-                                                        <p className="text-gray-900 whitespace-no-wrap">
-                                                            Vera Carpenter
-                                            </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p className="text-gray-900 whitespace-no-wrap">$Vera</p>
-                                            </td>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <span
-                                                    className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                    <span aria-hidden
-                                                        className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                                    <span className="relative">$ 0.70</span>
-                                                </span>
-                                            </td>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <span
-                                                    className="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                                                    <span aria-hidden
-                                                        className="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                                    <span className="relative">$ 0.56</span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <div className="flex items-center">
-                                                    <div className="flex-shrink-0 w-10 h-10">
-                                                        <img className="w-full h-full rounded-full"
-                                                            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                            alt="" />
-                                                    </div>
-                                                    <div className="ml-3">
-                                                        <p className="text-gray-900 whitespace-no-wrap">
-                                                            Blake Bowman
-                                            </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p className="text-gray-900 whitespace-no-wrap">$Blake</p>
-                                            </td>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <span
-                                                    className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                    <span aria-hidden
-                                                        className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                                    <span className="relative">$ 0.70</span>
-                                                </span>
-                                            </td>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <span
-                                                    className="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                                                    <span aria-hidden
-                                                        className="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                                    <span className="relative">$ 0.56</span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <div className="flex items-center">
-                                                    <div className="flex-shrink-0 w-10 h-10">
-                                                        <img className="w-full h-full rounded-full"
-                                                            src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                            alt="" />
-                                                    </div>
-                                                    <div className="ml-3">
-                                                        <p className="text-gray-900 whitespace-no-wrap">
-                                                            Dana Moore
-                                            </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p className="text-gray-900 whitespace-no-wrap">$Dana</p>
-                                            </td>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <span
-                                                    className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                    <span aria-hidden
-                                                        className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                                    <span className="relative">$ 0.70</span>
-                                                </span>
-                                            </td>
-                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <span
-                                                    className="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                                                    <span aria-hidden
-                                                        className="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                                    <span className="relative">$ 0.56</span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-5 bg-white text-sm">
-                                                <div className="flex items-center">
-                                                    <div className="flex-shrink-0 w-10 h-10">
-                                                        <img className="w-full h-full rounded-full"
-                                                            src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&h=160&w=160&q=80"
-                                                            alt="" />
-                                                    </div>
-                                                    <div className="ml-3">
-                                                        <p className="text-gray-900 whitespace-no-wrap">
-                                                            Alonzo Cox
-                                            </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td className="px-5 py-5 bg-white text-sm">
-                                                <p className="text-gray-900 whitespace-no-wrap">$Alonzo</p>
-                                            </td>
-                                            <td className="px-5 py-5 bg-white text-sm">
-                                                <span
-                                                    className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                    <span aria-hidden
-                                                        className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                                    <span className="relative">$ 0.70</span>
-                                                </span>
-                                            </td>
-                                            <td className="px-5 py-5 bg-white text-sm">
-                                                <span
-                                                    className="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                                                    <span aria-hidden
-                                                        className="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                                    <span className="relative">$ 0.56</span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div>
+                            <div class="grid grid-cols-3 gap-x-6 gap-y-0">
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
+                                <div
+                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                >
+                                    <ProfileCard></ProfileCard>
+                                </div>
                             </div>
                         </div>
                     </div>

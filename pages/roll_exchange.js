@@ -3,7 +3,7 @@ const RollExchange = () => {
     <div>
       <iframe
         scrolling="no"
-        className="mt-12 w-full h-screen overflow-auto"
+        className="w-full h-screen overflow-hidden"
         style={{
         }}
         src='https://exchange.tryroll.com/swap'

@@ -99,7 +99,7 @@ export default function Layout({ children, url }) {
   const { walletConnectModal, redirectTo } = ostate.application;
 
   return (
-    <div className="h-screen w-screen fixed bg-top-blur bg-cover bg-no-repeat overflow-auto">
+    <div className="h-screen w-screen fixed bg-white md:bg-top-blur bg-cover bg-no-repeat overflow-auto">
 
       <div ref={element} className="w-screen h-screen">
         <Disclaimer></Disclaimer>

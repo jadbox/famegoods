@@ -8,7 +8,6 @@ import TPPCard from "../components/tpp/TPPCard"
 import { Icon, InlineIcon } from '@iconify/react';
 import userEditSolid from '@iconify/icons-la/user-edit-solid';
 
-
 /*
   How to create your own 3box profile for testing:
 1. Get the Metamask wallet Chrome extension. 
@@ -68,14 +67,13 @@ export default function Index() {
     <div>
       <div className="h-screen w-screen fixed overflow-auto">
         <div className="w-full h-64 md:h-full flex flex-wrap">
-
-          <div className="mt-20 md:mt-0 md:h-screen w-full lg:h-full lg:w-1/2 flex justify-center items-center">
-            <div className="max-w-xl px-6 md:px-0 lg:pl-24">
+          <div className="mt-24 md:mt-0 md:h-screen w-full lg:h-full lg:w-1/2 flex justify-center items-center">
+            <div className="max-w-xl px-8 md:px-0 lg:pl-24">
               <div className="flex flex-row">
                 <div className="overflow-hidden">
                   {userProfile.image && address ? (
                     <div className="flex flex-row w-full items-center">
-                      <div className="w-12 md:w-24 justify-left pt-2 md:mt-0">
+                      <div className="w-12 md:w-24 justify-left pt-4 md:mt-0">
                         {imageDisplay}
                       </div>
                       <h1 className="ml-4 md-6 text-black text-xl md:text-3xl text-lg uppercase bold font-karla">
@@ -101,10 +99,10 @@ export default function Index() {
               <div>
                 <div className="mb-6 h-12 flex justify-between" >
                   <Link href="/roll_exchange">
-                    <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-lg hover:shadow"> Buy $Token </button>
+                    <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-md hover:shadow"> Buy $Token </button>
                   </Link>
                   <Link href="/roll_exchange">
-                    <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-lg hover:shadow"> Sell $Token </button>
+                    <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-md hover:shadow"> Sell $Token </button>
                   </Link>
                 </div>
                 {/*
@@ -119,8 +117,11 @@ export default function Index() {
                   </div>
                 </div>
                 */}
-                <div className="h-24 md:mt-6 w-full flex-shrink cursor-pointer">
-                  <img src="/Apps.jpg" className="shadow-lg hover:shadow rounded-xl" alt="App Cover" />
+                <div className="h-24 md:mt-6 mb-12 md:mb-12 w-full flex-shrink cursor-pointer">
+                  <div class='tooltip'>
+                    <img src="/Apps.jpg" className="shadow-md hover:shadow rounded-xl" alt="App Cover" />
+                    <span class="tooltip-text bg-black rounded-lg w-32 mb-4 text-sm text-white ml-4 -mt-4">Coming Soon</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -137,13 +138,13 @@ export default function Index() {
                 </div>
                 <TPPCard></TPPCard>
               </div>
-              <div className="mt-6">
+              <div className="mt-16 md:12">
                 <TPPCard></TPPCard>
               </div>
-              <div className="mt-6">
+              <div className="mt-16 md:12">
                 <TPPCard></TPPCard>
               </div>
-              <div className="mt-6">
+              <div className="mt-16 md:12">
                 <TPPCard></TPPCard>
               </div>
             </div>

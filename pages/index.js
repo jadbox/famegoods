@@ -12,7 +12,7 @@ const TppHome = () => {
     <div className="h-screen w-screen fixed  overflow-auto">
       <div className="w-full md:h-full flex flex-wrap">
 
-        <div className="mt-2 mx-6 md:mx-0 md:mt-0 md:h-screen w-full lg:h-full lg:w-1/2 flex justify-center items-center">
+        <div className="mt-24 md:mx-0 -ml-4 md:ml-0 md:mt-0 md:h-screen mb-4 md:mb-0 w-full lg:h-full lg:w-1/2 flex justify-center items-center">
 
           <div className="max-w-xl md:pl-32">
             <Link href="/">
@@ -23,12 +23,12 @@ const TppHome = () => {
               </div>
             </Link>
 
-            <h1 className="text-xs md:text-sm leading-normal mb-4 font-Karla">Search and Discover the passion economy</h1>
+            <p className="text-xs md:text-sm leading-normal mb-4 font-Karla">Search and Discover the passion economy</p>
 
             <SearchInput></SearchInput>
 
             <Link href="/forefront_news">
-              <div className="h-24 md:mt-4 w-full flex-shrink cursor-pointer">
+              <div className="h-24 md:mt-4 w-full hidden md:flex flex-shrink cursor-pointer">
                 <img src="/News.svg" className="hover:shadow-xl rounded-lg" />
               </div>
             </Link>
@@ -44,13 +44,13 @@ const TppHome = () => {
               </div>
               <TPPCard></TPPCard>
             </div>
-            <div className="mt-6">
+            <div className="mt-12">
               <TPPCard></TPPCard>
             </div>
-            <div className="mt-6">
+            <div className="mt-12">
               <TPPCard></TPPCard>
             </div>
-            <div className="mt-6">
+            <div className="mt-12">
               <TPPCard></TPPCard>
             </div>
           </div>
