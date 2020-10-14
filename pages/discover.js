@@ -8,10 +8,10 @@ import ProfileCard from '../components/ProfileCard';
 export default function Discover() {
     return (
         <section className="blog text-gray-700 body-font">
-            <div className="container px-5 pt-24 md:pt-32 mx-auto overflow-auto">
+            <div className="container mt-24 mx-auto overflow-auto">
                 <div className="flex flex-wrap w-full flex-col items-center text-center">
                     <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Discover Creators</h1>
-                    <p className="lg:w-1/2 w-full leading-relaxed text-base">
+                    <p className="md:w-1/3 text-sm leading-normal px-6 mb-2 font-Karla">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 <div className="container mx-auto px-4 sm:px-8">

@@ -12,7 +12,7 @@ const TppHome = () => {
     <div className="h-screen w-screen fixed  overflow-auto">
       <div className="w-full md:h-full flex flex-wrap">
 
-        <div className="mt-32 md:mx-0 -ml-4 md:ml-0 md:mt-0 md:h-screen mb-4 md:mb-0 w-full lg:h-full lg:w-1/2 flex justify-center items-center">
+        <div className="mt-24 md:mx-0 -ml-4 md:ml-0 md:mt-0 md:h-screen mb-4 md:mb-0 w-full lg:h-full lg:w-1/2 flex justify-center items-center">
 
           <div className="max-w-xl md:pl-32">
             <Link href="/">
@@ -44,13 +44,13 @@ const TppHome = () => {
               </div>
               <TPPCard></TPPCard>
             </div>
-            <div className="mt-16 md:12">
+            <div className="mt-12">
               <TPPCard></TPPCard>
             </div>
-            <div className="mt-16 md:12">
+            <div className="mt-12">
               <TPPCard></TPPCard>
             </div>
-            <div className="mt-16 md:12">
+            <div className="mt-12">
               <TPPCard></TPPCard>
             </div>
           </div>
