@@ -3,11 +3,11 @@ import useAddress from "../utils/Address";
 import { useRouter } from "next/router";
 import * as UserData from "../utils/UserData";
 import Box from "3box";
-import { 
-  setBoxProfile, 
-  getBoxProfile, 
+import {
+  setBoxProfile,
+  getBoxProfile,
   formatImageObject,
-  formatIpfsImageObject 
+  formatIpfsImageObject
 } from "../utils/EditProfiles";
 
 const ipfsClient = require("ipfs-http-client");
@@ -52,9 +52,10 @@ const ProfileEditor = () => {
       const file = await ipfs.add(state.buffer);
       const formattedFile = formatIpfsImageObject(file);
       setState((x) => ({ ...x, ipfsHash: file.path }));
-      setUserProfile((x) => ({ ...x, 
-        image: formattedFile, 
-        version: x.version++ 
+      setUserProfile((x) => ({
+        ...x,
+        image: formattedFile,
+        version: x.version++
       }));
       //setIsLoading(false);
     } catch (err) {
@@ -120,7 +121,7 @@ const ProfileEditor = () => {
   if (userProfile.image == undefined || !userProfile.image[0].contentUrl) {
     imageDisplay = null;
   } else {
-    imageDisplay = 
+    imageDisplay =
       <img
         src={`https://ipfs.infura.io/ipfs/${userProfile.image[0].contentUrl["/"]}`}
         className="rounded-full border-solid border-white border-2 -mt-3"
@@ -128,56 +129,58 @@ const ProfileEditor = () => {
   }
 
   return (
-    <div>
-      {userProfile.image && address ? (
-        <div className="flex justify-center mt-10">
-          {imageDisplay}
+    <div className="mb-32">
+      <div className="flex mt-24 m-0 justify-center items-center">
+        {userProfile.image && address ? (
+          <div className="flex justify-center w-32 mt-10">
+            {imageDisplay}
+          </div>
+        ) : null}
+        <div className="flex justify-center mt-8 ml-10">
+          <input type="file" onChange={captureFile} />
         </div>
-      ) : null}
-      <div className="flex justify-center mt-10">
-        <input type="file" onChange={captureFile} />
       </div>
 
       <div className="flex justify-center mt-4">
         <form onSubmit={handleProfileSubmit} className="w-full max-w-lg">
-          <span className="block ml-3">Name:</span>
+          <span className="block ml-3 mb-2 mt-4 font-karla font-semibold text-sm uppercase tracking-wide">Name:</span>
           <div className="flex justify-center pb-6">
             <input
               name="name"
               value={userProfile.name || ""}
               onChange={handleProfileChange}
               placeholder={userProfile.name}
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full bg-white text-gray-700 border-2 border-gray-200 shadow-lg hover:shadow rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:shadow"
             />
           </div>
-          <span className="block ml-3">Description:</span>
+          <span className="block ml-3 mb-2 mt-4 font-karla font-semibold text-sm uppercase tracking-wide">Description:</span>
           <div className="flex justify-center pb-6">
             <textarea
               name="description"
               value={userProfile.description || ""}
               onChange={handleProfileChange}
               placeholder={userProfile.description}
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-white text-gray-700 border-2 border-gray-200 shadow-lg hover:shadow rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:shadow"
             />
           </div>
-          <span className="block ml-3">Location:</span>
+          <span className="block ml-3 mb-2 mt-4 font-karla font-semibold text-sm uppercase tracking-wide">Location:</span>
           <div className="flex justify-center pb-6">
             <input
               name="location"
               value={userProfile.location || ""}
               onChange={handleProfileChange}
               placeholder={userProfile.location}
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-white text-gray-700 border-2 border-gray-200 shadow-lg hover:shadow rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:shadow"
             />
           </div>
-          <span className="block ml-3">Website:</span>
+          <span className="block ml-3 mb-2 mt-4 font-karla font-semibold text-sm uppercase tracking-wide">Website:</span>
           <div className="flex justify-center pb-6">
             <input
               name="website"
               value={userProfile.website || ""}
               onChange={handleProfileChange}
               placeholder={userProfile.website}
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-white text-gray-700 border-2 border-gray-200 shadow-lg hover:shadow rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:shadow"
             />
           </div>
 
@@ -211,15 +214,15 @@ const ProfileEditor = () => {
               </button>
             </div>
           ) : (
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 w-40 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                Save
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="bg-black hover:bg-purple-600 w-40 text-white font-karla font-semibold py-2 px-4 uppercase rounded focus:outline-none focus:shadow-outline"
+                >
+                  Save
               </button>
-            </div>
-          )}
+              </div>
+            )}
         </form>
       </div>
     </div>

@@ -5,8 +5,8 @@ export default function Alert() {
     return (
         <>
             {showAlert ? (
-                <div class="alert-toast fixed bottom-0 left-0 m-8 md:w-full max-w-sm z-50">
-                    <label className="close cursor-pointer flex justify-between items-center w-5/6 p-6 bg-black h-16 rounded-lg shadow-lg text-white" title="close" for="footertoast">
+                <div class="alert-toast fixed bottom-0 left-0 m-4 md:m-8 md:w-full max-w-sm z-50">
+                    <label className="close cursor-pointer flex justify-between items-center w-full md:w-5/6 p-6 bg-black h-22 md:h-16 rounded-lg shadow-lg text-white" title="close" for="footertoast">
                         DFAME is in early testing! <br></br>Use at your own risk.
                     <button className="left-0 m-2" onClick={() => setShowAlert(false)}>
                             <svg className="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">

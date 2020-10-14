@@ -51,59 +51,70 @@ export default function tppform() {
     }
 
     return (
-        <div className="h-screen bg-top-blur bg-cover bg-scroll bg-no-repeat">
-            <div className="justify-center mt-10 max-w-lg mx-auto animate__animated animate__backInDown">
-                <div className="w-full px-2 bg-white px-6 pb-2 pt-4 rounded-lg shadow-lg">
-                    <div className="rounded-lg shadow-sm mb-4 ">
-                        <div className="rounded-lg shadow-lg md:shadow-xl relative overflow-hidden flex flex-col justify-center align-middle items-center">
-                            <img src="/tpp-title.svg"></img>
+        <div className="h-screen w-screen fixed overflow-auto">
+            <div className="w-full md:h-full flex flex-wrap">
+                <div className="md:mx-0 -ml-4 md:ml-0 md:mt-0 md:h-screen mb-4 md:mb-0 w-full lg:h-full lg:w-1/2 flex justify-center items-center">
+                    <div className="max-w-xl md:pl-32">
+                        <div className="rounded-lg relative overflow-hidden flex flex-col justify-center align-middle items-center">
+                            <img src="/tpp-title.jpg"></img>
+                        </div>
+                        <div className="flex flex-wrap w-full flex-col items-center text-left">
+                            <p className="text-xs md:text-sm leading-normal my-4 font-Karla">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
                         </div>
                     </div>
-                    <form className="w-full items-center">
-                        <div className="justify-center my-6">
-                            <h3 className="text-left justify-center font-bold font-karla text-m tracking-wide">Contract Address</h3>
-                            <input
-                                id="form_address"
-                                name="address"
-                                placeholder="0x......"
-                                className="leading-tight text-m appearance-none border-2 shadow-lg rounded-md w-full p-2 placeholder-gray-400 font-medium leading-tight focus:outline-none focus:shadow-outline pt-3 pb-3 mt-2 tracking-wide"
-                            />
-                        </div>
-                        <div className="justify-center pb-6">
-                            <h3 className="text-left justify-center font-bold font-karla text-m tracking-wide">Private Link</h3>
-                            <input
-                                id="form_url"
-                                name="contentUrl"
-                                placeholder="https://"
-                                className="leading-tight text-m appearance-none border-2 shadow-lg rounded-md w-full p-2 placeholder-gray-400 font-medium leading-tight focus:outline-none focus:shadow-outline pt-3 pb-3 mt-2 tracking-wide"
-                            />
-                        </div>
-                        <div className="justify-center pb-6">
-                            <h3 className="text-left justify-center font-bold font-karla text-m tracking-wide">Minimum Amount</h3>
-                            <input
-                                id="form_balance"
-                                name="numberOfToken"
-                                placeholder="Tokens"
-                                className="leading-tight text-m appearance-none border-2 shadow-lg rounded-md w-full p-2 placeholder-gray-400 font-medium leading-tight focus:outline-none focus:shadow-outline pt-3 pb-3 mt-2 tracking-wide"
-                            />
-                        </div>
-                        <div className="justify-center mb-4">
+                </div>
 
-                            {!isLoading && <button
-                                enabled={toString(!isLoading)}
-                                onClick={onSubmit}
-                                type="submit"
-                                className="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 overflow-visible mb-3 mt-3 py-1 px-10 w-full h-10 bg-black rounded-lg hover:bg-purple-700 text-white uppercase font-karla font-semibold rounded shadow-lg sm:h-16 text-lg  from-primary to-secondary"
-                            >
-                                Generate Link
+                <div className="h-screen w-full lg:h-full lg:w-1/2">
+                    <div className="h-full md:w-4/5 lg:w-3/4 bg-no-repeat bg-center px-4 md:px-12 pt-16">
+                        <div className="bg-white border-2 p-6 border-gray-200 shadow-lg rounded-lg bg-opacity-50 mt-12">
+                            <form className="w-full items-center">
+                                <div className="justify-center pb-6">
+                                    <h3 className="text-left justify-center font-bold font-karla text-m tracking-wide">Token Contract Address</h3>
+                                    <input
+                                        id="form_address"
+                                        name="address"
+                                        placeholder="TKN: 0x......"
+                                        className="leading-tight text-m appearance-none border-2 shadow-md hover:shadow rounded-md w-full p-2 placeholder-gray-400 font-medium leading-tight focus:outline-none focus:shadow-outline pt-3 pb-3 mt-2 tracking-wide"
+                                    />
+                                </div>
+                                <div className="justify-center pb-6">
+                                    <h3 className="text-left justify-center font-bold font-karla text-m tracking-wide">Private Link</h3>
+                                    <input
+                                        id="form_url"
+                                        name="contentUrl"
+                                        placeholder="https://"
+                                        className="leading-tight text-m appearance-none border-2 shadow-md hover:shadow rounded-md w-full p-2 placeholder-gray-400 font-medium leading-tight focus:outline-none focus:shadow-outline pt-3 pb-3 mt-2 tracking-wide"
+                                    />
+                                </div>
+                                <div className="justify-center pb-6">
+                                    <h3 className="text-left justify-center font-bold font-karla text-m tracking-wide">Minimum Amount</h3>
+                                    <input
+                                        id="form_balance"
+                                        name="numberOfToken"
+                                        placeholder="Tokens"
+                                        className="leading-tight text-m appearance-none border-2 shadow-md hover:shadow rounded-md w-full p-2 placeholder-gray-400 font-medium leading-tight focus:outline-none focus:shadow-outline pt-3 pb-3 mt-2 tracking-wide"
+                                    />
+                                </div>
+                                <div className="justify-center mb-2">
+
+                                    {!isLoading && <button
+                                        enabled={toString(!isLoading)}
+                                        onClick={onSubmit}
+                                        type="submit"
+                                        className="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-90 overflow-visible mb-3 mt-3 py-1 px-10 w-full h-10 bg-black rounded-lg hover:bg-purple-700 text-white uppercase font-karla font-semibold rounded shadow-lg sm:h-16 text-lg from-primary to-secondary"
+                                    >
+                                        Generate Link
                             </button>}
-                            <p>
-                                {isLoading ? <b className="animate-ping">Loading...</b> : ''}
-                            </p>
+                                    <p>
+                                        {isLoading ? <b className="animate-ping">Loading...</b> : ''}
+                                    </p>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div >
-        </div>
+        </div >
     );
 }
