@@ -28,8 +28,8 @@ export default function TPPCard({ gif, file }) {
                 <div className="justify-center mt-24">
                     <div className="w-full px-4 md:px-6 break-words font-normal text-md text-gray-700 font-karla tracking-wider m-auto">
                         <div className="mb-2">
-                            <div class="md:flex-shrink-0">
-                                <img class="rounded-lg md:w-full z-10" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" alt="Woman paying for a purchase" />
+                            <div className="md:flex-shrink-0">
+                                <img className="rounded-lg md:w-full z-10" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" alt="Woman paying for a purchase" />
                             </div>
                             <div className="h-12 absolute"></div>
                             <div className="flex w-full items-center text-sm text-gray-300 font-medium absolute z-50">
