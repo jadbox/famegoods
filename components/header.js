@@ -49,6 +49,7 @@ export default function Header() {
                 <button
                   onClick={e => setIsOpen(false)}
                   tabIndex="-1"
+                  className="fixed inset-0 w-full h-full bg-transparent cursor-default">
                 >
                 </button>
                 <div className="fixed mt-4 mr-2 md:mr-12 right-0 w-48 bg-white border-2 border-gray-300 rounded-lg shadow-lg">
