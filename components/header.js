@@ -3,24 +3,28 @@ import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import * as Roll from "../utils/Roll";
+import * as Wallet from "../utils/Web3Wallet";
 import IconWalletSolid from "@iconify/icons-la/wallet-solid";
 import filterSolid from '@iconify/icons-la/filter-solid';
 import SearchInputSmall from "../components/SearchInputSmall"
-import { checkForWebWallet } from "../utils/Web3Wallet";
+import { useOvermind } from "../stores/Overmind";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Better to use Overmind state for wallet connection checks?
+  const { state: ostate, actions } = useOvermind();
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEscape);
+    return () => { document.removeEventListener('keydown', handleEscape); }
+  }, [])
 
   const handleEscape = (e) => {
     if (e.key === 'Esc' || e.key === 'Escape') {
       setIsOpen(false);
     }
   }
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleEscape);
-    return () => { document.removeEventListener('keydown', handleEscape); }
-  }, [])
 
   return (
     <nav className="bg-opacity-100 fixed h-12 lg:h-16 md:h-16 w-full md:w-5/6 lg:w-5/6 z-10 top-0 pl-3 mt-4 align-center">
@@ -34,7 +38,7 @@ export default function Header() {
             className={isOpen ? "relative z-10 cursor-pointer focus:outline-none bg-white border-2 border-gray-200 rounded-lg shadow align-middle pr-4 pl-3 mr-6 md:mr-16 justify-center font-karla whitespace-no-wrap" :
               "relative z-10 cursor-pointer focus:outline-none hover:shadow text-black bg-white border-2 border-gray-200 rounded-lg shadow-lg align-middle pr-4 pl-3 mr-6 md:mr-16 justify-center font-karla whitespace-no-wrap "}
           >
-            {checkForWebWallet() ? <div className="rounded-full inline-block align-middle h-2 w-2 m-1 bg-green-500"></div> : null}
+            {Wallet.checkForWebWallet() || Roll.checkForRoll() ? <div className="rounded-full inline-block align-middle h-2 w-2 m-1 bg-green-500"></div> : null}
 
             <Icon icon={IconWalletSolid} width="20" height="20" className="relative inline-block align-middle md:m-1" />
             <span className="text-nonexist md:text-xs lg:text-md font-bold align-middle inline-block">Wallet</span>
@@ -56,8 +60,8 @@ export default function Header() {
                   </Link>
                   <a
                     href={Roll.loginUrl()}
-                    className="block px-4 py-2 rounded-lg hover:bg-black hover:text-white">
-                    Connect a Wallet
+                    className="block px-4 py-2 rounded-lg hover:bg-black hover:text-white">                    
+                    {Wallet.checkForWebWallet() || Roll.checkForRoll() ? <p>Change Wallet</p> : <p>Connect a Wallet</p>}
                   </a>
                 </div>
               </>

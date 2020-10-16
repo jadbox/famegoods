@@ -2,9 +2,13 @@ import axios from "axios";
 import { ethers } from "ethers";
 
 export function checkForRoll() {
-  const rollAccess = localStorage.getItem("apiRefreshToken");
-  if (!rollAccess) return false;
-  return true;
+  if (typeof window !== 'undefined') {
+    const rollAccess = localStorage.getItem("apiRefreshToken");
+    if (!rollAccess) return false;
+    return true;
+  } else {
+    return false;
+  }
 }
 
 export function getBalanceObject(balances, tokenName) {

@@ -8,6 +8,26 @@ const TOKEN_ABI = [
   "function transfer(address to, uint amount) returns (boolean)"
 ]
 
+// Not working with current setup. Refocus on OM solution, cookies, or URL object to avoid localStorage use?
+
+// export function clearParams() {
+
+//   const url = new URL(window.location);
+//   console.log('url params: ', url);
+//   const isWallet = url.searchParams.has("account")
+//   const isRoll = url.searchParams.has("token")
+
+//   if(isWallet) {
+//     localStorage.removeItem("token");
+//     localStorage.removeItem("refreshToken");
+//   }
+  
+//   if(isRoll) {
+//     localStorage.removeItem("account");
+//     localStorage.removeItem("signature");
+//   }
+// }
+
 export function getWalletData() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -39,9 +59,13 @@ export function getWalletData() {
 }
 
 export function checkForWebWallet() {
-  const walletAccess = localStorage.getItem("address");
-  if (!walletAccess) return false;
-  return true;
+  if (typeof window !== 'undefined') {
+    const walletAccess = localStorage.getItem("address");
+    if (!walletAccess) return false;
+    return true;
+  } else {
+    return false;
+  }
 }
 
 export function createPrivateKey() {
