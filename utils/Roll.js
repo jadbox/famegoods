@@ -59,8 +59,25 @@ export function getToken() {
 
 export function loginUrl(url) {
   if (!url) url = window.location.href;
-  return `https://roll.collab.land/connect?id=recI424YZv232Rg0a&callbackURL=${url}&redirect=true`;
-}  
+
+  const _url = new URL(url);
+  const s = new URLSearchParams(_url.search);
+  s.delete('token');
+  s.delete('apiToken');
+  s.delete('apiRefreshToken');
+  s.delete('refreshToken');
+  s.delete('callbackURL');
+  s.delete('signature');
+  const qs = s.toString().replace('?', '');
+  const result = encodeURIComponent(location.protocol + '//' + location.host + location.pathname);
+
+  // the auth server give these params back to us after the redirect
+  let params = '';
+  s.forEach((v, k) => {
+    params += '&' + k + '=' + v;
+  })
+  return `https://roll.collab.land/connect?id=recI424YZv232Rg0a&callbackURL=${result}&redirect=true` + params;
+}
 
 export function getUserData() {
   const localToken = localStorage.getItem("apiRefreshToken");
