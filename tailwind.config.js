@@ -60,6 +60,12 @@ module.exports = {
         'tiny': '.3rem',
         'nonexist': '0rem'
       },
+      screens: {
+        'tablet': '768px'
+      },
+      margin: {
+        '14': '3.5rem'
+      }
     },
   },
   variants: {

@@ -54,7 +54,7 @@ export default function tppform() {
         <div className="h-screen w-screen fixed overflow-scroll lg:overflow-hidden">
             <div className="w-full md:h-full flex flex-wrap">
                 <div className="mt-24 m-6 lg:mx-0 lg:-ml-4 lg:ml-0 lg:mt-0 lg:h-screen lg:mb-4 w-full lg:h-full lg:w-1/2 flex justify-center items-center">
-                    <div className="max-w-xl md:pl-32">
+                    <div className="max-w-xl">
                         <div className="rounded-lg relative shadow-md overflow-hidden flex flex-col justify-center align-middle items-center">
                             <img src="/tpp-title.jpg"></img>
                         </div>

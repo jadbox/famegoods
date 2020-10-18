@@ -14,9 +14,9 @@ export default function Discover() {
                     <p className="md:w-1/3 text-sm leading-normal px-6 mb-2 font-Karla">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
-                <div className="container mx-auto px-4 sm:px-8">
+                <div className="container mx-auto px-4 sm:px-8 md:flex md:flex-col md:items-center">
                     <div className="py-2">
-                        <div className="my-2 flex sm:flex-row flex-col">
+                        <div className="my-2 flex sm:flex-row flex-col items-center">
                             <div className="relative">
                                 <select
                                     className="appearance-none h-full rounded-lg border-2 border-gray-200 block w-full bg-white text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-200">
@@ -33,54 +33,54 @@ export default function Discover() {
                             </div>
                         </div>
                         <div>
-                            <div class="grid grid-cols-3 gap-x-6 gap-y-0">
+                            <div className="grid grid-cols-3 gap-x-6 gap-y-0">
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>
                                 <div
-                                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                                    className="col-span-4 sm:col-span-4 md:col-span-3 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
                                 >
                                     <ProfileCard></ProfileCard>
                                 </div>

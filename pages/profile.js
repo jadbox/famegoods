@@ -67,7 +67,7 @@ export default function Index() {
     <div>
       <div className="h-screen w-screen fixed overflow-auto">
         <div className="w-full h-64 md:h-full flex flex-wrap">
-          <div className="mt-24 md:mt-0 md:h-screen w-full lg:h-full lg:w-1/2 flex justify-center items-center">
+          <div className="mt-24 md:mt-64 lg:mt-0 md:h-64 w-full lg:h-full lg:w-1/2 flex justify-center items-center">
             <div className="max-w-xl px-8 md:px-0 lg:pl-24">
               <div className="flex flex-row">
                 <div className="overflow-hidden">
@@ -127,9 +127,9 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="h-screen w-full lg:h-full lg:w-1/2">
+          <div className="h-screen w-full lg:h-full lg:w-1/2 md:flex md:flex-col md:items-center lg:block lg:flex-none">
             <div className="md:h-full md:w-4/5 lg:w-3/4 bg-no-repeat bg-center px-4 md:px-12 pt-16 md:overflow-auto">
-              <div className="-mt-16 md:mt-24">
+              <div className="-mt-16 md:mt-16 lg:mt-24">
                 <div className="flex flex-row items-center justify-between m-3">
                   <h1 className="font-karla text-m font-semibold mb-2 md:ml-0 justify-items-start">$Token Feed.</h1>
                   <div className="flex flex-row flex-no-wrap px-1">
