@@ -102,9 +102,8 @@ export default function Layout({ children, url }) {
     <div className="h-screen w-screen fixed bg-white md:bg-top-blur bg-cover bg-no-repeat overflow-auto">
 
       <div ref={element} className="w-screen h-screen">
-        <Disclaimer></Disclaimer>
-        <Head></Head>
-        <Header></Header>
+        <Head />
+        <Header />
 
         <div>{children}</div>
 
@@ -122,6 +121,8 @@ export default function Layout({ children, url }) {
 }
 
 /*
+<Disclaimer/>
+
 <script
           src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"
           defer
