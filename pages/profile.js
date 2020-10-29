@@ -79,7 +79,7 @@ export default function Index() {
                       <h1 className="ml-4 md-6 text-black text-xl md:text-3xl text-lg uppercase bold font-karla">
                         {userProfile.name} {userProfile.emoji}
                       </h1>
-                      <div className="mb-12 md:mb-16">
+                      <div className="mb-12 md:mb-16 cursor-pointer">
                         <Link href="/profile_edit">
                           <Icon icon={userEditSolid} height="1.2em" />
                         </Link>
@@ -156,7 +156,7 @@ export default function Index() {
   );
 }
 
-/*
+{/*
 <div className="flex justify-center pb-3 text-grey-dark ml-10 mr-10 mb-3">
                 <div className="text-center mr-3 border-r pr-3">
                   <p className="text-xl">34</p>
@@ -172,4 +172,4 @@ export default function Index() {
                 </div>
               </div>
             </div>
-*/
+*/}
