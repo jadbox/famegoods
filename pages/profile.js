@@ -72,39 +72,53 @@ export default function Index() {
               <div className="flex flex-row">
                 <div className="overflow-hidden">
                   {userProfile.image && address ? (
-                    <div className="flex flex-row w-full items-center">
-                      <div className="w-12 md:w-24 justify-left pt-4 md:mt-0">
-                        {imageDisplay}
+                    <>
+                      <div className="flex flex-row w-full items-center">
+                        <div className="w-12 md:w-24 justify-left pt-4 md:mt-0">
+                          {imageDisplay}
+                        </div>
+                        <h1 className="ml-4 md-6 text-black text-xl md:text-3xl text-lg uppercase bold font-karla">
+                          {userProfile.name} {userProfile.emoji}
+                        </h1>
+                        <div className="mb-12 md:mb-16 cursor-pointer">
+                          <Link href="/profile_edit">
+                            <Icon icon={userEditSolid} height="1.2em" />
+                          </Link>
+                        </div>
                       </div>
-                      <h1 className="ml-4 md-6 text-black text-xl md:text-3xl text-lg uppercase bold font-karla">
-                        {userProfile.name} {userProfile.emoji}
-                      </h1>
-                      <div className="mb-12 md:mb-16 cursor-pointer">
-                        <Link href="/profile_edit">
-                          <Icon icon={userEditSolid} height="1.2em" />
-                        </Link>
+                      <div className="text-left p-2">
+                        <p className="md:mt-2 font-light text-grey-dark font-karla">
+                          {userProfile.description}
+                        </p>
+                        <p className="mb-2 font-light text-grey-dark font-karla">
+                          {userProfile.website}
+                        </p>
                       </div>
-                    </div>
+                    </>
                   ) : null}
-                  <div className="text-left p-2">
-                    <p className="md:mt-2 font-light text-grey-dark font-karla">
-                      {userProfile.description}
-                    </p>
-                    <p className="mb-2 font-light text-grey-dark font-karla">
-                      {userProfile.website}
-                    </p>
-                  </div>
+
+                  {!userProfile.image && address ? (
+                    <Link href="/profile_edit">
+                      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full font-karla text-xl">
+                        Create a profile!
+                      </button>
+                    </Link>                  
+                  ) : null}                  
                 </div>
               </div>
-              <div>
-                <div className="mb-6 h-12 flex justify-between" >
-                  <Link href="/roll_exchange">
-                    <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-md hover:shadow"> Buy $Token </button>
-                  </Link>
-                  <Link href="/roll_exchange">
-                    <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-md hover:shadow"> Sell $Token </button>
-                  </Link>
-                </div>
+
+              <div>              
+                {userProfile.image && address ? (
+                  <div className="mb-6 h-12 flex justify-between" >
+                    <Link href="/roll_exchange">
+                      <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-md hover:shadow"> Buy $Token </button>
+                    </Link>
+                    <Link href="/roll_exchange">
+                      <button className="z-10 px-8 md:px-16 bg-white border-2 rounded-full border-gray-200 shadow-md hover:shadow"> Sell $Token </button>
+                    </Link>
+                  </div>
+                ) : null}    
+
                 {/*
                 <div className="flex flex-row cursor-pointer">
                   <Link href="/telegram_chat">
@@ -118,9 +132,9 @@ export default function Index() {
                 </div>
                 */}
                 <div className="h-24 md:mt-6 mb-12 md:mb-12 w-full flex-shrink cursor-pointer">
-                  <div class='tooltip'>
+                  <div className='tooltip'>
                     <img src="/Apps.jpg" className="shadow-md hover:shadow rounded-xl" alt="App Cover" />
-                    <span class="tooltip-text bg-black rounded-lg w-32 mb-4 text-sm text-white ml-4 -mt-4">Coming Soon</span>
+                    <span className="tooltip-text bg-black rounded-lg w-32 mb-4 text-sm text-white ml-4 -mt-4">Coming Soon</span>
                   </div>
                 </div>
               </div>
