@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useOvermind } from "../../stores/Overmind";
 import TPPForm from "../../components/tpp/TPPForm";
 import { useRouter } from 'next/router'
+import ReactPlayer from 'react-player/youtube'
 
 export default function TokenProtection() {
     const [state, setState] = useState({});
@@ -27,16 +28,25 @@ export default function TokenProtection() {
 
         setLink(page);
 
-        setTimeout(() => {
-            window.location.href = page;
-        }, 300);
-
         setState({ link: _link, code, namespace, template });
     }, [])
 
     return (
-        <div className="w-full h-screen">
+        <div className="w-full h-screen center my-32">
+            <div className="mx-auto w-1/2">
+                <video
+                    id="vid1"
+                    className="video-js vjs-default-skin vjs-big-play-centered"
+                    controls
+                    autoplay
+                    width="640" height="264"
+                    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"}] }'
+                >
+                </video></div>
 
+            <div className="mx-auto w-1/2">
+                <ReactPlayer className="center mx-auto" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+            </div>
         </div >
     );
 }

@@ -25,6 +25,13 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+.vjs-big-play-button {
+  margin-top: 20%;
+  margin-left: 40%;
+  width: 70px !important;
+  height: 70px !important;
+}
+
 /* Sections
    ========================================================================== */
 

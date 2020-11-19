@@ -54,6 +54,7 @@
     "react-dom": "^17.0.1",
     "react-insta-stories": "^2.0.4",
     "react-lottie": "^1.2.3",
+    "react-player": "^2.6.2",
     "react-script-hook": "^1.1.1",
     "react-share": "^4.3.1",
     "shortid": "^2.2.16",
