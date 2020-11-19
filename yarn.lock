@@ -14331,6 +14331,14 @@ symbol-tree@^3.2.4:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
+tailwindcss-blend-mode@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-blend-mode/-/tailwindcss-blend-mode-1.0.0.tgz#5a87b9095f1546a8ed8cd12bff941719e21cdeab"
+  integrity sha512-O73Kp4xe89tzStNBc28cTBuEhX6rpxytTzk/51XilHFUbv66o9IAZH0pCQhClYjiMjEpMFgdhg/h1CJkm4qkkQ==
+  dependencies:
+    flat "^4.1.0"
+    lodash "^4.17.11"
+
 tailwindcss-scroll-snap@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/tailwindcss-scroll-snap/-/tailwindcss-scroll-snap-1.0.3.tgz#4d2bb1a1125cab144d3feeaed038f127fac9d894"

@@ -59,6 +59,7 @@
     "react-share": "^4.3.1",
     "shortid": "^2.2.16",
     "tailwindcss": "^2.0.1",
+    "tailwindcss-blend-mode": "^1.0.0",
     "tailwindcss-scroll-snap": "^1.0.2",
     "utf-8-validate": "^5.0.3",
     "uuid": "^8.2.0"
