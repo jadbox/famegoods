@@ -74,7 +74,11 @@ module.exports = {
     textStrokeColor: ['responsive'],
     textStrokeWidth: ['responsive'],
     paintOrder: ['responsive'],
+    mixBlendMode: ['responsive'],
+    backgroundBlendMode: ['responsive'],
+    isolation: ['responsive'],
   },
   plugins: [require("tailwindcss-scroll-snap"),
+  require('tailwindcss-blend-mode')(),
   require('tailwindcss-text-fill-stroke')(),],
 };

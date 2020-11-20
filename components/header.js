@@ -29,9 +29,9 @@ export default function Header() {
   return (
     <nav className="bg-opacity-100 fixed h-12 lg:h-16 md:h-16 w-full md:w-5/6 lg:w-5/6 z-10 top-0 pl-3 mt-4 align-center">
       <div className="w-screen flex flex-row items-center p-1 justify-between">
-        <div className="w-3/4 md:w-1/2 h-10 flex order-2 mr-3">
+        {/* <div className="w-3/4 md:w-1/2 h-10 flex order-2 mr-3">
           <SearchInputSmall></SearchInputSmall>
-        </div>
+        </div>  */}
         <div className="order-3">
           <button
             onClick={e => setIsOpen(!isOpen)}
@@ -50,7 +50,7 @@ export default function Header() {
                   onClick={e => setIsOpen(false)}
                   tabIndex="-1"
                   className="fixed inset-0 w-full h-full bg-transparent cursor-default">
-                >
+                  >
                 </button>
                 <div className="fixed mt-4 mr-2 md:mr-12 right-0 w-48 bg-white border-2 border-gray-300 rounded-lg shadow-lg">
                   <Link href="/roll_exchange">
@@ -61,7 +61,7 @@ export default function Header() {
                   </Link>
                   <a
                     href={Roll.loginUrl()}
-                    className="block px-4 py-2 rounded-lg hover:bg-black hover:text-white">                    
+                    className="block px-4 py-2 rounded-lg hover:bg-black hover:text-white">
                     {Wallet.checkForWebWallet() || Roll.checkForRoll() ? <p>Change Wallet</p> : <p>Connect a Wallet</p>}
                   </a>
                 </div>

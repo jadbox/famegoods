@@ -99,23 +99,20 @@ export default function Layout({ children, url }) {
   const { walletConnectModal, redirectTo } = ostate.application;
 
   return (
-    <div className="h-screen w-screen fixed bg-white md:bg-top-blur bg-cover bg-no-repeat overflow-auto">
+    <div ref={element} className="w-screen h-screen">
+      <Head />
+      <Header />
 
-      <div ref={element} className="w-screen h-screen">
-        <Head />
-        <Header />
+      <div>{children}</div>
 
-        <div>{children}</div>
+      {/* <TPPFooter></TPPFooter> */}
 
-        {/*<TPPFooter></TPPFooter>*/}
-
-        {walletConnectModal ? (
-          <BottomSheetModal onExit={actions.toggleWalletConnectModal}>
-            <ConnectWallet redirectTo={redirectTo} />
-          </BottomSheetModal>
-        ) : null}
-        <Footer></Footer>
-      </div>
+      {walletConnectModal ? (
+        <BottomSheetModal onExit={actions.toggleWalletConnectModal}>
+          <ConnectWallet redirectTo={redirectTo} />
+        </BottomSheetModal>
+      ) : null}
+      {/* <Footer></Footer> */}
     </div>
   );
 }
