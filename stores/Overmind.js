@@ -39,9 +39,9 @@ export const overmind = createOvermind(
         if (!symbol) return;
         let user = await Wallet.getTokenBalance(symbol);
         //console.log("User after web3 check", user);  
-        if (!user) user = await Roll.getUserData();     
+        if (!user) user = await Roll.getUserData();
         //console.log("User after Roll check", user);  
-        
+
         state.user.isAuthenticated = true;
         actions.updateUser(user);
         //console.log("Final user in ostate", user);  
@@ -92,6 +92,6 @@ export const overmind = createOvermind(
     },
   },
   {
-    devtools: false,
+    devtools: true,
   }
 );
