@@ -105,14 +105,14 @@ export default function Layout({ children, url }) {
 
       <div>{children}</div>
 
-      {/* <TPPFooter></TPPFooter> */}
+      {/*<TPPFooter></TPPFooter>*/}
 
       {walletConnectModal ? (
         <BottomSheetModal onExit={actions.toggleWalletConnectModal}>
           <ConnectWallet redirectTo={redirectTo} />
         </BottomSheetModal>
       ) : null}
-      {/* <Footer></Footer> */}
+      {<Footer></Footer>}
     </div>
   );
 }
